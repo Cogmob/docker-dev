@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="babun"
+#ZSH_THEME="babun"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -86,47 +86,60 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # general settings
+export TERM="xterm-256color"
+source "$HOME/.antigen/antigen.zsh"
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-export TERM="xterm-256color"
-#POWERLEVEL9K_MODE='awesome-patched'
-source "$HOME/.antigen/antigen.zsh"
+POWERLEVEL9K_MODE='awesome-patched'
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme bhilburn/powerlevel9k powerlevel9k
+#antigen bundle zsh-users/zsh-syntax-highlighting
+
+#antigen theme bhilburn/powerlevel9k powerlevel9k
+#antigen theme prikhi/molokai-powerline-zsh molokai-powerline-zsh
+antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+#antigen theme https://gist.github.com/3750104.git agnoster
+#antigen theme https://github.com/halfo/lambda-mod-zsh-theme/ lambda
+#antigen theme S1cK94/minimal minimal
+#antigen bundle nojhan/liquidprompt
+
+#antigen bundle mafredri/zsh-async
+#antigen bundle sindresorhus/pure
+#antigen theme frisk
+
 antigen apply
 
 
 # vi mode
-export KEYTIMEOUT=1
-
-bindkey -v
-
-git_custom_status() {
-  local cb=$(current_branch)
-  if [ -n "$cb" ]; then
-    echo "$(parse_git_dirty)%{$fg_bold[yellow]%}$(work_in_progress)%{$reset_color%}$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-  fi
-}
-
-bindkey '^P' up-history
-bindkey '^N' down-history
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-bindkey '^w' backward-kill-word
-bindkey '^r' history-incremental-search-backward
-
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
-    zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
-export KEYTIMEOUT=1
-Font="Droid Sans Mono Awesome"
-FontHeight=80
-Transparency=low
+#export KEYTIMEOUT=1
+#
+#bindkey -v
+#
+#git_custom_status() {
+#  local cb=$(current_branch)
+#  if [ -n "$cb" ]; then
+#    echo "$(parse_git_dirty)%{$fg_bold[yellow]%}$(work_in_progress)%{$reset_color%}$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+#  fi
+#}
+#
+#bindkey '^P' up-history
+#bindkey '^N' down-history
+#bindkey '^?' backward-delete-char
+#bindkey '^h' backward-delete-char
+#bindkey '^w' backward-kill-word
+#bindkey '^r' history-incremental-search-backward
+#
+#function zle-line-init zle-keymap-select {
+#    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+#    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
+#    zle reset-prompt
+#}
+#
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+#export KEYTIMEOUT=1
+#Font="Droid Sans Mono Awesome"
+#FontHeight=80
+#Transparency=low
