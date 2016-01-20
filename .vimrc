@@ -34,6 +34,7 @@ NeoBundle 'tmhedberg/SimpylFold'
 call neobundle#end()
 
 " global variables
+set nu
 set laststatus=2
 let g:nerdtree_tabs_open_on_console_startup=0
 " let g:fieldtrip_start_map=<leader>,
@@ -53,7 +54,6 @@ set nowb
 set noswapfile
 let mapleader=" "
 let NERDTreeQuitOnOpen = 1
-set foldlevelstart=0
 let g:SimpylFold_docstring_preview = 1
 let g:localvimrc_ask = 0
 
@@ -145,15 +145,16 @@ set foldlevelstart=0
 
 syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 setlocal foldlevel=0
-let javaScript_fold=99         " JavaScript
-let perl_fold=1               " Perl
-let php_folding=1             " PHP
-let r_syntax_folding=1        " R
-let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
+let javaScript_fold=0        " JavaScript
+let perl_fold=0              " Perl
+let php_folding=0             " PHP
+let r_syntax_folding=0        " R
+let ruby_fold=0               " Ruby
+let sh_fold_enabled=0         " sh
 let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XML
+let xml_syntax_folding= 0     " XML
 au FileType javascript call JavaScriptFold()
+set fold 0
 
 " hide comments
 
