@@ -58,11 +58,11 @@ let g:SimpylFold_docstring_preview = 1
 let g:localvimrc_ask = 0
 
 " Color scheme
+"let g:solarized_termcolors=256
 filetype plugin indent on    " required
 syntax enable
-colorscheme solarized
 set background=light
-let g:solarized_termcolors=256
+colorscheme solarized
 set t_Co=256
 set laststatus=2
 
@@ -154,7 +154,6 @@ let sh_fold_enabled=0         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding= 0     " XML
 au FileType javascript call JavaScriptFold()
-set fold 0
 
 " hide comments
 
@@ -178,14 +177,14 @@ if has("folding")
             let l:align = winwidth(0)-&foldcolumn-(&nu ? Max(strlen(line('$'))+1, l:numwidth) : 0)
             let l:align = (l:align / 2) + (strlen(l:foldtext)/2)
             " note trailing space on next line
-            setlocal fillchars+=fold:\ 
+            setlocal fillchars+=fold:\
         elseif !exists('b:foldpat') || b:foldpat==0
             " let l:foldtext = ' '.(v:foldend-v:foldstart).' blines folded'.v:folddashes.'|'
             let l:foldtext = ''
             let l:endofline = (&textwidth>0 ? &textwidth : 80)
             let l:linetext = strpart(getline(v:foldstart),0,l:endofline-strlen(l:foldtext))
             let l:align = l:endofline-strlen(l:linetext)
-            setlocal fillchars+=fold: 
+            setlocal fillchars+=fold:
         elseif b:foldpat==1
             let l:align = winwidth(0)-&foldcolumn-(&nu ? Max(strlen(line('$'))+1, l:numwidth) : 0)
             let l:foldtext = ' '.v:folddashes
@@ -200,7 +199,22 @@ if has("folding")
     endfunction
 endif
 
-"highlight FoldColumn  gui=bold    guifg=#666666     guibg=#dddddd
-"highlight Folded      gui=italic  guifg=Black      guibg=#dddddd
-"highlight LineNr      gui=NONE    guifg=#666666     guibg=#dddddd
 call feedkeys("zM")
+
+function! AirlineInit()
+    call airline#parts#define_function('cwd', 'getcwd')
+    let g:airline_section_a = airline#section#create_left([])
+    let g:airline_section_b = airline#section#create(['%f'])
+    let g:airline_section_c = airline#section#create([])
+
+    let g:airline_section_x = airline#section#create([])
+    let g:airline_section_y = airline#section#create_right(['branch','%l','%c'])
+    let g:airline_section_z = airline#section#create_right(['mode'])
+
+    "let g:airline_section_b = airline#section#create_left(['ffenc','hunks','%f'])
+    "let g:airline_section_x = airline#section#create(['%P'])
+    "let g:airline_section_x = airline#section#create(['branch'])
+    "let g:airline_section_y = airline#section#create(['%B'])
+endfunction
+autocmd VimEnter * call AirlineInit()
+let g:airline_powerline_fonts = 1
