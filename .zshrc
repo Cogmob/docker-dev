@@ -143,3 +143,7 @@ antigen apply
 #Font="Droid Sans Mono Awesome"
 #FontHeight=80
 #Transparency=low
+
+export LS_COLORS='di=1;35:ln=35:so=32:pi=0;33:ex=32:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=1;34:ow=1;34:'
+
+alias ls='ls --color -h1 --group-directories-first'
