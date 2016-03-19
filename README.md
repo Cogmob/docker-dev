@@ -1,6 +1,6 @@
 # UNIX SETUP #
 
-A collection of useful steps for starting a new unix repo
+A collection of useful steps for starting a new unix install
 
 ```bash
 cd ~
