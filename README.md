@@ -59,6 +59,9 @@ mkdir downloads
 cd downloads
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
 ./install.sh
+cd ~/.vim/bundle
+git clone git://github.com/altercation/vim-colors-solarized.git
+cp vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
 cd ~
 ```
 
