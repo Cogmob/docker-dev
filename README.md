@@ -29,5 +29,5 @@ sudo chmod 600 ~/.ssh/id_rsa
 sudo chmod 600 ~/.ssh/id_rsa.pub
 ```
 
-https://github.com/settings/keys
-https://bitbucket.org/account/user/Cogbot/ssh-keys/
+* https://github.com/settings/keys
+* https://bitbucket.org/account/user/Cogbot/ssh-keys/
