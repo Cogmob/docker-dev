@@ -19,3 +19,15 @@ ln -s unix-setup/.minttyrc .minttrc
 ln -s unix-setup/.tmux.conf .tmux.conf
 ln -s unix-setup/.vimrc .vimrc
 ln -s unix-setup/.zshrc .zshrc
+
+ssh-keygen -t rsa -b 4096 -C "luke.avery@live.co.uk"
+```
+
+```bash
+cat ~/.ssh/id_rsa.pub
+sudo chmod 600 ~/.ssh/id_rsa
+sudo chmod 600 ~/.ssh/id_rsa.pub
+```
+
+https://github.com/settings/keys
+https://bitbucket.org/account/user/Cogbot/ssh-keys/
