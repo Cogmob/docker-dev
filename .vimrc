@@ -21,7 +21,6 @@ NeoBundle 'wincent/command-t'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'} " html
 NeoBundle 'benmills/vimux' " interact with tmux
 NeoBundle 'Chiel92/vim-autoformat'
-NeoBundle 'vim-gitgutter'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
@@ -30,11 +29,13 @@ NeoBundle 'kien/tabman.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'tmhedberg/SimpylFold'
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'ardagnir/hackhack'
 
 call neobundle#end()
 
 " global variables
-set nu
+set nobackup
 set laststatus=2
 let g:nerdtree_tabs_open_on_console_startup=0
 " let g:fieldtrip_start_map=<leader>,
@@ -56,6 +57,12 @@ let mapleader=" "
 let NERDTreeQuitOnOpen = 1
 let g:SimpylFold_docstring_preview = 1
 let g:localvimrc_ask = 0
+set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+set nrformats-=octal
+set wildmenu
+set wildmode=list:longest
 
 " Color scheme
 "let g:solarized_termcolors=256
@@ -82,13 +89,15 @@ nmap <silent> <C-i> :res +5<CR>
 nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
-nmap <c-x> :hi! Comment guifg=bg ctermfg=DarkBlue<CR>
+" nmap <c-x> :hi! Comment guifg=bg ctermfg=DarkBlue<CR>
 hi! Comment guifg=bg ctermfg=DarkBlue
-nmap <c-c> :hi! Comment guifg=bg ctermfg=white<CR>
-let g:testcommand='py.test'
-let g:limittestcommand='clear ; py.test -v -m selected'
+" nmap <c-c> :hi! Comment guifg=bg ctermfg=white<CR>
+let g:testcommand='run tests command not specified'
+let g:limittestcommand='run limited tests command not specified'
+let g:installcommand='install command not specified'
 nmap <leader>k :wall<CR> :call VimuxRunCommand(g:limittestcommand)<CR>
 nmap <leader>j :wall<CR> :call VimuxRunCommand(g:testcommand)<CR>
+nmap <leader>l :wall<CR> :call VimuxRunCommand(g:installcommand)<CR>
 nmap <leader>h :noh<CR>
 nmap <c-z> :w<CR> :call VimuxRunCommand('clear ; npm test')<CR>
 nmap <leader>f :call feedkeys("mpgg=G`p") <CR>
@@ -107,6 +116,8 @@ map <leader>. :SidewaysRight<CR>
 nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
 nnoremap <silent> gh "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <C-c> <C-a>
+map <leader>r zR
 
 " Mouse
 if has("gui_running")
