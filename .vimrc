@@ -92,12 +92,34 @@ nmap <leader>o :CtrlPClearCache<CR>
 " nmap <c-x> :hi! Comment guifg=bg ctermfg=DarkBlue<CR>
 hi! Comment guifg=bg ctermfg=DarkBlue
 " nmap <c-c> :hi! Comment guifg=bg ctermfg=white<CR>
+
+" run hotkeys
 let g:testcommand='run tests command not specified'
 let g:limittestcommand='run limited tests command not specified'
 let g:installcommand='install command not specified'
-nmap <leader>k :wall<CR> :call VimuxRunCommand(g:limittestcommand)<CR>
+nmap <leader>k :wall<CR> :call VimuxRunCommand(g:searchcommand1)<CR>
 nmap <leader>j :wall<CR> :call VimuxRunCommand(g:testcommand)<CR>
 nmap <leader>l :wall<CR> :call VimuxRunCommand(g:installcommand)<CR>
+
+" search hotkeys
+let g:searchcommand1="test command 1 not specified in the lvimrc file for this repo"
+let g:searchcommand2start='test command 2 not specified in the lvimrc file for this repo'
+let g:searchcommand2end=''
+let g:searchcommand3start='test command 3 not specified in the lvimrc file for this repo'
+let g:searchcommand3end=''
+let g:searchcommand4start='test command 3 not specified in the lvimrc file for this repo'
+let g:searchcommand4end=''
+let g:searchcommand5start='test command 4 not specified in the lvimrc file for this repo'
+let g:searchcommand5end=''
+let g:searchcommand6start='test command 4 not specified in the lvimrc file for this repo'
+let g:searchcommand6end=''
+nmap <leader>1 :VimuxRunCommand(g:searchcommand1)<CR>
+nmap <leader>2 0"fy$ :VimuxRunCommand(join([g:searchcommand2start, @f, g:searchcommand2end], ''))<CR>
+nmap <leader>3 0"fy$ :VimuxRunCommand(join([g:searchcommand3start, @f, g:searchcommand3end], ''))<CR>
+nmap <leader>4 0"fy$ :VimuxRunCommand(join([g:searchcommand4start, @f, g:searchcommand4end], ''))<CR>
+nmap <leader>5 0"fy$ :VimuxRunCommand(join([g:searchcommand5start, @f, g:searchcommand5end], ''))<CR>
+nmap <leader>6 0"fy$ :VimuxRunCommand(join([g:searchcommand6start, @f, g:searchcommand6end], ''))<CR>
+
 nmap <leader>h :noh<CR>
 nmap <c-z> :w<CR> :call VimuxRunCommand('clear ; npm test')<CR>
 nmap <leader>f :call feedkeys("mpgg=G`p") <CR>
@@ -110,7 +132,7 @@ nnoremap <SPACE> <Nop>
 let g:tabman_toggle = '<leader>mt'
 let g:tabman_focus  = '<leader>mf'
 map 0 ^
-nmap <leader>w :so $MYVIMRC<CR>
+nmap <leader>q :wa<CR> :so $MYVIMRC<CR> :LocalVimRC<CR>
 map <leader>, :SidewaysLeft<CR>
 map <leader>. :SidewaysRight<CR>
 nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
@@ -147,7 +169,8 @@ map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
 vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
 nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 
-source ~/.vim/scripts/syntax.vim
+source ~/unix-setup/vim/syntax.vim
+source ~/unix-setup/vim/vimfolding.vim
 
 "
 " folding
