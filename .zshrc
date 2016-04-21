@@ -95,7 +95,7 @@ POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_MODE='awesome-patched'
 
-#antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 #antigen theme bhilburn/powerlevel9k powerlevel9k
 #antigen theme prikhi/molokai-powerline-zsh molokai-powerline-zsh
