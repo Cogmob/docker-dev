@@ -26,11 +26,12 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'kien/tabman.vim'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'ardagnir/hackhack'
+NeoBundle 'rhysd/vim-clang-format'
 
 call neobundle#end()
 
@@ -63,6 +64,7 @@ autocmd InsertLeave * :set relativenumber
 set nrformats-=octal
 set wildmenu
 set wildmode=list:longest
+let g:ctrlp_working_path_mode = 0
 
 " Color scheme
 "let g:solarized_termcolors=256
@@ -122,7 +124,7 @@ nmap <leader>6 0"fy$ :VimuxRunCommand(join([g:searchcommand6start, @f, g:searchc
 
 nmap <leader>h :noh<CR>
 nmap <c-z> :w<CR> :call VimuxRunCommand('clear ; npm test')<CR>
-nmap <leader>f :call feedkeys("mpgg=G`p") <CR>
+nmap <leader>f :ClangFormat <CR>
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 map <silent> <leader><cr> :noh<cr>
@@ -171,6 +173,8 @@ nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 
 source ~/unix-setup/vim/syntax.vim
 source ~/unix-setup/vim/vimfolding.vim
+source ~/unix-setup/vim/cscope_maps.vim
+source ~/unix-setup/vim/clang_format.vim
 
 "
 " folding
