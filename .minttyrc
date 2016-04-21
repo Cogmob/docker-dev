@@ -3,7 +3,7 @@ Transparency=low
 OpaqueWhenFocused=yes
 Columns=115
 Rows=34
-Term=xterm
+Term=vt100
 BackspaceSendsBS=yes
 Font=Hack
 FontHeight=8
@@ -31,5 +31,5 @@ Cyan=             42, 161, 152
 BoldCyan=        147, 161, 161
 White=           238, 232, 213
 BoldWhite=       253, 246, 227
-
+BoldBlue=131,148,150
 Term=xterm-256color
