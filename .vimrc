@@ -21,20 +21,23 @@ NeoBundle 'wincent/command-t'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'} " html
 NeoBundle 'benmills/vimux' " interact with tmux
 NeoBundle 'Chiel92/vim-autoformat'
-NeoBundle 'vim-gitgutter'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'kien/tabman.vim'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'tmhedberg/SimpylFold'
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'ardagnir/hackhack'
+NeoBundle 'rhysd/vim-clang-format'
+NeoBundle 'tpope/fugitive'
 
 call neobundle#end()
 
 " global variables
-set nu
+set nobackup
 set laststatus=2
 let g:nerdtree_tabs_open_on_console_startup=0
 " let g:fieldtrip_start_map=<leader>,
@@ -56,6 +59,13 @@ let mapleader=" "
 let NERDTreeQuitOnOpen = 1
 let g:SimpylFold_docstring_preview = 1
 let g:localvimrc_ask = 0
+set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+set nrformats-=octal
+set wildmenu
+set wildmode=list:longest
+let g:ctrlp_working_path_mode = 0
 
 " Color scheme
 "let g:solarized_termcolors=256
@@ -82,16 +92,40 @@ nmap <silent> <C-i> :res +5<CR>
 nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
-nmap <c-x> :hi! Comment guifg=bg ctermfg=DarkBlue<CR>
+" nmap <c-x> :hi! Comment guifg=bg ctermfg=DarkBlue<CR>
 hi! Comment guifg=bg ctermfg=DarkBlue
-nmap <c-c> :hi! Comment guifg=bg ctermfg=white<CR>
-let g:testcommand='py.test'
-let g:limittestcommand='clear ; py.test -v -m selected'
-nmap <leader>k :wall<CR> :call VimuxRunCommand(g:limittestcommand)<CR>
+" nmap <c-c> :hi! Comment guifg=bg ctermfg=white<CR>
+
+" run hotkeys
+let g:testcommand='run tests command not specified'
+let g:limittestcommand='run limited tests command not specified'
+let g:installcommand='install command not specified'
+nmap <leader>k :wall<CR> :call VimuxRunCommand(g:searchcommand1)<CR>
 nmap <leader>j :wall<CR> :call VimuxRunCommand(g:testcommand)<CR>
+nmap <leader>l :wall<CR> :call VimuxRunCommand(g:installcommand)<CR>
+
+" search hotkeys
+let g:searchcommand1="test command 1 not specified in the lvimrc file for this repo"
+let g:searchcommand2start='test command 2 not specified in the lvimrc file for this repo'
+let g:searchcommand2end=''
+let g:searchcommand3start='test command 3 not specified in the lvimrc file for this repo'
+let g:searchcommand3end=''
+let g:searchcommand4start='test command 3 not specified in the lvimrc file for this repo'
+let g:searchcommand4end=''
+let g:searchcommand5start='test command 4 not specified in the lvimrc file for this repo'
+let g:searchcommand5end=''
+let g:searchcommand6start='test command 4 not specified in the lvimrc file for this repo'
+let g:searchcommand6end=''
+nmap <leader>1 :VimuxRunCommand(g:searchcommand1)<CR>
+nmap <leader>2 0"fy$ :VimuxRunCommand(join([g:searchcommand2start, @f, g:searchcommand2end], ''))<CR>
+nmap <leader>3 0"fy$ :VimuxRunCommand(join([g:searchcommand3start, @f, g:searchcommand3end], ''))<CR>
+nmap <leader>4 0"fy$ :VimuxRunCommand(join([g:searchcommand4start, @f, g:searchcommand4end], ''))<CR>
+nmap <leader>5 0"fy$ :VimuxRunCommand(join([g:searchcommand5start, @f, g:searchcommand5end], ''))<CR>
+nmap <leader>6 0"fy$ :VimuxRunCommand(join([g:searchcommand6start, @f, g:searchcommand6end], ''))<CR>
+
 nmap <leader>h :noh<CR>
 nmap <c-z> :w<CR> :call VimuxRunCommand('clear ; npm test')<CR>
-nmap <leader>f :call feedkeys("mpgg=G`p") <CR>
+nmap <leader>f :ClangFormat <CR>
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 map <silent> <leader><cr> :noh<cr>
@@ -101,12 +135,14 @@ nnoremap <SPACE> <Nop>
 let g:tabman_toggle = '<leader>mt'
 let g:tabman_focus  = '<leader>mf'
 map 0 ^
-nmap <leader>w :so $MYVIMRC<CR>
+nmap <leader>q :wa<CR> :so $MYVIMRC<CR> :LocalVimRC<CR>
 map <leader>, :SidewaysLeft<CR>
 map <leader>. :SidewaysRight<CR>
 nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
 nnoremap <silent> gh "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <C-c> <C-a>
+map <leader>r zR
 
 " Mouse
 if has("gui_running")
@@ -136,7 +172,10 @@ map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
 vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
 nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 
-source ~/.vim/scripts/syntax.vim
+source ~/unix-setup/vim/syntax.vim
+source ~/unix-setup/vim/vimfolding.vim
+source ~/unix-setup/vim/cscope_maps.vim
+source ~/unix-setup/vim/clang_format.vim
 
 "
 " folding
