@@ -96,7 +96,7 @@ vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 map <silent> <leader><cr> :noh<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-map <leader>t :NERDTreeTabsToggle<CR>
+map <leader>t <plug>NERDTreeTabsToggle<CR>
 nnoremap <SPACE> <Nop>
 let g:tabman_toggle = '<leader>mt'
 let g:tabman_focus  = '<leader>mf'
