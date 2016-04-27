@@ -1,3 +1,16 @@
+```bash
+ssh-keygen -t rsa -b 4096 -C "luke.avery@live.co.uk"
+```
+
+```bash
+cat ~/.ssh/id_rsa.pub
+sudo chmod 600 ~/.ssh/id_rsa
+sudo chmod 600 ~/.ssh/id_rsa.pub
+git clone git@bitbucket.org:Cogbot/unix-setup.git
+cd unix-setup
+./install.py
+```
+
 # UNIX SETUP #
 
 A collection of useful steps for starting a new unix install
@@ -31,14 +44,6 @@ ln -s unix-setup/.vimrc .vimrc
 ln -s unix-setup/.zshrc .zshrc
 
 alias explore="./~/unix-setup/explore.bash"
-
-ssh-keygen -t rsa -b 4096 -C "luke.avery@live.co.uk"
-```
-
-```bash
-cat ~/.ssh/id_rsa.pub
-sudo chmod 600 ~/.ssh/id_rsa
-sudo chmod 600 ~/.ssh/id_rsa.pub
 ```
 
 * https://github.com/settings/keys
@@ -78,4 +83,8 @@ ln -s ~ /a
 
 ```bash
 pact install cmake
+mkdir ~/downloads
+cd ~/downloads
+curl http://peak.telecommunity.com/dist/ez_setup.py
+python ez_setup.py
 ```
