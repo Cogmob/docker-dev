@@ -75,3 +75,7 @@ vim +NeoBundleInstall +qall
 ln -s /c/Users/lukea lukea
 ln -s ~ /a
 ```
+
+```bash
+pact install cmake
+```
