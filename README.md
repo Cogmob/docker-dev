@@ -1,18 +1,18 @@
 ```bash
 ssh-keygen -t rsa -b 4096 -C "luke.avery@live.co.uk"
-```
-
-```bash
-cat ~/.ssh/id_rsa.pub
 sudo chmod 600 ~/.ssh/id_rsa
 sudo chmod 600 ~/.ssh/id_rsa.pub
-git clone git@bitbucket.org:Cogbot/unix-setup.git
-cd unix-setup
-./install.py
+cat ~/.ssh/id_rsa.pub
 ```
 
 * https://github.com/settings/keys
 * https://bitbucket.org/account/user/Cogbot/ssh-keys/
+
+```bash
+git clone git@bitbucket.org:Cogbot/unix-setup.git
+cd unix-setup
+zsh run.sh
+```
 
 # UNIX SETUP #
 
