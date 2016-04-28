@@ -11,6 +11,9 @@ cd unix-setup
 ./install.py
 ```
 
+* https://github.com/settings/keys
+* https://bitbucket.org/account/user/Cogbot/ssh-keys/
+
 # UNIX SETUP #
 
 A collection of useful steps for starting a new unix install
@@ -45,9 +48,6 @@ ln -s unix-setup/.zshrc .zshrc
 
 alias explore="./~/unix-setup/explore.bash"
 ```
-
-* https://github.com/settings/keys
-* https://bitbucket.org/account/user/Cogbot/ssh-keys/
 
 ```bash
 pact install explore
