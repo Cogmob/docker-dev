@@ -1,3 +1,19 @@
+```bash
+ssh-keygen -t rsa -b 4096 -C "luke.avery@live.co.uk"
+sudo chmod 600 ~/.ssh/id_rsa
+sudo chmod 600 ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa.pub
+```
+
+* https://github.com/settings/keys
+* https://bitbucket.org/account/user/Cogbot/ssh-keys/
+
+```bash
+git clone git@bitbucket.org:Cogbot/unix-setup.git
+cd unix-setup
+zsh run.sh
+```
+
 # UNIX SETUP #
 
 A collection of useful steps for starting a new unix install
@@ -16,9 +32,8 @@ zsh
 cd ~
 git clone git@bitbucket.org:Cogbot/unix-setup.git
 mv .antigen .antigen.old
-mv .ssh .ssh.old
-mv .gitignore .gitignre.old
 mv .minttyrc .minttrc.old
+mv .ssh .ssh.old
 mv .tmux.conf .tmux.conf.old
 mv .vimrc .vimrc.old
 mv .zshrc .zshrc.old
@@ -31,18 +46,7 @@ ln -s unix-setup/.vimrc .vimrc
 ln -s unix-setup/.zshrc .zshrc
 
 alias explore="./~/unix-setup/explore.bash"
-
-ssh-keygen -t rsa -b 4096 -C "luke.avery@live.co.uk"
 ```
-
-```bash
-cat ~/.ssh/id_rsa.pub
-sudo chmod 600 ~/.ssh/id_rsa
-sudo chmod 600 ~/.ssh/id_rsa.pub
-```
-
-* https://github.com/settings/keys
-* https://bitbucket.org/account/user/Cogbot/ssh-keys/
 
 ```bash
 pact install explore
@@ -78,4 +82,8 @@ ln -s ~ /a
 
 ```bash
 pact install cmake
+mkdir ~/downloads
+cd ~/downloads
+curl http://peak.telecommunity.com/dist/ez_setup.py
+python ez_setup.py
 ```
