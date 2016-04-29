@@ -1,0 +1,14 @@
+part = {
+    'name': 'create config files',
+    'steps': [
+        {
+            'name': 'basic printing test',
+            'whitelist': 'windows 10 bash',
+            'blacklist': 'asdf',
+            'instructions': [
+               {
+                   'arguments': ['echo', 'what'],
+                   'expect': 'what'}]
+        {
+            'name': 'second printing test',
+            'instructions': [{'arguments': ['cat', '/dev/null']}]}]}
