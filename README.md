@@ -32,9 +32,8 @@ zsh
 cd ~
 git clone git@bitbucket.org:Cogbot/unix-setup.git
 mv .antigen .antigen.old
-mv .ssh .ssh.old
-mv .gitignore .gitignre.old
 mv .minttyrc .minttrc.old
+mv .ssh .ssh.old
 mv .tmux.conf .tmux.conf.old
 mv .vimrc .vimrc.old
 mv .zshrc .zshrc.old
