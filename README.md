@@ -12,6 +12,9 @@ cat ~/.ssh/id_rsa.pub
 git clone git@bitbucket.org:Cogbot/unix-setup.git
 cd unix-setup
 zsh run.sh
+
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
 ```
 
 # UNIX SETUP #
