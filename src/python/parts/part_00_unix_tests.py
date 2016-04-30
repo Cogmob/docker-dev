@@ -22,5 +22,6 @@ part = {
         {
             'name': 'second printing test',
             'instructions': [
-                {'arguments': ['cat /dev/null']},
-                {'arguments': ['cat /dev/null']}]}]}
+                {'arguments': [
+		    'git config --global user.email "luke.avery@live.co.uk"',
+                    'git config --global user.name "cogmob"']}]}]}

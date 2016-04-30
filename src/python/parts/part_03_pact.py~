@@ -5,9 +5,5 @@ part = {
             'name': 'back up previous files and link new files',
             'whitelist': 'windows 10 babun',
             'instructions': [
-                {'arguments': ['pact install explore']},
                 {'arguments': ['pact install tmux']},
-                {'arguments': ['curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/antigen.zsh']},
-                {'arguments': ['source ~/antigen.zsh']},
-                {'arguments': ['mkdir ~/.antigen']},
-                {'arguments': ['mv ~/antigen.zsh ~/.antigen/antigen.zsh']}]}]}
+                {'arguments': ['source ~/.antigen/antigen.zsh']}]}]}

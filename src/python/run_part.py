@@ -1,4 +1,5 @@
 import sys
+import os
 import subprocess as s
 import io
 from termcolor import colored, cprint
@@ -27,6 +28,8 @@ def pr(data, indexes, s, t):
     if t == 'arguments':
         print s
     if t == 'results':
+        cprint(s, 'blue')
+    if t == 'done':
         cprint(s, 'blue')
     if t == 'error':
         cprint(s, 'red')
@@ -60,7 +63,7 @@ def run_part(part_index, part, data):
         pr(data, indexes, part['name'], 'part name')
     steps = part['steps']
     for step_index, step in enumerate(steps):
-        if step_index < indexes['step']:
+        if step_index < indexes['step']-1:
             continue
         indexes['step'] = step_index
         if not allowed(step, system):
@@ -74,12 +77,20 @@ def run_part(part_index, part, data):
             indexes['instruction'] = instruction_index
             if not allowed(instruction, system):
                 continue
-            pr(data, indexes, ' '.join(instruction['arguments']), 'arguments')
             try:
-                result = s.check_output(instruction['arguments'], shell=True)
+                for arg in instruction['arguments']:
+                    pr(data, indexes, arg, 'arguments')
+                    result = ''
+                    if arg.startswith('source '):
+                        filename = os.path.expanduser(arg.split('source ')[1])
+                        s.Popen(['/bin/zsh', filename])
+                    elif arg.startswith('cd '):
+                        os.chdir(os.path.expanduser(arg.split('cd ')[1]))
+                    else:
+                        result = s.check_output(arg, shell=True)
             except Exception as e:
                 pr(data, indexes, str(e), 'error')
-		return data, {'failed': True}
+                return data, {'failed': True}
             pr(data, indexes, result, 'results')
             results.append(result)
             if not check_expect(instruction, result, data, indexes):
@@ -89,6 +100,7 @@ def run_part(part_index, part, data):
         instruction_completed = -1
         if not check_tests(step, results, data, indexes):
             return data, {'failed': True}
+    pr(data, indexes, 'done', 'done')
     return data, {}
 
 def check_expect(instruction, result, data, indexes):

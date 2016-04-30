@@ -32,13 +32,3 @@ BoldCyan=        147, 161, 161
 White=           238, 232, 213
 BoldWhite=       253, 246, 227
 BoldBlue=131,148,150
-<<<<<<< HEAD
-Magenta=211,54,130
-BoldMagenta=108,113,196
-Cyan=42,161,152
-BoldCyan=147,161,161
-White=238,232,213
-BoldWhite=253,246,227
-CursorType=block
-CursorBlinks=no
-Term=xterm-256color

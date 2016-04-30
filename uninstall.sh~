@@ -1,0 +1,11 @@
+rm ~/unix-setup/saved-data
+
+cp -r ~/.config-old/.zshrc ~/.zshrc 2>&1
+cp -r ~/.config-old/.minttyrc ~/.minttyrc 2>&1
+
+rm -r ~/.config-old
+
+rm -r ~/.antigen 2>&1
+rm -r ~/.ssh 2>&1
+rm -r ~/.tmux.conf 2>&1
+rm -r ~/.vimrc 2>&1

@@ -13,7 +13,13 @@ import get_parts
 parts = get_parts.get_parts()
 
 for index, part in enumerate(parts):
-    if index+1 >= len(data['logs']):
-        data, result = run_part.run_part(index, part, data)
-        if 'failed' in result and result['failed']:
-            break
+    if index < len(data['logs']) - 2:
+        continue
+    if index == len(data['logs']) - 1:
+        if len(data['logs'][index]) > 0:
+            if data['logs'][index][-1]['type'] == 'done':
+                print data['logs'][index][-2]
+                continue
+    data, result = run_part.run_part(index, part, data)
+    if 'failed' in result and result['failed']:
+        break

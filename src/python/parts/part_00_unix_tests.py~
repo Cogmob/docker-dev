@@ -21,4 +21,6 @@ part = {
             'tests': [test1, test2]},
         {
             'name': 'second printing test',
-            'instructions': [{'arguments': ['cat /dev/null']}]}]}
+            'instructions': [
+                {'arguments': ['cat /dev/null']},
+                {'arguments': ['cat /dev/null']}]}]}
