@@ -8,4 +8,6 @@ part = {
 	{
             'name': 'source antigen',
 	    'instructions': [
-                {'arguments': ['source ~/.antigen/antigen.zsh']}]}]}
+                {'arguments': [
+                    'source ~/.antigen/antigen.zsh',
+                    'antigen-update']}]}]}
