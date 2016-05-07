@@ -3,20 +3,13 @@ ssh-keygen -t rsa -b 4096 -C "luke.avery@live.co.uk"
 ```
 
 ```bash
-sudo chmod 600 ~/.ssh/id_rsa
-sudo chmod 600 ~/.ssh/id_rsa.pub
-cat ~/.ssh/id_rsa.pub
+sudo chmod 600 ~/.ssh/* ; cat ~/.ssh/id_rsa.pub
 ```
 
 * https://bitbucket.org/account/user/Cogbot/ssh-keys/
 
 ```bash
-git clone git@bitbucket.org:Cogbot/unix-setup.git
-cd unix-setup
-./install.sh
-
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
+git clone git@bitbucket.org:Cogbot/unix-setup.git ; cd unix-setup ; ./install.sh
 ```
 
 # UNIX SETUP #
