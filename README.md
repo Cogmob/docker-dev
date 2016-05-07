@@ -1,5 +1,8 @@
 ```bash
 ssh-keygen -t rsa -b 4096 -C "luke.avery@live.co.uk"
+```
+
+```bash
 sudo chmod 600 ~/.ssh/id_rsa
 sudo chmod 600 ~/.ssh/id_rsa.pub
 cat ~/.ssh/id_rsa.pub
