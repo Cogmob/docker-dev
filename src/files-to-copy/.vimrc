@@ -32,6 +32,8 @@ NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'ardagnir/hackhack'
 NeoBundle 'rhysd/vim-clang-format'
+NeoBundle 'juneedahamed/vc.vim'
+NeoBundle 'Valloric/YouCompleteMe'
 
 call neobundle#end()
 
