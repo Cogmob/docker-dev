@@ -12,6 +12,10 @@ sudo chmod 600 ~/.ssh/* ; cat ~/.ssh/id_rsa.pub
 git clone git@bitbucket.org:Cogbot/unix-setup.git ; cd unix-setup ; ./install.sh
 ```
 
+```bash
+vim +NeoBundleInstall +qall
+```
+
 # UNIX SETUP #
 
 A collection of useful steps for starting a new unix install
