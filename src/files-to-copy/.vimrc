@@ -172,10 +172,9 @@ map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
 vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
 nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 
-source ~/unix-setup/vim/syntax.vim
-source ~/unix-setup/vim/vimfolding.vim
-source ~/unix-setup/vim/cscope_maps.vim
-source ~/unix-setup/vim/clang_format.vim
+source ~/unix-setup/src/vim/syntax.vim
+source ~/unix-setup/src/vim/vimfolding.vim
+source ~/unix-setup/src/vim/cscope_maps.vim
 
 "
 " folding

@@ -5,10 +5,11 @@ part = {
             'name': 'back up previous files and link new files',
             'instructions': [
                 {'arguments': [
-                    'mkdir ~/.config-files',
+                    'mkdir -p ~/.config-old',
 
-                    'mv ~/.minttyrc ~/.config-files/.minttyrc',
-                    'mv ~/.zshrc ~/.config-files/.zshrc',
+                    'mv ~/.minttyrc ~/.config-old/.minttyrc',
+                    'mv ~/.zshrc ~/.config-old/.zshrc',
+                    'rm -rf ~/.ssh',
 
                     'ln -s ~/unix-setup/files-to-copy/.antigen ~/.antigen',
                     'ln -s ~/unix-setup/files-to-copy/.minttyrc ~/.minttyrc',

@@ -6,6 +6,8 @@ part = {
             'instructions': [
                 {'arguments': [
                     'cd ~/.vim/bundle',
+                    'rm -rf vim-colors-solarized',
+                    'rm -rf neobundle.vim',
                     'git clone git://github.com/altercation/vim-colors-solarized.git',
                     'cd ~',
                     'mkdir -p /a/.vim/bundle',
