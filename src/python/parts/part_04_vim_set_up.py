@@ -5,6 +5,7 @@ part = {
             'name': 'set up vim',
             'instructions': [
                 {'arguments': [
+                    'mkdir ~/.vim/bundle',
                     'cd ~/.vim/bundle',
                     'rm -rf vim-colors-solarized',
                     'rm -rf neobundle.vim',

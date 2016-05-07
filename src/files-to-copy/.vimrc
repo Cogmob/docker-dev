@@ -32,7 +32,6 @@ NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'ardagnir/hackhack'
 NeoBundle 'rhysd/vim-clang-format'
-NeoBundle 'tpope/fugitive'
 
 call neobundle#end()
 
