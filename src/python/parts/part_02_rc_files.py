@@ -14,7 +14,7 @@ part = {
                     'ln -s ~/unix-setup/src/files-to-copy/.antigen ~/.antigen',
                     'ln -s ~/unix-setup/src/files-to-copy/.minttyrc ~/.minttyrc',
                     'ln -s ~/unix-setup/src/files-to-copy/.ssh ~/.ssh',
-                    'chmod 644 ~/.ssh/*',
+                    'chmod 600 ~/.ssh/*',
                     'ln -s ~/unix-setup/src/files-to-copy/.tmux.conf ~/.tmux.conf',
                     'ln -s ~/unix-setup/src/files-to-copy/.vimrc ~/.vimrc',
                     'ln -s ~/unix-setup/src/files-to-copy/.zshrc ~/.zshrc',
