@@ -3,6 +3,11 @@ part = {
     'blacklist': 'windows 10 babun',
     'steps': [
         {
+            'name': 'set up git user',
+            'instructions': [{'arguments': [
+                'git config --global user.name "cogmob"',
+                'git config --global user.email "luke.avery@live.co.uk"']}]},
+        {
             'name': 'install zsh',
             'instructions': [{'arguments': ['sudo apt-get zsh -f']}]},
         {
