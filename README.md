@@ -5,7 +5,6 @@ sudo chmod 600 ~/.ssh/id_rsa.pub
 cat ~/.ssh/id_rsa.pub
 ```
 
-* https://github.com/settings/keys
 * https://bitbucket.org/account/user/Cogbot/ssh-keys/
 
 ```bash
