@@ -22,7 +22,8 @@ NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'} " html
 NeoBundle 'benmills/vimux' " interact with tmux
 NeoBundle 'Chiel92/vim-autoformat'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'kien/tabman.vim'
@@ -32,8 +33,6 @@ NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'ardagnir/hackhack'
 NeoBundle 'rhysd/vim-clang-format'
-NeoBundle 'juneedahamed/vc.vim'
-NeoBundle 'Valloric/YouCompleteMe'
 
 call neobundle#end()
 
