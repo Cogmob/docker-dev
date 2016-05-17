@@ -12,7 +12,7 @@ part = {
     'steps': [
         {
             'name': 'basic printing test',
-            'whitelist': 'windows 10 babun',
+            'whitelist': ['windows 10 babun', 'windows 10 cygwin'],
             'blacklist': 'asdf',
             'instructions': [
                {

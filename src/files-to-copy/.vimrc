@@ -33,6 +33,9 @@ NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'ardagnir/hackhack'
 NeoBundle 'rhysd/vim-clang-format'
+NeoBundle 'LucHermitte/vim-refactor'
+NeoBundle 'vim-scripts/Conque-Shell'
+NeoBundle 'sirver/ultisnips'
 
 call neobundle#end()
 
