@@ -36,6 +36,8 @@ NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'LucHermitte/vim-refactor'
 NeoBundle 'vim-scripts/Conque-Shell'
 NeoBundle 'sirver/ultisnips'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'rdnetto/YCM-Generator'
 
 call neobundle#end()
 
@@ -137,7 +139,6 @@ map <leader>t <plug>NERDTreeTabsToggle<CR>
 nnoremap <SPACE> <Nop>
 let g:tabman_toggle = '<leader>mt'
 let g:tabman_focus  = '<leader>mf'
-map 0 ^
 nmap <leader>q :wa<CR> :so $MYVIMRC<CR> :LocalVimRC<CR>
 map <leader>, :SidewaysLeft<CR>
 map <leader>. :SidewaysRight<CR>
@@ -259,3 +260,49 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 let g:airline_powerline_fonts = 1
+
+" disable simple movements
+function! DisableIfNonCounted(move) range
+    if v:count
+        return a:move
+    else
+        " You can make this do something annoying like:
+           " echoerr "Count required!"
+           " sleep 2
+        return ""
+    endif
+endfunction
+
+function! SetDisablingOfBasicMotionsIfNonCounted(on)
+    let keys_to_disable = get(g:, "keys_to_disable_if_not_preceded_by_count", ["j", "k", "l", "h"])
+    if a:on
+        for key in keys_to_disable
+            execute "noremap <expr> <silent> " . key . " DisableIfNonCounted('" . key . "')"
+        endfor
+        let g:keys_to_disable_if_not_preceded_by_count = keys_to_disable
+        let g:is_non_counted_basic_motions_disabled = 1
+    else
+        for key in keys_to_disable
+            try
+                execute "unmap " . key
+            catch /E31:/
+            endtry
+        endfor
+        let g:is_non_counted_basic_motions_disabled = 0
+    endif
+endfunction
+
+function! ToggleDisablingOfBasicMotionsIfNonCounted()
+    let is_disabled = get(g:, "is_non_counted_basic_motions_disabled", 0)
+    if is_disabled
+        call SetDisablingOfBasicMotionsIfNonCounted(0)
+    else
+        call SetDisablingOfBasicMotionsIfNonCounted(1)
+    endif
+endfunction
+
+command! ToggleDisablingOfNonCountedBasicMotions :call ToggleDisablingOfBasicMotionsIfNonCounted()
+command! DisableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(1)
+command! EnableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(0)
+
+DisableNonCountedBasicMotions
