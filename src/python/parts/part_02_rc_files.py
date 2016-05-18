@@ -18,5 +18,6 @@ part = {
                     'ln -s ~/unix-setup/src/files-to-copy/.tmux.conf ~/.tmux.conf',
                     'ln -s ~/unix-setup/src/files-to-copy/.vimrc ~/.vimrc',
                     'ln -s ~/unix-setup/src/files-to-copy/.zshrc ~/.zshrc',
+                    'ln -s ~/unix-setup/src/ulti-snips ~/.vim/UltiSnips',
 
                     'alias explore="./~/unix-setup/src/files-to-copy/explore.bash"']}]}]}

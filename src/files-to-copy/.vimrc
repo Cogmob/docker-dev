@@ -15,11 +15,12 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'tpope/vim-fugitive' " git
-NeoBundle 'L9' " who knows
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vim-scripts/vcscommand.vim'
+NeoBundle 'L9'
 NeoBundle 'wincent/command-t'
-NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'} " html
-NeoBundle 'benmills/vimux' " interact with tmux
+NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+NeoBundle 'benmills/vimux'
 NeoBundle 'Chiel92/vim-autoformat'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'vim-airline/vim-airline'
@@ -38,6 +39,11 @@ NeoBundle 'vim-scripts/Conque-Shell'
 NeoBundle 'sirver/ultisnips'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'rdnetto/YCM-Generator'
+NeoBundle 'wellle/targets.vim'
+NeoBundle 'michaeljsmith/vim-indent-object'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
 
 call neobundle#end()
 
@@ -85,7 +91,6 @@ set laststatus=2
 set nowrap
 " line width and indentation
 set textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4
-set  smarttab expandtab si ai
 
 " mappings
 noremap <C-f> :Autoformat<CR>
@@ -97,9 +102,19 @@ nmap <silent> <C-i> :res +5<CR>
 nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
-" nmap <c-x> :hi! Comment guifg=bg ctermfg=DarkBlue<CR>
+nmap <c-x> :call ToggleComments()<cr>
+
+function! ToggleComments()
+    if g:commentsvisible
+        let g:commentsvisible=0
+        hi! Comment guifg=bg ctermfg=white
+    else
+        let g:commentsvisible=1
+        hi! Comment guifg=bg ctermfg=DarkBlue
+    endif
+endfunction
+let commentsvisible=1
 hi! Comment guifg=bg ctermfg=DarkBlue
-" nmap <c-c> :hi! Comment guifg=bg ctermfg=white<CR>
 
 " run hotkeys
 let g:testcommand='run tests command not specified'
@@ -306,3 +321,10 @@ command! DisableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCoun
 command! EnableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(0)
 
 DisableNonCountedBasicMotions
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<c-y>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsListSnippets="<c-l>"
