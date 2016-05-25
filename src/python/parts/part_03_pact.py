@@ -6,6 +6,10 @@ part = {
             'name': 'install tmux',
             'instructions': [
                 {'arguments': ['pact install tmux']}]},
+        {
+            'name': 'install cscope',
+            'instructions': [
+                {'arguments': ['pact install cscope']}]},
 	{
             'name': 'source antigen',
             'instructions': [

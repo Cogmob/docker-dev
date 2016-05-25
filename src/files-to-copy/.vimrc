@@ -16,10 +16,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'vim-scripts/vcscommand.vim'
 NeoBundle 'L9'
 NeoBundle 'wincent/command-t'
-NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'benmills/vimux'
 NeoBundle 'Chiel92/vim-autoformat'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
@@ -32,9 +30,6 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'ardagnir/hackhack'
-NeoBundle 'rhysd/vim-clang-format'
-NeoBundle 'LucHermitte/vim-refactor'
 NeoBundle 'vim-scripts/Conque-Shell'
 NeoBundle 'sirver/ultisnips'
 NeoBundle 'Valloric/YouCompleteMe'
@@ -44,6 +39,7 @@ NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
+NeoBundle 'edkolev/promptline.vim'
 
 call neobundle#end()
 
@@ -145,7 +141,6 @@ nmap <leader>6 0"fy$ :VimuxRunCommand(join([g:searchcommand6start, @f, g:searchc
 
 nmap <leader>h :noh<CR>
 nmap <c-z> :w<CR> :call VimuxRunCommand('clear ; npm test')<CR>
-nmap <leader>f :ClangFormat <CR>
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 map <silent> <leader><cr> :noh<cr>
@@ -194,6 +189,25 @@ nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 source ~/unix-setup/src/vim/syntax.vim
 source ~/unix-setup/src/vim/vimfolding.vim
 source ~/unix-setup/src/vim/cscope_maps.vim
+
+nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
+" s: Find this C symbol
+nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 
 "
 " folding
@@ -328,3 +342,11 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<c-l>"
+
+" promptline
+let g:promptline_preset = {
+        \'a' : [ '$(date +"%H")' ],
+        \'x' : [ promptline#slices#cwd() ],
+        \'y' : [ promptline#slices#host({ 'only_if_ssh': 1 })],
+        \'z' : [ promptline#slices#git_status() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
