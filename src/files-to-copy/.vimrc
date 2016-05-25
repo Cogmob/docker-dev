@@ -345,7 +345,7 @@ let g:UltiSnipsListSnippets="<c-l>"
 
 " promptline
 let g:promptline_preset = {
-        \'a' : [ '$(date +"%H")' ],
+        \'a' : [ '' ],
         \'x' : [ promptline#slices#cwd() ],
         \'y' : [ promptline#slices#host({ 'only_if_ssh': 1 })],
         \'z' : [ promptline#slices#git_status() ],
