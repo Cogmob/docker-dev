@@ -116,8 +116,8 @@ hi! Comment guifg=bg ctermfg=DarkBlue
 let g:testcommand='run tests command not specified'
 let g:limittestcommand='run limited tests command not specified'
 let g:installcommand='install command not specified'
-nmap <leader>k :wall<CR> :call VimuxRunCommand(g:searchcommand1)<CR>
-nmap <leader>j :wall<CR> :call VimuxRunCommand(g:testcommand)<CR>
+nmap <leader>k :wall<CR> :call VimuxRunCommand(g:testcommand)<CR>
+nmap <leader>j :wall<CR> :call VimuxRunCommand(g:limittestcommand)<CR>
 nmap <leader>l :wall<CR> :call VimuxRunCommand(g:installcommand)<CR>
 
 " search hotkeys
