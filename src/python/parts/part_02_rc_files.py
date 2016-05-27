@@ -20,4 +20,5 @@ part = {
                     'ln -s ~/unix-setup/src/files-to-copy/.zshrc ~/.zshrc',
                     'ln -s ~/unix-setup/src/ulti-snips ~/.vim/UltiSnips',
 
-                    'alias explore="./~/unix-setup/src/files-to-copy/explore.bash"']}]}]}
+                    'alias explore="./~/unix-setup/src/files-to-copy/explore.bash"',
+                    'git config --global core.pager cat']}]}]}
