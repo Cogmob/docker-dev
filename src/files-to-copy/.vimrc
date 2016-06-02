@@ -342,6 +342,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnip"
 
 " promptline
 let g:promptline_preset = {
