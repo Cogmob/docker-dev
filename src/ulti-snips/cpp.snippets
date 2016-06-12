@@ -1,0 +1,494 @@
+snippet create-source-component "Create Source (Component)"
+/*-----------------------------------------------------------------------------
+ *
+ * `!p snip.rv = fn`
+ *
+ * Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *
+ *
+ *-----------------------------------------------------------------------------
+ */
+
+#include <fCore/fCore.h>
+F_DEFINE_DEBUG_SECTION(`!p snip.rv = fn[:-4]`)
+
+#include "`!p snip.rv = fn[:-4]`.h"
+
+Define_Component(`!p snip.rv = fn[:-4]`)
+
+///////////////////////////////////////////////////////////////////////////
+// @access  public  
+// @brief ctor
+// @param _owningObject The owning object
+`!p snip.rv = fn[:-4]`::`!p snip.rv = fn[:-4]`
+(
+	fComponentContainer *_owningObject,
+	ComponentSpec const *_spec
+):
+	DangerousComponent<`!p snip.rv = fn[:-4]`,`!p snip.rv = fn[:-4]`Spec>(_owningObject,_spec)$1
+{
+}
+
+///////////////////////////////////////////////////////////////////////////
+// @access  public  
+// @brief dtor
+`!p snip.rv = fn[:-4]`::~`!p snip.rv = fn[:-4]`
+(
+)
+{
+}
+
+///////////////////////////////////////////////////////////////////////////
+// @access  public  
+// @brief Register any replication vars & functions here
+void `!p snip.rv = fn[:-4]`::Init_RegisterVariables
+(
+)
+{
+}
+
+///////////////////////////////////////////////////////////////////////////
+// @access  public  
+// @brief Variables now initialised - mantle everything ready to go live (activate)
+void `!p snip.rv = fn[:-4]`::Init_OnVariablesInitialised
+(
+)
+{
+}
+endsnippet
+
+snippet create-source-activity "Create Source (Activity)"
+/*-----------------------------------------------------------------------------
+ *
+ *    `!p snip.rv = fn`
+ *
+ *    Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *    
+ *
+ *-----------------------------------------------------------------------------
+ */
+
+#include <fCore/fCore.h>
+F_DEFINE_DEBUG_SECTION(`!p snip.rv = fn[:-4]`)
+
+#include "`!p snip.rv = fn[:-4]`.h"
+#include <Activities/ActivityFactory.h>
+#include <Activities/ActivityContainer.h>
+
+DEFINE_ACTIVITY(`!p snip.rv = fn[:-4]`,`!p snip.rv = fn[:-4]`Spec)
+
+/////////////////////////////////////////////////////////////////////////////
+/// @access  public  
+/// @brief ctor
+/// @param _container The container which owns this activity
+/// @param _spec The spec of this activity
+`!p snip.rv = fn[:-4]`::`!p snip.rv = fn[:-4]`
+(
+    ActivityContainer *_container,
+    ActivitySpec const *_spec
+):
+    Activity<`!p snip.rv = fn[:-4]`,`!p snip.rv = fn[:-4]`Spec>( _container, _spec )$1
+{
+}
+
+/////////////////////////////////////////////////////////////////////////////
+/// @access  public  
+/// @brief dtor
+`!p snip.rv = fn[:-4]`::~`!p snip.rv = fn[:-4]`
+(
+)
+{
+}
+
+/////////////////////////////////////////////////////////////////////////////
+/// @access  public  
+/// @brief Start the activity
+/// @return void
+void `!p snip.rv = fn[:-4]`::Start
+(
+)
+{
+}
+
+/////////////////////////////////////////////////////////////////////////////
+/// @access  public  
+/// @brief Finish the activity
+/// @return void
+void `!p snip.rv = fn[:-4]`::Finish
+(
+)
+{
+}
+
+/////////////////////////////////////////////////////////////////////////////
+/// @access  public  
+/// @brief Return whether the activity has an end to wait for
+/// @return True if there's an end to wait for, false otherwise
+bool `!p snip.rv = fn[:-4]`::HasAnEndToWaitFor
+(
+) const
+{
+    return false;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+/// @access  public  
+/// @brief Return the amount of time to the next end
+/// @return The amount of time
+float `!p snip.rv = fn[:-4]`::GetTimeToEnd
+(
+) const
+{
+    return 0.f;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+/// @access  public  
+/// @brief Return the number of Ends passed since the activity started
+/// @return The number of Ends wince the activity started
+fSizeType `!p snip.rv = fn[:-4]`::GetEndCount
+(
+) const
+{
+    return 0;
+}
+endsnippet
+
+snippet create-source-blank "Create Source (Blank)"
+/*-----------------------------------------------------------------------------
+ *
+ *    `!p snip.rv = fn[:-4]`
+ *
+ *    Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *    
+ *
+ *-----------------------------------------------------------------------------
+ */
+
+#include <fCore/fCore.h>
+F_DEFINE_DEBUG_SECTION(`!p snip.rv = fn[:-4]`)
+
+#include "`!p snip.rv = fn[:-4]`.h"
+
+
+endsnippet
+
+snippet create-source-object-customisation "Create Source (ObjectCustomisation)"
+/*-----------------------------------------------------------------------------
+ *
+ *    `!p snip.rv = fn[:-4]`
+ *
+ *    Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *    
+ *
+ *-----------------------------------------------------------------------------
+ */
+
+#include <fCore/fCore.h>
+F_DEFINE_DEBUG_SECTION(`!p snip.rv = fn[:-4]`)
+
+#include "`!p snip.rv = fn[:-4]`.h"
+
+#include <GameObject/GameObjectHandle.h>
+
+
+////////////////////////////////////////////////////////////////////////////////
+/// @brief Customise an object according to a spec
+/// @param _context The context (component/activity) this customisation is running in
+/// @param _object The object to customise
+/// @param _spec The spec for this customisation
+void `!p snip.rv = fn[:-4]`::Customise
+(
+	IGetComponentContainer *_context,
+	GameObjectHandle const& _object,
+	`!p snip.rv = fn[:-4]`Spec const *_spec
+)
+{
+	$1
+}
+endsnippet
+
+snippet create-header-activity "Create Header (Activity)"
+/*-----------------------------------------------------------------------------
+ *
+ * `!p snip.rv = fn`
+ *
+ * Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *
+ *
+ *-----------------------------------------------------------------------------
+ */
+#pragma once
+
+// FGDK includes...
+
+// Game includes...
+#include <Activities/Activity.h>
+#include <Activities/ActivitySpec.h>
+
+// Forward declares...
+
+//-----------------------------------------------------------------------------
+/// struct <`!p snip.rv = fn[:-4]`Spec>
+//-----------------------------------------------------------------------------
+struct`!p snip.rv = fn[:-4]`Spec:
+    public ActivitySpec
+{
+   
+};
+
+//-----------------------------------------------------------------------------
+/// class <`!p snip.rv = fn[:-4]`>
+//-----------------------------------------------------------------------------
+class `!p snip.rv = fn[:-4]`
+    :
+    // Component
+    public Activity<`!p snip.rv = fn[:-4]`,`!p snip.rv = fn[:-4]`Spec>
+    // Interfaces$1
+    // Advance-ables
+{
+public:
+    DECLARE_ACTIVITY(`!p snip.rv = fn[:-4]`)
+   
+    virtual ~(`!p snip.rv = fn[:-4]`);
+
+    // From Activity...
+    virtual void Start();
+    virtual void Finish();
+    virtual bool HasAnEndToWaitFor() const;
+    virtual float GetTimeToEnd() const;
+    virtual fSizeType GetEndCount() const;
+
+private:
+
+};
+
+endsnippet
+
+snippet create-header-blank "Create Header (Blank)"
+/*-----------------------------------------------------------------------------
+ *
+ * `!p snip.rv = fn`
+ *
+ * Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *
+ *
+ *-----------------------------------------------------------------------------
+ */
+#pragma once
+
+// FGDK includes...
+
+// Game includes...
+
+// Forward declares...
+
+
+endsnippet
+
+snippet create-header-cpp-class "Create Header (C++ Class)"
+/*-----------------------------------------------------------------------------
+ *
+ * `!p snip.rv = fn`
+ *
+ * Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *
+ *
+ *-----------------------------------------------------------------------------
+ */
+#pragma once
+
+// FGDK includes...
+
+// Game includes...
+
+// Forward declares...
+
+
+//-----------------------------------------------------------------------------
+/// class <`!p snip.rv = fn[:-4]`>
+//-----------------------------------------------------------------------------
+class `!p snip.rv = fn[:-4]`
+{
+	$1
+};
+endsnippet
+
+snippet create-header-cpp-struct "Create Header (C++ Struct)"
+/*-----------------------------------------------------------------------------
+ *
+ * `!p snip.rv = fn`
+ *
+ * Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *
+ *
+ *-----------------------------------------------------------------------------
+ */
+#pragma once
+
+// FGDK includes...
+
+// Game includes...
+
+// Forward declares...
+
+
+//-----------------------------------------------------------------------------
+/// struct <`!p snip.rv = fn[:-4]`>
+//-----------------------------------------------------------------------------
+struct `!p snip.rv = fn[:-4]`
+{
+	$1
+};
+endsnippet
+
+snippet create-header-component "Create Header (Component)"
+/*-----------------------------------------------------------------------------
+ *
+ * `!p snip.rv = fn[:-4]`
+ *
+ * Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *
+ *
+ *-----------------------------------------------------------------------------
+ */
+#pragma once
+
+// FGDK includes...
+#include <fCore/Interface/fInterface.h>
+
+// Game includes...
+#include <Component/Component.h>
+#include <Component/ComponentFactory.h>
+#include <Component/ObjectInterface.h>
+#include <Component/ParentInterface.h>
+#include <Component/RootInterface.h>
+
+// Forward declares...
+class GameObject;
+
+//-----------------------------------------------------------------------------
+/// struct <`!p snip.rv = fn[:-4]`Spec>
+//-----------------------------------------------------------------------------
+struct `!p snip.rv = fn[:-4]`Spec:
+	public ComponentSpec
+{
+};
+
+//-----------------------------------------------------------------------------
+/// class <`!p snip.rv = fn[:-4]`>
+//-----------------------------------------------------------------------------
+class `!p snip.rv = fn[:-4]`
+    :
+    // Component
+    public DangerousComponent<`!p snip.rv = fn[:-4]`,`!p snip.rv = fn[:-4]`Spec>
+    // Interfaces
+    // Advance-ables
+{
+private:
+    Declare_Component(`!p snip.rv = fn[:-4]`)
+    Declare_NoReplicate_Component
+
+public:
+    `!p snip.rv = fn[:-4]`(fComponentContainer *_owningObject, ComponentSpec const *_spec);
+    virtual ~`!p snip.rv = fn[:-4]`();
+   
+    // From 'Component<>
+	virtual void RegisterMembers(){}
+
+	// Lifecycle support from IComponent
+	virtual void Init_RegisterVariables();
+	virtual void Init_OnVariablesInitialised();
+	virtual void Init_Activate() {}
+	virtual void Init_ActivateRT() {}
+	virtual void Shutdown_Deactivate() {}
+	virtual void Shutdown_DeactivateRT() {}
+
+private:
+};
+endsnippet
+
+snippet create-header-interface "Create Header (Interface)"
+/*-----------------------------------------------------------------------------
+ *
+ * `!p snip.rv = fn`
+ *
+ * Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *
+ *
+ *-----------------------------------------------------------------------------
+ */
+#pragma once
+
+// FGDK includes...
+#include <fCore/Interface/fInterface.h>
+
+// Game includes...
+
+// Forward declares...
+
+//-----------------------------------------------------------------------------
+/// struct <`!p snip.rv = fn[:-4]`>
+//-----------------------------------------------------------------------------
+struct `!p snip.rv = fn[:-4]`:
+    public fInterfaceBase<`!p snip.rv = fn[:-4]`>
+{
+    $1
+};
+
+endsnippet
+
+snippet create-header-object-customisation "Create Header (ObjectCustomisation)"
+/*-----------------------------------------------------------------------------
+ *
+ * `!p snip.rv = fn`
+ *
+ * Copyright (C) `!p import datetime
+snip.rv = datetime.date.today().year` Frontier Developments PLC.
+ *
+ *
+ *
+ *-----------------------------------------------------------------------------
+ */
+#pragma once
+
+// FGDK includes...
+
+// Game includes...
+#include <CreateObject/System/ObjectCustomisation.h>
+
+// Forward declares...
+
+//-----------------------------------------------------------------------------
+/// struct <`!p snip.rv = fn[:-4]`Spec>
+//-----------------------------------------------------------------------------
+struct `!p snip.rv = fn[:-4]`Spec:
+    public ObjectCustomisationSpec
+{
+   
+};
+
+DECLARE_OBJECTCUSTOMISATION(`!p snip.rv = fn[:-4]`)
+
+
+endsnippet

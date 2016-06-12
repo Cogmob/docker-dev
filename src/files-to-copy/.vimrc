@@ -15,11 +15,10 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'tpope/vim-fugitive' " git
-NeoBundle 'L9' " who knows
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'L9'
 NeoBundle 'wincent/command-t'
-NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'} " html
-NeoBundle 'benmills/vimux' " interact with tmux
+NeoBundle 'benmills/vimux'
 NeoBundle 'Chiel92/vim-autoformat'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'vim-airline/vim-airline'
@@ -31,9 +30,16 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'ardagnir/hackhack'
-NeoBundle 'rhysd/vim-clang-format'
-NeoBundle 'fsharp/vim-fsharp'
+NeoBundle 'vim-scripts/Conque-Shell'
+NeoBundle 'sirver/ultisnips'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'rdnetto/YCM-Generator'
+NeoBundle 'wellle/targets.vim'
+NeoBundle 'michaeljsmith/vim-indent-object'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
+NeoBundle 'edkolev/promptline.vim'
 
 call neobundle#end()
 
@@ -81,7 +87,6 @@ set laststatus=2
 set nowrap
 " line width and indentation
 set textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4
-set  smarttab expandtab si ai
 
 " mappings
 noremap <C-f> :Autoformat<CR>
@@ -93,16 +98,26 @@ nmap <silent> <C-i> :res +5<CR>
 nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
-" nmap <c-x> :hi! Comment guifg=bg ctermfg=DarkBlue<CR>
+nmap <c-x> :call ToggleComments()<cr>
+
+function! ToggleComments()
+    if g:commentsvisible
+        let g:commentsvisible=0
+        hi! Comment guifg=bg ctermfg=white
+    else
+        let g:commentsvisible=1
+        hi! Comment guifg=bg ctermfg=DarkBlue
+    endif
+endfunction
+let commentsvisible=1
 hi! Comment guifg=bg ctermfg=DarkBlue
-" nmap <c-c> :hi! Comment guifg=bg ctermfg=white<CR>
 
 " run hotkeys
 let g:testcommand='run tests command not specified'
 let g:limittestcommand='run limited tests command not specified'
 let g:installcommand='install command not specified'
-nmap <leader>k :wall<CR> :call VimuxRunCommand(g:searchcommand1)<CR>
-nmap <leader>j :wall<CR> :call VimuxRunCommand(g:testcommand)<CR>
+nmap <leader>k :wall<CR> :call VimuxRunCommand(g:testcommand)<CR>
+nmap <leader>j :wall<CR> :call VimuxRunCommand(g:limittestcommand)<CR>
 nmap <leader>l :wall<CR> :call VimuxRunCommand(g:installcommand)<CR>
 
 " search hotkeys
@@ -126,7 +141,6 @@ nmap <leader>6 0"fy$ :VimuxRunCommand(join([g:searchcommand6start, @f, g:searchc
 
 nmap <leader>h :noh<CR>
 nmap <c-z> :w<CR> :call VimuxRunCommand('clear ; npm test')<CR>
-nmap <leader>f :ClangFormat <CR>
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 map <silent> <leader><cr> :noh<cr>
@@ -135,7 +149,6 @@ map <leader>t <plug>NERDTreeTabsToggle<CR>
 nnoremap <SPACE> <Nop>
 let g:tabman_toggle = '<leader>mt'
 let g:tabman_focus  = '<leader>mf'
-map 0 ^
 nmap <leader>q :wa<CR> :so $MYVIMRC<CR> :LocalVimRC<CR>
 map <leader>, :SidewaysLeft<CR>
 map <leader>. :SidewaysRight<CR>
@@ -176,6 +189,25 @@ nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 source ~/unix-setup/src/vim/syntax.vim
 source ~/unix-setup/src/vim/vimfolding.vim
 source ~/unix-setup/src/vim/cscope_maps.vim
+
+nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
+" s: Find this C symbol
+nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 
 "
 " folding
@@ -257,3 +289,56 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 let g:airline_powerline_fonts = 1
+
+" disable simple movements
+function! DisableIfNonCounted(move) range
+    if v:count
+        return a:move
+    else
+        " You can make this do something annoying like:
+           " echoerr "Count required!"
+           " sleep 2
+        return ""
+    endif
+endfunction
+
+function! SetDisablingOfBasicMotionsIfNonCounted(on)
+    let keys_to_disable = get(g:, "keys_to_disable_if_not_preceded_by_count", ["j", "k", "l", "h"])
+    if a:on
+        for key in keys_to_disable
+            execute "noremap <expr> <silent> " . key . " DisableIfNonCounted('" . key . "')"
+        endfor
+        let g:keys_to_disable_if_not_preceded_by_count = keys_to_disable
+        let g:is_non_counted_basic_motions_disabled = 1
+    else
+        for key in keys_to_disable
+            try
+                execute "unmap " . key
+            catch /E31:/
+            endtry
+        endfor
+        let g:is_non_counted_basic_motions_disabled = 0
+    endif
+endfunction
+
+function! ToggleDisablingOfBasicMotionsIfNonCounted()
+    let is_disabled = get(g:, "is_non_counted_basic_motions_disabled", 0)
+    if is_disabled
+        call SetDisablingOfBasicMotionsIfNonCounted(0)
+    else
+        call SetDisablingOfBasicMotionsIfNonCounted(1)
+    endif
+endfunction
+
+command! ToggleDisablingOfNonCountedBasicMotions :call ToggleDisablingOfBasicMotionsIfNonCounted()
+command! DisableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(1)
+command! EnableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(0)
+
+DisableNonCountedBasicMotions
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<c-y>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsListSnippets="<c-l>"

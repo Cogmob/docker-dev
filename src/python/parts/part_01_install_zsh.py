@@ -1,6 +1,5 @@
 part = {
     'name': 'set up zsh',
-    'blacklist': 'windows 10 babun',
     'steps': [
         {
             'name': 'set up git user',
@@ -9,6 +8,7 @@ part = {
                 'git config --global user.email "luke.avery@live.co.uk"']}]},
         {
             'name': 'install zsh',
+            'whitelist': 'none',
             'instructions': [{'arguments': ['sudo apt-get zsh -f']}]},
         {
             'name': 'set up oh my zsh',
