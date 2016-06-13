@@ -2,6 +2,11 @@ part = {
     'name': 'set up zsh',
     'steps': [
         {
+            'name': 'set up non identifiable home directory',
+            'instructions': [{'arguments': [
+                'ln -s $HOME /home/home',
+                "export HOME='/home/home'"]}]},
+        {
             'name': 'set up git user',
             'instructions': [{'arguments': [
                 'git config --global user.name "cogmob"',

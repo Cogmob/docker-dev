@@ -182,3 +182,13 @@ alias fsc='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/
 alias explore='/home/lavery/unix-setup/src/files-to-copy/explore.bash'
 
 source ~/unix-setup/src/files-to-copy/.shell_prompt.sh
+
+randomise_prompt_colour () {
+  PS1="%n%B%F{$((RANDOM % 8))}@%m %~ %(!.#.\$) "
+}
+
+autoload -U add-zsh-hook
+
+#add-zsh-hook precmd randomise_prompt_colour
+
+export HOME='/home/home'

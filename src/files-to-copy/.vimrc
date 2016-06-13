@@ -40,6 +40,9 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
 NeoBundle 'edkolev/promptline.vim'
+NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'AndrewRadev/sideways.vim'
+NeoBundle 'derekwyatt/vim-fswitch'
 
 call neobundle#end()
 
@@ -99,6 +102,7 @@ nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
 nmap <c-x> :call ToggleComments()<cr>
+nmap <C-i> :FSHere<CR>
 
 function! ToggleComments()
     if g:commentsvisible
@@ -143,7 +147,7 @@ nmap <leader>h :noh<CR>
 nmap <c-z> :w<CR> :call VimuxRunCommand('clear ; npm test')<CR>
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
-map <silent> <leader><cr> :noh<cr>
+" map <silent> <leader><cr> :noh<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 map <leader>t <plug>NERDTreeTabsToggle<CR>
 nnoremap <SPACE> <Nop>
