@@ -7,11 +7,10 @@ part = {
                 {'arguments': [
                     'cd ~',
                     'git clone git@bitbucket.org:Cogbot/ahk.git',
-                    'unlink "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac-remap.ahk"',
-                    'unlink "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.ahk"',
-                    'ln -s ahk/mac-remap.ahk "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac-remap.ahk"',
-                    'ln -s ahk/main.ahk
-                    "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.ahk"',
+                    'rm "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac-remap.ahk"',
+                    'rm "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.ahk"',
+                    'cp ahk/mac_remap_shortcut.lnk "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac_remap_shortcut.lnk"',
+                    'cp ahk/main_shortcut.lnk "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main_shortcut.lnk"',
                     './ahk/mac-remap.ahk',
                     '"/cygdrive/c/Program Files/Autohotkey/Autohotkey.exe" ahk/main.ahk &',
                     '"/cygdrive/c/Program Files/Autohotkey/Autohotkey.exe" ahk/mac-remap.ahk &']}]}]}
