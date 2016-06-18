@@ -190,9 +190,9 @@ map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
 vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
 nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 
-source ~/unix-setup/src/vim/syntax.vim
-source ~/unix-setup/src/vim/vimfolding.vim
-source ~/unix-setup/src/vim/cscope_maps.vim
+source ~/unix_setup/src/vim/syntax.vim
+source ~/unix_setup/src/vim/vimfolding.vim
+source ~/unix_setup/src/vim/cscope_maps.vim
 
 " nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
 " nnoremap <leader>l :call ToggleLocationList()<CR>

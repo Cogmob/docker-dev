@@ -1,6 +1,6 @@
 import json
 import os
-path = os.path.expanduser('~/unix-setup/saved-data')
+path = os.path.expanduser('~/unix_setup/saved-data')
 
 def read():
     try:

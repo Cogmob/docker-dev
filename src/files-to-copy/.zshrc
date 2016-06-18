@@ -179,9 +179,9 @@ export CPATH=/usr/local/include
 alias npm='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 14.0/Common7/IDE/Extensions/Microsoft/Web\ Tools/External/npm.cmd'
 alias fsi='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsi.exe'
 alias fsc='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsc.exe'
-alias explore='/home/lavery/unix-setup/src/files-to-copy/explore.bash'
+alias explore='/home/lavery/unix_setup/src/files-to-copy/explore.bash'
 
-source ~/unix-setup/src/files-to-copy/.shell_prompt.sh
+source ~/unix_setup/src/files-to-copy/.shell_prompt.sh
 
 randomise_prompt_colour () {
   PS1="%n%B%F{$((RANDOM % 8))}@%m %~ %(!.#.\$) "

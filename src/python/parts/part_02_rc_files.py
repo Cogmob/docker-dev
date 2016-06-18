@@ -10,13 +10,13 @@ part = {
                     'mv ~/.minttyrc ~/.config-old/.minttyrc',
                     'mv ~/.zshrc ~/.config-old/.zshrc',
 
-                    'ln -s ~/unix-setup/src/files-to-copy/.antigen ~/.antigen',
-                    'ln -s ~/unix-setup/src/files-to-copy/.minttyrc ~/.minttyrc',
+                    'ln -s ~/unix_setup/src/files-to-copy/.antigen ~/.antigen',
+                    'ln -s ~/unix_setup/src/files-to-copy/.minttyrc ~/.minttyrc',
                     'chmod 600 ~/.ssh/*',
-                    'ln -s ~/unix-setup/src/files-to-copy/.tmux.conf ~/.tmux.conf',
-                    'ln -s ~/unix-setup/src/files-to-copy/.vimrc ~/.vimrc',
-                    'ln -s ~/unix-setup/src/files-to-copy/.zshrc ~/.zshrc',
-                    'ln -s ~/unix-setup/src/ulti-snips ~/.vim/UltiSnips',
+                    'ln -s ~/unix_setup/src/files-to-copy/.tmux.conf ~/.tmux.conf',
+                    'ln -s ~/unix_setup/src/files-to-copy/.vimrc ~/.vimrc',
+                    'ln -s ~/unix_setup/src/files-to-copy/.zshrc ~/.zshrc',
+                    'ln -s ~/unix_setup/src/ulti-snips ~/.vim/UltiSnips',
 
-                    'alias explore="/home/home/unix-setup/src/files-to-copy/explore.bash"',
+                    'alias explore="/home/home/unix_setup/src/files-to-copy/explore.bash"',
                     'git config --global core.pager cat']}]}]}

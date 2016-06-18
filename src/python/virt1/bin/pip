@@ -1,4 +1,4 @@
-#!/home/lukea/unix-setup/src/python/virt1/bin/python2.7
+#!/home/lukea/unix_setup/src/python/virt1/bin/python2.7
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==8.1.1','console_scripts','pip'
 __requires__ = 'pip==8.1.1'
 import sys
