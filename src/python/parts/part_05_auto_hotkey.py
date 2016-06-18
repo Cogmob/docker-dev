@@ -6,5 +6,12 @@ part = {
             'instructions': [
                 {'arguments': [
                     'cd ~',
-                    'git co blah blah']}]}]}
-# add suggestions, for example make cursor into block
+                    'git clone git@bitbucket.org:Cogbot/ahk.git',
+                    'unlink "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac-remap.ahk"',
+                    'unlink "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.ahk"',
+                    'ln -s ahk/mac-remap.ahk "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac-remap.ahk"',
+                    'ln -s ahk/main.ahk
+                    "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.ahk"',
+                    './ahk/mac-remap.ahk',
+                    '"/cygdrive/c/Program Files/Autohotkey/Autohotkey.exe" ahk/main.ahk &',
+                    '"/cygdrive/c/Program Files/Autohotkey/Autohotkey.exe" ahk/mac-remap.ahk &']}]}]}
