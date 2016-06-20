@@ -76,6 +76,7 @@ set nrformats-=octal
 set wildmenu
 set wildmode=list:longest
 let g:ctrlp_working_path_mode = 0
+set shortmess=a
 
 " Color scheme
 "let g:solarized_termcolors=256
@@ -102,7 +103,9 @@ nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
 nmap <c-x> :call ToggleComments()<cr>
-nmap <C-i> :FSHere<CR>
+nmap <C-i> :FSHere
+nmap <C-j> :FSAbove<CR>
+nmap <C-m> :only<CR>
 
 function! ToggleComments()
     if g:commentsvisible

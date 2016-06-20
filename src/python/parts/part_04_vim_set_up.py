@@ -15,4 +15,6 @@ part = {
                     'mkdir -p /a/.vim/bundle',
                     'git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim',
                     'vim +NeoBundleInstall +qall',
+                    'mkdir -parents ~/.vim/bundle/vim/bundle/vim-snippets',
+                    'unlink ~/.vim/bundle/vim/bundle/vim-snippets/UserUltiSnips',
                     'ln -s ~/unix_setup/src/ulti-snips ~/.vim/bundle/vim/bundle/vim-snippets/UserUltiSnips']}]}]}
