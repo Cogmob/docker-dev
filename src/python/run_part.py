@@ -86,6 +86,8 @@ def run_part(part_index, part, data):
                         s.Popen(['/bin/zsh', filename])
                     elif arg.startswith('cd '):
                         os.chdir(os.path.expanduser(arg.split('cd ')[1]))
+                    elif arg.endswith(' &'):
+                        s.Popen(arg.split(' '))
                     else:
                         result = s.check_output(arg, shell=True)
             except Exception as e:

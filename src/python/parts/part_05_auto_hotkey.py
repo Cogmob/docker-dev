@@ -1,3 +1,7 @@
+import subprocess
+
+home_name = subprocess.check_output('realpath ~', shell=True).replace("\n", '').split('/')[-1]
+
 part = {
     'name': 'set up autohotkey',
     'steps': [
@@ -6,11 +10,13 @@ part = {
             'instructions': [
                 {'arguments': [
                     'cd ~',
+                    'rm -rf ahk',
                     'git clone git@bitbucket.org:Cogbot/ahk.git',
-                    'rm "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac-remap.ahk"',
-                    'rm "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.ahk"',
-                    'cp ahk/mac_remap_shortcut.lnk "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac_remap_shortcut.lnk"',
-                    'cp ahk/main_shortcut.lnk "/cygdrive/c/Users/lukea/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main_shortcut.lnk"',
-                    './ahk/mac-remap.ahk',
+                    'explore ahk/shortcuts',
+                    'explore "/cygdrive/c/Users/%s/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac_remap_shortcut.lnk"' % home_name)]}]},
+        {
+            'name': 'startup scripts',
+            'instructions': [
+                {'arguments': [
                     '"/cygdrive/c/Program Files/Autohotkey/Autohotkey.exe" ahk/main.ahk &',
                     '"/cygdrive/c/Program Files/Autohotkey/Autohotkey.exe" ahk/mac-remap.ahk &']}]}]}
