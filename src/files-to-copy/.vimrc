@@ -103,8 +103,8 @@ nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
 nmap <c-x> :call ToggleComments()<cr>
-nmap <C-i> :FSHere
-nmap <C-j> :FSAbove<CR>
+nmap <C-i> :FSHere<CR>
+nmap <C-u> :sp<CR><C-j>:FSAbove<CR>
 nmap <C-m> :only<CR>
 
 function! ToggleComments()
