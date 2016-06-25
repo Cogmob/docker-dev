@@ -7,7 +7,7 @@ echo -e  'y\n'|ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.aver
 * https://bitbucket.org/account/user/Cogbot/ssh-keys/
 
 ```bash
-echo yes | git clone git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./install.sh
+git clone -f git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./install.sh
 ```
 
 ```bash
