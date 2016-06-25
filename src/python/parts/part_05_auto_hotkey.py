@@ -13,7 +13,7 @@ part = {
                     'rm -rf ahk',
                     'git clone git@bitbucket.org:Cogbot/ahk.git',
                     'explore ahk/shortcuts',
-                    'explore "/cygdrive/c/Users/%s/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac_remap_shortcut.lnk"' % home_name)]}]},
+                    'explore "/cygdrive/c/Users/%s/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mac_remap_shortcut.lnk"' % home_name]}]},
         {
             'name': 'startup scripts',
             'instructions': [
