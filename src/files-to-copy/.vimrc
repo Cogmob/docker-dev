@@ -27,7 +27,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'kien/tabman.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'vim-scripts/Conque-Shell'
@@ -43,7 +42,6 @@ NeoBundle 'edkolev/promptline.vim'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'AndrewRadev/sideways.vim'
 NeoBundle 'derekwyatt/vim-fswitch'
-
 call neobundle#end()
 
 " global variables
@@ -77,6 +75,8 @@ set wildmenu
 set wildmode=list:longest
 let g:ctrlp_working_path_mode = 0
 set shortmess=a
+set nobackup
+set noswapfile
 
 " Color scheme
 "let g:solarized_termcolors=256
@@ -103,9 +103,8 @@ nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
 nmap <c-x> :call ToggleComments()<cr>
-nmap <C-i> :FSHere<CR>
-nmap <C-u> :sp<CR><C-j>:FSAbove<CR>
-nmap <C-m> :only<CR>
+nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
+nmap <C-n> :only
 
 function! ToggleComments()
     if g:commentsvisible
@@ -125,7 +124,22 @@ let g:limittestcommand='run limited tests command not specified'
 let g:installcommand='install command not specified'
 nmap <leader>k :wall<CR> :call VimuxRunCommand(g:testcommand)<CR>
 nmap <leader>j :wall<CR> :call VimuxRunCommand(g:limittestcommand)<CR>
-nmap <leader>l :wall<CR> :call VimuxRunCommand(g:installcommand)<CR>
+" nmap <leader>l :wall<CR> :call VimuxRunCommand(g:installcommand)<CR>
+" nmap <leader>l :g:LCommand()<CR>
+
+function! RunL()
+    print "asdf"
+    VimuxRunCommand('asdf')
+    return 'asdff'
+endfunction
+
+function! g:Leaderp()
+  return "Meow String!"
+endfunction
+nmap <leader>l :echo g:Leaderp()<CR>
+"nmap <leader>l :echo g:asdf<CR>
+"let g:Myfunc = function("RunL")
+"let funca = function("ToggleComments")
 
 " search hotkeys
 let g:searchcommand1="test command 1 not specified in the lvimrc file for this repo"
@@ -156,7 +170,7 @@ map <leader>t <plug>NERDTreeTabsToggle<CR>
 nnoremap <SPACE> <Nop>
 let g:tabman_toggle = '<leader>mt'
 let g:tabman_focus  = '<leader>mf'
-nmap <leader>q :wa<CR> :so $MYVIMRC<CR> :LocalVimRC<CR>
+nmap <leader>q :wa<CR> :so $MYVIMRC<CR>
 map <leader>, :SidewaysLeft<CR>
 map <leader>. :SidewaysRight<CR>
 nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
@@ -196,6 +210,9 @@ nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 source ~/unix_setup/src/vim/syntax.vim
 source ~/unix_setup/src/vim/vimfolding.vim
 source ~/unix_setup/src/vim/cscope_maps.vim
+if filereadable("SpecificFile")
+    source .lvimrc
+endif
 
 " nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
 " nnoremap <leader>l :call ToggleLocationList()<CR>
