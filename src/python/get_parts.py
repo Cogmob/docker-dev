@@ -8,5 +8,5 @@ def get_parts():
         if f.endswith('.py') and '__init__' not in f:
             path = f.split('.')[0]
             mod = importlib.import_module('parts.%s'%path)
-            paths.append(mod.part)
+            paths.append(mod.get_part)
     return paths
