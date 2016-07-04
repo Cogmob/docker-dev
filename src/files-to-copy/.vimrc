@@ -118,21 +118,6 @@ endfunction
 let commentsvisible=1
 hi! Comment guifg=bg ctermfg=DarkBlue
 
-" run hotkeys
-let g:testcommand='run tests command not specified'
-let g:limittestcommand='run limited tests command not specified'
-let g:installcommand='install command not specified'
-nmap <leader>k :wall<CR> :call VimuxRunCommand(g:testcommand)<CR>
-nmap <leader>j :wall<CR> :call VimuxRunCommand(g:limittestcommand)<CR>
-" nmap <leader>l :wall<CR> :call VimuxRunCommand(g:installcommand)<CR>
-" nmap <leader>l :g:LCommand()<CR>
-
-function! RunL()
-    print "asdf"
-    VimuxRunCommand('asdf')
-    return 'asdff'
-endfunction
-
 function! g:Leaderp()
   return "Meow String!"
 endfunction
@@ -140,25 +125,6 @@ nmap <leader>l :echo g:Leaderp()<CR>
 "nmap <leader>l :echo g:asdf<CR>
 "let g:Myfunc = function("RunL")
 "let funca = function("ToggleComments")
-
-" search hotkeys
-let g:searchcommand1="test command 1 not specified in the lvimrc file for this repo"
-let g:searchcommand2start='test command 2 not specified in the lvimrc file for this repo'
-let g:searchcommand2end=''
-let g:searchcommand3start='test command 3 not specified in the lvimrc file for this repo'
-let g:searchcommand3end=''
-let g:searchcommand4start='test command 3 not specified in the lvimrc file for this repo'
-let g:searchcommand4end=''
-let g:searchcommand5start='test command 4 not specified in the lvimrc file for this repo'
-let g:searchcommand5end=''
-let g:searchcommand6start='test command 4 not specified in the lvimrc file for this repo'
-let g:searchcommand6end=''
-nmap <leader>1 :VimuxRunCommand(g:searchcommand1)<CR>
-nmap <leader>2 0"fy$ :VimuxRunCommand(join([g:searchcommand2start, @f, g:searchcommand2end], ''))<CR>
-nmap <leader>3 0"fy$ :VimuxRunCommand(join([g:searchcommand3start, @f, g:searchcommand3end], ''))<CR>
-nmap <leader>4 0"fy$ :VimuxRunCommand(join([g:searchcommand4start, @f, g:searchcommand4end], ''))<CR>
-nmap <leader>5 0"fy$ :VimuxRunCommand(join([g:searchcommand5start, @f, g:searchcommand5end], ''))<CR>
-nmap <leader>6 0"fy$ :VimuxRunCommand(join([g:searchcommand6start, @f, g:searchcommand6end], ''))<CR>
 
 nmap <leader>h :noh<CR>
 nmap <c-z> :w<CR> :call VimuxRunCommand('clear ; npm test')<CR>
@@ -210,8 +176,10 @@ nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 source ~/unix_setup/src/vim/syntax.vim
 source ~/unix_setup/src/vim/vimfolding.vim
 source ~/unix_setup/src/vim/cscope_maps.vim
-if filereadable("SpecificFile")
+if filereadable(".lvimrc")
     source .lvimrc
+else
+    echo 'lvimrc file not found'
 endif
 
 " nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
@@ -232,8 +200,8 @@ endif
 " nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
 " " i: Find files #including this file
 " nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
-" 
-"
+
+
 " folding
 set foldmethod=syntax
 set foldlevelstart=0
