@@ -15,6 +15,7 @@ def get_part(config):
 		    'name': 'python',
 		    'instructions': [
 			{'arguments': [
+                'mkdir -p ~/downloads',
 			    'cd ~/downloads',
 			    'wget https://bootstrap.pypa.io/ez_setup.py -O - | python',
 			    'easy_install pip',

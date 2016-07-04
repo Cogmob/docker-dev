@@ -5,7 +5,7 @@ def get_part(config):
 		{
 		    'name': 'set up non identifiable home directory',
 		    'instructions': [{'arguments': [
-			'unlink /home/home',
+			'rm -rf /home/home',
 			'ln -s $HOME /home/home',
 			"export HOME='/home/home'"]}]},
 		{
