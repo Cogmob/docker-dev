@@ -1,5 +1,5 @@
 BoldAsFont=yes
-Transparency=low
+Transparency=off
 OpaqueWhenFocused=yes
 Columns=115
 Rows=34
@@ -31,3 +31,4 @@ White=238,232,213
 BoldWhite=253,246,227
 CursorType=block
 CursorBlinks=no
+Scrollbar=none

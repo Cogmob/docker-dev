@@ -31,8 +31,6 @@ NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'vim-scripts/Conque-Shell'
 NeoBundle 'sirver/ultisnips'
-" NeoBundle 'Valloric/YouCompleteMe'
-" NeoBundle 'rdnetto/YCM-Generator'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'tpope/vim-surround'
@@ -53,7 +51,7 @@ let g:NERDTreeWinSize = 40
 let g:gitgutter_sign_column_always = 1
 set ic
 set cursorline
-set expandtab
+set expandtab! " REMOVED FOR WORK
 set ttimeoutlen=50
 set backspace=eol,start,indent
 " set whichwrap+=<,>,h,l
@@ -66,7 +64,6 @@ set noswapfile
 let mapleader=" "
 let NERDTreeQuitOnOpen = 1
 let g:SimpylFold_docstring_preview = 1
-let g:localvimrc_ask = 0
 set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
@@ -104,7 +101,7 @@ nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
 nmap <c-x> :call ToggleComments()<cr>
 nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
-nmap <C-n> :only
+nmap <C-n> :only<CR>
 
 function! ToggleComments()
     if g:commentsvisible
@@ -134,9 +131,10 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 map <leader>t <plug>NERDTreeTabsToggle<CR>
 nnoremap <SPACE> <Nop>
-let g:tabman_toggle = '<leader>mt'
-let g:tabman_focus  = '<leader>mf'
+" let g:tabman_toggle = '<leader>mt'
+" let g:tabman_focus  = '<leader>mf'
 nmap <leader>q :wa<CR> :so $MYVIMRC<CR>
+" map <leader>w :%s/\s\+$//e<CR> :wa<CR> REMOVED FOR WORK
 map <leader>, :SidewaysLeft<CR>
 map <leader>. :SidewaysRight<CR>
 nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
@@ -144,6 +142,9 @@ nnoremap <silent> gh "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <C-c> <C-a>
 map <leader>r zR
+set colorcolumn=82
+
+map <leader>m `a1jmaa
 
 " Mouse
 if has("gui_running")
@@ -176,6 +177,7 @@ nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 source ~/unix_setup/src/vim/syntax.vim
 source ~/unix_setup/src/vim/vimfolding.vim
 source ~/unix_setup/src/vim/cscope_maps.vim
+
 if filereadable(".lvimrc")
     source .lvimrc
 else
@@ -204,7 +206,7 @@ endif
 
 " folding
 set foldmethod=syntax
-set foldlevelstart=0
+set foldlevelstart=99
 
 syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 setlocal foldlevel=0
@@ -262,7 +264,7 @@ if has("folding")
     endfunction
 endif
 
-call feedkeys("zM")
+" call feedkeys("zM")
 
 function! AirlineInit()
     call airline#parts#define_function('cwd', 'getcwd')
@@ -343,3 +345,6 @@ let g:promptline_preset = {
         \'y' : [ promptline#slices#host({ 'only_if_ssh': 1 })],
         \'z' : [ promptline#slices#git_status() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
+
+map <c-g> :wincmd h<CR>
+nmap <C-n> :only<CR>
