@@ -192,3 +192,4 @@ autoload -U add-zsh-hook
 #add-zsh-hook precmd randomise_prompt_colour
 
 export HOME='/home/home'
+stty ixany
