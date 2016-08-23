@@ -204,18 +204,18 @@ endif
 
 " folding
 set foldmethod=syntax
-set foldlevelstart=0
+set foldlevelstart=99
 
 syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-setlocal foldlevel=0
-let javaScript_fold=0        " JavaScript
-let perl_fold=0              " Perl
-let php_folding=0             " PHP
-let r_syntax_folding=0        " R
-let ruby_fold=0               " Ruby
-let sh_fold_enabled=0         " sh
-let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding= 0     " XML
+setlocal foldlevel=99
+let javaScript_fold = 99        " JavaScript
+let perl_fold = 99              " Perl
+let php_folding = 99             " PHP
+let r_syntax_folding = 99        " R
+let ruby_fold = 99               " Ruby
+let sh_fold_enabled = 99         " sh
+let vimsyn_folding = 'af'       " Vim script
+let xml_syntax_folding = 99     " XML
 au FileType javascript call JavaScriptFold()
 
 " hide comments
