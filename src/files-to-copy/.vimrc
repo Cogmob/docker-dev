@@ -40,6 +40,8 @@ NeoBundle 'edkolev/promptline.vim'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'AndrewRadev/sideways.vim'
 NeoBundle 'derekwyatt/vim-fswitch'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'plasticboy/vim-markdown'
 call neobundle#end()
 
 " global variables
