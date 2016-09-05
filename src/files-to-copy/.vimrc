@@ -28,7 +28,7 @@ NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'kien/tabman.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tmhedberg/SimpylFold'
-NeoBundle 'mhinz/vim-signify'
+"NeoBundle 'mhinz/vim-signify'
 NeoBundle 'vim-scripts/Conque-Shell'
 NeoBundle 'sirver/ultisnips'
 NeoBundle 'wellle/targets.vim'
@@ -41,7 +41,11 @@ NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'AndrewRadev/sideways.vim'
 NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'plasticboy/vim-markdown'
+" NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-notes'
+NeoBundle 'tpope/vim-obsession'
+NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
 call neobundle#end()
 
 " global variables
@@ -168,17 +172,22 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " Vimux
 " let g:VimuxUseNearestPane = 1
-map <silent> <LocalLeader>rl :wa<CR> :VimuxRunLastCommand<CR>
-map <silent> <LocalLeader>vi :wa<CR> :VimuxInspectRunner<CR>
-map <silent> <LocalLeader>vk :wa<CR> :VimuxInterruptRunner<CR>
-map <silent> <LocalLeader>vx :wa<CR> :VimuxClosePanes<CR>
-map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
-vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
-nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
+" map <silent> <LocalLeader>rl :wa<CR> :VimuxRunLastCommand<CR>
+" map <silent> <LocalLeader>vi :wa<CR> :VimuxInspectRunner<CR>
+" map <silent> <LocalLeader>vk :wa<CR> :VimuxInterruptRunner<CR>
+" map <silent> <LocalLeader>vx :wa<CR> :VimuxClosePanes<CR>
+" map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
+" vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
+" nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 
 source ~/unix_setup/src/vim/syntax.vim
 source ~/unix_setup/src/vim/vimfolding.vim
 source ~/unix_setup/src/vim/cscope_maps.vim
+
+" get rid of annoying temporary files
+set undodir=~/.vimundo
+set directory=~/.vimundo
+set backupdir=~/.vimundo
 
 if filereadable(".lvimrc")
     source .lvimrc
