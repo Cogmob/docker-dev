@@ -57,7 +57,7 @@ let g:NERDTreeWinSize = 40
 let g:gitgutter_sign_column_always = 1
 set ic
 set cursorline
-set expandtab! " REMOVED FOR WORK
+set expandtab
 set ttimeoutlen=50
 set backspace=eol,start,indent
 " set whichwrap+=<,>,h,l
