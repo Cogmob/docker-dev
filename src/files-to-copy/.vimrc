@@ -28,7 +28,7 @@ NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'kien/tabman.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tmhedberg/SimpylFold'
-NeoBundle 'mhinz/vim-signify'
+" NeoBundle 'mhinz/vim-signify'
 NeoBundle 'vim-scripts/Conque-Shell'
 NeoBundle 'sirver/ultisnips'
 NeoBundle 'wellle/targets.vim'
@@ -42,6 +42,9 @@ NeoBundle 'AndrewRadev/sideways.vim'
 NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-notes'
+NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
 call neobundle#end()
 
 " global variables
@@ -53,7 +56,7 @@ let g:NERDTreeWinSize = 40
 let g:gitgutter_sign_column_always = 1
 set ic
 set cursorline
-set expandtab! " REMOVED FOR WORK
+set expandtab
 set ttimeoutlen=50
 set backspace=eol,start,indent
 " set whichwrap+=<,>,h,l
@@ -76,6 +79,8 @@ let g:ctrlp_working_path_mode = 0
 set shortmess=a
 set nobackup
 set noswapfile
+set backupdir=~/.vimtmp,.
+set directory=~/.vimtmp,.
 
 " Color scheme
 "let g:solarized_termcolors=256
@@ -102,7 +107,7 @@ nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
 nmap <c-x> :call ToggleComments()<cr>
-nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
+" nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
 nmap <C-n> :only<CR>
 
 function! ToggleComments()
@@ -168,13 +173,13 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " Vimux
 " let g:VimuxUseNearestPane = 1
-map <silent> <LocalLeader>rl :wa<CR> :VimuxRunLastCommand<CR>
-map <silent> <LocalLeader>vi :wa<CR> :VimuxInspectRunner<CR>
-map <silent> <LocalLeader>vk :wa<CR> :VimuxInterruptRunner<CR>
-map <silent> <LocalLeader>vx :wa<CR> :VimuxClosePanes<CR>
-map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
-vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
-nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
+" map <silent> <LocalLeader>rl :wa<CR> :VimuxRunLastCommand<CR>
+" map <silent> <LocalLeader>vi :wa<CR> :VimuxInspectRunner<CR>
+" map <silent> <LocalLeader>vk :wa<CR> :VimuxInterruptRunner<CR>
+" map <silent> <LocalLeader>vx :wa<CR> :VimuxClosePanes<CR>
+" map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
+" vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
+" nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 
 source ~/unix_setup/src/vim/syntax.vim
 source ~/unix_setup/src/vim/vimfolding.vim
