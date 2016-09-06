@@ -28,7 +28,6 @@ NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'kien/tabman.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tmhedberg/SimpylFold'
-" NeoBundle 'mhinz/vim-signify'
 NeoBundle 'vim-scripts/Conque-Shell'
 NeoBundle 'sirver/ultisnips'
 NeoBundle 'wellle/targets.vim'
@@ -44,6 +43,7 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-notes'
+NeoBundle 'tpope/vim-obsession'
 NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
 call neobundle#end()
 
@@ -184,6 +184,11 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 source ~/unix_setup/src/vim/syntax.vim
 source ~/unix_setup/src/vim/vimfolding.vim
 source ~/unix_setup/src/vim/cscope_maps.vim
+
+" get rid of annoying temporary files
+set undodir=~/.vimundo
+set directory=~/.vimundo
+set backupdir=~/.vimundo
 
 if filereadable(".lvimrc")
     source .lvimrc
