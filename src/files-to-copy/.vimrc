@@ -40,7 +40,6 @@ NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'AndrewRadev/sideways.vim'
 NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-notes'
 NeoBundle 'tpope/vim-obsession'
@@ -109,6 +108,7 @@ nmap <leader>o :CtrlPClearCache<CR>
 nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
 nmap <C-n> :only<CR>
+nmap <leader>f :set ft=txtfmt<CR>
 
 function! ToggleComments()
     if g:commentsvisible
@@ -192,8 +192,6 @@ set backupdir=~/.vimundo
 
 if filereadable(".lvimrc")
     source .lvimrc
-else
-    echo 'lvimrc file not found'
 endif
 
 " nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>

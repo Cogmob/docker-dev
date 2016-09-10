@@ -32,3 +32,5 @@ BoldWhite=253,246,227
 CursorType=block
 CursorBlinks=no
 Scrollbar=none
+BellType=0
+BellTaskbar=no
