@@ -64,7 +64,6 @@ set hlsearch
 set incsearch
 set nobackup
 set nowb
-set noswapfile
 let mapleader=" "
 let NERDTreeQuitOnOpen = 1
 let g:SimpylFold_docstring_preview = 1
@@ -76,10 +75,6 @@ set wildmenu
 set wildmode=list:longest
 let g:ctrlp_working_path_mode = 0
 set shortmess=a
-set nobackup
-set noswapfile
-set backupdir=~/.vimtmp,.
-set directory=~/.vimtmp,.
 
 " Color scheme
 "let g:solarized_termcolors=256
@@ -105,7 +100,7 @@ nmap <silent> <C-i> :res +5<CR>
 nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
-nmap <c-x> :call ToggleComments()<cr>
+" nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
 nmap <C-n> :only<CR>
 nmap <leader>f :set ft=txtfmt<CR>
