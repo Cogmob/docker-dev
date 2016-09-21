@@ -18,6 +18,7 @@ def get_part(config):
 			    'ln -s ~/unix_setup/src/files-to-copy/.vimrc ~/.vimrc',
 			    'ln -s ~/unix_setup/src/files-to-copy/.zshrc ~/.zshrc',
 			    'ln -s ~/unix_setup/src/ulti-snips ~/.vim/UltiSnips',
+                            'ln -s ~/unix_setup/src/files-to-copy/.pyprc ~/.pyprc',
 
 			    'alias explore="/home/home/unix_setup/src/files-to-copy/explore.bash"',
 			    'git config --global core.pager cat']}]}]}
