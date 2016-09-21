@@ -88,7 +88,7 @@ set laststatus=2
 " don't wrap at the end of lines
 set nowrap
 " line width and indentation
-set textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4
+set softtabstop=4 shiftwidth=4 tabstop=4
 
 " mappings
 noremap <C-f> :Autoformat<CR>
