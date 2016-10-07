@@ -180,6 +180,7 @@ alias npm='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 14.0/C
 alias fsi='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsi.exe'
 alias fsc='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsc.exe'
 alias explore='/home/home/unix_setup/src/files-to-copy/explore.bash'
+alias ts='/home/home/unix_setup/src/files-to-copy/tmux-split.sh'
 
 source ~/unix_setup/src/files-to-copy/.shell_prompt.sh
 
