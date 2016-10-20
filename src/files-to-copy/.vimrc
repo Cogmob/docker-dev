@@ -44,6 +44,7 @@ NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-notes'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
+NeoBundle 'isRuslan/vim-es6'
 call neobundle#end()
 
 " global variables
