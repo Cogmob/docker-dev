@@ -21,4 +21,5 @@ def get_part(config):
                             'ln -s ~/unix_setup/src/files-to-copy/.pyprc ~/.pyprc',
 
 			    'alias explore="/home/home/unix_setup/src/files-to-copy/explore.bash"',
-			    'git config --global core.pager cat']}]}]}
+			    'git config --global core.pager cat',
+                            'export PATH=$PATH:/cygdrive/c/Users/lavery/AppData/Roaming/npm:/cygdrive/c/Program Files/nodejs/']}]}]}

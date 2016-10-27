@@ -44,6 +44,8 @@ NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-notes'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
+NeoBundle 'isRuslan/vim-es6'
+NeoBundle 'tpope/vim-markdown'
 call neobundle#end()
 
 " global variables
@@ -75,6 +77,7 @@ set wildmenu
 set wildmode=list:longest
 let g:ctrlp_working_path_mode = 0
 set shortmess=a
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript']
 
 " Color scheme
 "let g:solarized_termcolors=256
