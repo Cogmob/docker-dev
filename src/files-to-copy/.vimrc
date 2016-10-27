@@ -356,3 +356,4 @@ let g:promptline_preset = {
 
 map <c-g> :wincmd h<CR>
 nmap <C-n> :only<CR>
+nmap <leader>n :only<CR>
