@@ -168,7 +168,7 @@ zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43
 
 function lg() {
     git add . :/
-    git commit -A -m "$1"
+    git commit -am "$1"
     git push
 }
 
