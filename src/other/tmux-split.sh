@@ -6,7 +6,7 @@ tmux send-keys -t $2 "cd ~/"$1 Enter
 tmux send-keys -t $2 "tmux split -h" Enter
 tmux send-keys -t $2 "vim" Enter
 tmux send-keys -t $2 Space "t1j"
-sleep 4
+sleep 8
 tmux send-keys -t $2 "cd ~/"$1 Enter
 tmux send-keys -t $2 "clear" Enter
 tmux select-pane -L
