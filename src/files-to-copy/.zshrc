@@ -193,7 +193,3 @@ autoload -U add-zsh-hook
 
 export HOME='/home/home'
 stty ixany
-
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/bin/virtualenvwrapper.sh
