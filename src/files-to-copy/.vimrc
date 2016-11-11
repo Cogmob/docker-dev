@@ -377,3 +377,10 @@ let g:promptline_preset = {
 map <c-g> :wincmd h<CR>
 nmap <C-n> :only<CR>
 nmap <leader>n :only<CR>
+
+function! OnFileLoad()
+    set foldlevelstart=99
+    set foldlevel=99
+endfunction
+
+autocmd BufReadPre,FileReadPre * call OnFileLoad()
