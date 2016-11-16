@@ -46,6 +46,7 @@ NeoBundle 'tpope/vim-obsession'
 NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
 NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'tpope/vim-markdown'
+NeoBundle 'sidorares/node-vim-debugger'
 call neobundle#end()
 
 " global variables
@@ -64,7 +65,6 @@ set backspace=eol,start,indent
 set smartcase
 set hlsearch
 set incsearch
-set nobackup
 set nowb
 let mapleader=" "
 let NERDTreeQuitOnOpen = 1
@@ -186,7 +186,7 @@ source ~/unix_setup/src/vim/cscope_maps.vim
 " get rid of annoying temporary files
 set undodir=~/.vimundo
 set directory=~/.vimundo
-set backupdir=~/.vimundo
+" set backupdir=~/.vimundo
 
 if filereadable(".lvimrc")
     source .lvimrc
