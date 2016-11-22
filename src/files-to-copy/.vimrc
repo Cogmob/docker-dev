@@ -18,7 +18,10 @@ NeoBundle 'L9'
 NeoBundle 'wincent/command-t'
 NeoBundle 'benmills/vimux'
 NeoBundle 'Chiel92/vim-autoformat'
-NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+" NeoBundle 'kern/vim-es7'
+NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+" NeoBundle 'othree/yajs.vim'
+NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'scrooloose/nerdtree'
@@ -42,7 +45,6 @@ NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-notes'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
-NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'sidorares/node-vim-debugger'
 call neobundle#end()
@@ -342,6 +344,9 @@ let g:LargeFile = 1024 * 1024 * 2
 augroup LargeFile 
  autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
 augroup END
+augroup filetypedetect
+ au! BufRead,BufNewFile *.es6       set syntax=javascript
+augroup END__
 
 function! LargeFile()
  " no syntax highlighting etc
@@ -363,6 +368,11 @@ let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<C-l>"
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'UserUltiSnips']
+
+" Highlight ES6 template strings
+hi link javaScriptTemplateDelim String
+hi link javaScriptTemplateVar Text
+hi link javaScriptTemplateString String
 
 " promptline
 let g:promptline_preset = {
