@@ -1,5 +1,4 @@
-" set up for neobundle
-" Note: Skip initialization for vim-tiny or vim-small.
+" skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
 if has('vim_starting')
@@ -11,7 +10,6 @@ if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" Plugins
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -51,6 +49,7 @@ call neobundle#end()
 
 " global variables
 set nobackup
+set noswapfile
 set laststatus=2
 let g:nerdtree_tabs_open_on_console_startup=0
 " let g:fieldtrip_start_map=<leader>,
