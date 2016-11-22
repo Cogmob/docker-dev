@@ -104,7 +104,6 @@ nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
 " nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
-nmap <C-n> :only<CR>
 nmap <leader>f :set ft=txtfmt<CR>
 
 function! ToggleComments()
@@ -374,12 +373,11 @@ let g:promptline_preset = {
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
 map <c-g> :wincmd h<CR>
-nmap <C-n> :only<CR>
-nmap <leader>n :only<CR>
 
 function! OnFileLoad()
     set foldlevelstart=99
     set foldlevel=99
+    nmap <C-n> :only<CR>
 endfunction
 
 autocmd BufReadPre,FileReadPre * call OnFileLoad()
