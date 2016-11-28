@@ -18,12 +18,8 @@ NeoBundle 'L9'
 NeoBundle 'wincent/command-t'
 NeoBundle 'benmills/vimux'
 NeoBundle 'Chiel92/vim-autoformat'
-" NeoBundle 'kern/vim-es7'
 NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
-" NeoBundle 'othree/yajs.vim'
 NeoBundle 'isRuslan/vim-es6'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'kien/tabman.vim'
@@ -52,7 +48,7 @@ call neobundle#end()
 " global variables
 set nobackup
 set noswapfile
-set laststatus=2
+"set laststatus=2
 let g:nerdtree_tabs_open_on_console_startup=0
 " let g:fieldtrip_start_map=<leader>,
 let g:NERDTreeWinSize = 40
@@ -70,9 +66,6 @@ set nowb
 let mapleader=" "
 let NERDTreeQuitOnOpen = 1
 let g:SimpylFold_docstring_preview = 1
-set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
 set nrformats-=octal
 set wildmenu
 set wildmode=list:longest
@@ -87,7 +80,6 @@ syntax enable
 set background=light
 colorscheme solarized
 set t_Co=256
-set laststatus=2
 
 " don't wrap at the end of lines
 set nowrap
@@ -147,7 +139,9 @@ nnoremap <silent> gh "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <C-c> <C-a>
 map <leader>r zR
-set colorcolumn=82
+
+autocmd InsertEnter <buffer> set colorcolumn=82
+autocmd InsertLeave <buffer> set colorcolumn=999
 
 map <leader>m `a1jmaa
 
@@ -169,16 +163,6 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
-" Vimux
-" let g:VimuxUseNearestPane = 1
-" map <silent> <LocalLeader>rl :wa<CR> :VimuxRunLastCommand<CR>
-" map <silent> <LocalLeader>vi :wa<CR> :VimuxInspectRunner<CR>
-" map <silent> <LocalLeader>vk :wa<CR> :VimuxInterruptRunner<CR>
-" map <silent> <LocalLeader>vx :wa<CR> :VimuxClosePanes<CR>
-" map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
-" vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
-" nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
-
 source ~/unix_setup/src/vim/syntax.vim
 source ~/unix_setup/src/vim/vimfolding.vim
 source ~/unix_setup/src/vim/cscope_maps.vim
@@ -191,26 +175,6 @@ set directory=~/.vimundo
 if filereadable(".lvimrc")
     source .lvimrc
 endif
-
-" nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
-" nnoremap <leader>l :call ToggleLocationList()<CR>
-" " s: Find this C symbol
-" nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
-" " g: Find this definition
-" nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
-" " d: Find functions called by this function
-" nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
-" " c: Find functions calling this function
-" nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
-" " t: Find this text string
-" nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
-" " e: Find this egrep pattern
-" nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
-" " f: Find this file
-" nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
-" " i: Find files #including this file
-" nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
-
 
 " folding
 set foldmethod=syntax
@@ -271,26 +235,6 @@ if has("folding")
         return printf('%s%*s', l:linetext, l:align, l:foldtext)
     endfunction
 endif
-
-" call feedkeys("zM")
-
-function! AirlineInit()
-    call airline#parts#define_function('cwd', 'getcwd')
-    let g:airline_section_a = airline#section#create_left([])
-    let g:airline_section_b = airline#section#create(['%f'])
-    let g:airline_section_c = airline#section#create([])
-
-    let g:airline_section_x = airline#section#create([])
-    let g:airline_section_y = airline#section#create_right(['branch','%l','%c'])
-    let g:airline_section_z = airline#section#create_right(['mode'])
-
-    "let g:airline_section_b = airline#section#create_left(['ffenc','hunks','%f'])
-    "let g:airline_section_x = airline#section#create(['%P'])
-    "let g:airline_section_x = airline#section#create(['branch'])
-    "let g:airline_section_y = airline#section#create(['%B'])
-endfunction
-autocmd VimEnter * call AirlineInit()
-let g:airline_powerline_fonts = 1
 
 " disable simple movements
 function! DisableIfNonCounted(move) range
@@ -388,6 +332,15 @@ function! OnFileLoad()
     set foldlevelstart=99
     set foldlevel=99
     nmap <C-n> :only<CR>
+    set foldcolumn=12
 endfunction
 
 autocmd BufReadPre,FileReadPre * call OnFileLoad()
+hi StatusLineNC ctermbg=darkgrey ctermfg=white
+hi StatusLine ctermbg=white ctermfg=darkgrey cterm=bold
+hi LineNr cterm=NONE ctermfg=white ctermbg=white gui=NONE guifg=white guibg=white
+hi CurrentLineNr cterm=NONE ctermfg=white ctermbg=white gui=NONE guifg=white guibg=white
+hi CurrentLineNr cterm=NONE ctermfg=white ctermbg=white gui=NONE guifg=white guibg=white
+hi FoldColumn guibg=white guifg=lightgrey ctermfg=white ctermbg=white
+hi NonText guifg=white ctermfg=white
+set statusline=__%=%f
