@@ -142,9 +142,6 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <C-c> <C-a>
 map <leader>r zR
 
-autocmd InsertEnter <buffer> set colorcolumn=82
-autocmd InsertLeave <buffer> set colorcolumn=999
-
 map <leader>m `a1jmaa
 
 " Mouse
@@ -338,6 +335,8 @@ function! OnFileLoad()
     if exists("#airline")
         AirlineToggle
     endif
+    autocmd InsertEnter <buffer> set colorcolumn=82
+    autocmd InsertLeave <buffer> set colorcolumn=999
 endfunction
 
 autocmd BufReadPre,FileReadPre * call OnFileLoad()
