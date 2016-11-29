@@ -33,7 +33,6 @@ NeoBundle 'wellle/targets.vim'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
 NeoBundle 'edkolev/promptline.vim'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'AndrewRadev/sideways.vim'
@@ -329,22 +328,29 @@ function! OnFileLoad()
         AirlineToggle
     endif
     autocmd InsertEnter <buffer> set colorcolumn=82
+    autocmd InsertEnter <buffer> set nu
+    autocmd InsertEnter <buffer> set foldcolumn=8
+
     autocmd InsertLeave <buffer> set colorcolumn=999
-    " call Shrinkbuff()
+    autocmd InsertLeave <buffer> set nu!
+    autocmd InsertLeave <buffer> set nonu
+    autocmd InsertLeave <buffer> set foldcolumn=12
 endfunction
+autocmd FileReadPost * call OnFileLoad()
+autocmd BufRead * call OnFileLoad()
 
 function! Shrinkbuff()
     let bufferheight = line('$')
-    if bufferheight < 27
-        let &wh=bufferheight + 1
+    if bufferheight < 26
+        let &wh=bufferheight + 2
     else
         let &wh=28
     endif
 endfunction
 set wmh=0
 autocmd BufEnter * call Shrinkbuff()
+
 function! Shrinkall()
-    " TODO: finish this
     " - go to top
     wincmd k
     wincmd k
@@ -399,15 +405,13 @@ function! Shrinkall()
 endfunction
 nmap <leader>s :call Shrinkall() <CR>
 
-autocmd FileReadPost * call OnFileLoad()
-hi StatusLineNC ctermbg=darkgrey ctermfg=white
-hi StatusLine ctermbg=white ctermfg=darkgrey cterm=bold
-hi LineNr cterm=NONE ctermfg=white ctermbg=white gui=NONE guifg=white guibg=white
-hi CurrentLineNr cterm=NONE ctermfg=white ctermbg=white gui=NONE guifg=white guibg=white
+hi StatusLineNC ctermbg=grey ctermfg=white
+hi StatusLine ctermbg=white ctermfg=grey cterm=bold
+hi LineNr cterm=NONE ctermfg=grey ctermbg=NONE gui=NONE guifg=white guibg=white
 hi CurrentLineNr cterm=NONE ctermfg=white ctermbg=white gui=NONE guifg=white guibg=white
 hi FoldColumn guibg=white guifg=lightgrey ctermfg=white ctermbg=white
 hi NonText guifg=white ctermfg=white
-set statusline=\ \ \ \ \ \ \ \ ----
+set statusline=\ \ \ \ \ \ \ \ -
 
 set ls=0
 set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f\ \ \ \ \ \ \ \ \ \ \ \ 
