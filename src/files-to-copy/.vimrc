@@ -13,6 +13,8 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'L9'
 NeoBundle 'wincent/command-t'
@@ -333,6 +335,9 @@ function! OnFileLoad()
     set foldlevel=99
     nmap <C-n> :only<CR>
     set foldcolumn=12
+    if exists("#airline")
+        AirlineToggle
+    endif
 endfunction
 
 autocmd BufReadPre,FileReadPre * call OnFileLoad()
@@ -343,4 +348,12 @@ hi CurrentLineNr cterm=NONE ctermfg=white ctermbg=white gui=NONE guifg=white gui
 hi CurrentLineNr cterm=NONE ctermfg=white ctermbg=white gui=NONE guifg=white guibg=white
 hi FoldColumn guibg=white guifg=lightgrey ctermfg=white ctermbg=white
 hi NonText guifg=white ctermfg=white
-set statusline=__%=%f
+set statusline=\ \ \ \ \ \ \ \ ----
+
+set ls=0
+set showtabline
+set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f\ \ \ \ \ \ \ \ \ \ \ \ 
+"set or change the color of the tabline
+hi TabLineFill ctermbg=white ctermfg=grey cterm=bold
+set showtabline=2
+noh
