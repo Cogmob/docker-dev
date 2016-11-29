@@ -48,6 +48,7 @@ NeoBundle 'sidorares/node-vim-debugger'
 call neobundle#end()
 
 " global variables
+set splitbelow
 set nobackup
 set noswapfile
 "set laststatus=2
@@ -113,14 +114,6 @@ function! ToggleComments()
 endfunction
 let commentsvisible=1
 hi! Comment guifg=bg ctermfg=DarkBlue
-
-function! g:Leaderp()
-  return "Meow String!"
-endfunction
-nmap <leader>l :echo g:Leaderp()<CR>
-"nmap <leader>l :echo g:asdf<CR>
-"let g:Myfunc = function("RunL")
-"let funca = function("ToggleComments")
 
 nmap <leader>h :noh<CR>
 nmap <c-z> :w<CR> :call VimuxRunCommand('clear ; npm test')<CR>
@@ -337,9 +330,22 @@ function! OnFileLoad()
     endif
     autocmd InsertEnter <buffer> set colorcolumn=82
     autocmd InsertLeave <buffer> set colorcolumn=999
+    " call Shrinkbuff()
 endfunction
 
-autocmd BufReadPre,FileReadPre * call OnFileLoad()
+function! Shrinkbuff()
+    let bufferheight = line('$')
+    if bufferheight < 27
+        let &wh=bufferheight + 1
+    else
+        let &wh=28
+    endif
+endfunction
+nmap <leader>s :call Shrinkbuff()<CR>
+set wmh=0
+autocmd BufEnter * call Shrinkbuff()
+
+autocmd FileReadPost * call OnFileLoad()
 hi StatusLineNC ctermbg=darkgrey ctermfg=white
 hi StatusLine ctermbg=white ctermfg=darkgrey cterm=bold
 hi LineNr cterm=NONE ctermfg=white ctermbg=white gui=NONE guifg=white guibg=white
@@ -350,9 +356,7 @@ hi NonText guifg=white ctermfg=white
 set statusline=\ \ \ \ \ \ \ \ ----
 
 set ls=0
-set showtabline
 set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f\ \ \ \ \ \ \ \ \ \ \ \ 
-"set or change the color of the tabline
 hi TabLineFill ctermbg=white ctermfg=grey cterm=bold
 set showtabline=2
 noh
