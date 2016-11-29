@@ -1,4 +1,4 @@
-" skip initialization for vim-tiny or vim-small.
+"call Shrinkbuff()<CR> skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
 if has('vim_starting')
@@ -341,9 +341,63 @@ function! Shrinkbuff()
         let &wh=28
     endif
 endfunction
-nmap <leader>s :call Shrinkbuff()<CR>
 set wmh=0
 autocmd BufEnter * call Shrinkbuff()
+function! Shrinkall()
+    " TODO: finish this
+    " - go to top
+    wincmd k
+    wincmd k
+    wincmd k
+    wincmd k
+    wincmd k
+    wincmd k
+    wincmd k
+
+    " - shrink all to zero
+    res -500
+    wincmd j
+    res -500
+    wincmd j
+    res -500
+    wincmd j
+    res -500
+    wincmd j
+    res -500
+    wincmd j
+    res -500
+    wincmd j
+    res -500
+    wincmd j
+    " - grow bottom to max
+    res 500
+
+    " - go to top
+    wincmd k
+    wincmd k
+    wincmd k
+    wincmd k
+    wincmd k
+    wincmd k
+    wincmd k
+
+    " - for each on way down, msgg`s
+    execute 'normal! msgg`s'
+    wincmd j
+    execute 'normal! msgg`s'
+    wincmd j
+    execute 'normal! msgg`s'
+    wincmd j
+    execute 'normal! msgg`s'
+    wincmd j
+    execute 'normal! msgg`s'
+    wincmd j
+    execute 'normal! msgg`s'
+    wincmd j
+    execute 'normal! msgg`s'
+    wincmd j
+endfunction
+nmap <leader>s :call Shrinkall() <CR>
 
 autocmd FileReadPost * call OnFileLoad()
 hi StatusLineNC ctermbg=darkgrey ctermfg=white
