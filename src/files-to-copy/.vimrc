@@ -34,7 +34,7 @@ NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'edkolev/promptline.vim'
-NeoBundle 'edkolev/tmuxline.vim'
+" NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'AndrewRadev/sideways.vim'
 NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'godlygeek/tabular'
@@ -403,7 +403,7 @@ function! Shrinkall()
     execute 'normal! msgg`s'
     wincmd j
 endfunction
-nmap <leader>s :call Shrinkall() <CR>
+nmap <leader>w :call Shrinkall() <CR>
 
 hi StatusLineNC ctermbg=grey ctermfg=white
 hi StatusLine ctermbg=white ctermfg=grey cterm=bold
