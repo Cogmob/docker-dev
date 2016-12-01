@@ -1,4 +1,4 @@
-"call Shrinkbuff()<CR> skip initialization for vim-tiny or vim-small.
+" skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
 if has('vim_starting')
@@ -100,7 +100,12 @@ nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
 " nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
-nmap <leader>f :set ft=txtfmt<CR>
+
+nmap <leader>f :call Ack()<CR>
+function! Ack()
+    let command='ack -i "' . getline('.') . '"'
+    VimuxRunCommand(command)
+endfunction
 
 function! ToggleComments()
     if g:commentsvisible
@@ -120,7 +125,7 @@ vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 " map <silent> <leader><cr> :noh<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-map <leader>t <plug>NERDTreeTabsToggle<CR>
+map <leader>t <plug>NERDTreeTabsToggle<CR> :call ShrinkAll()<CR>
 nnoremap <SPACE> <Nop>
 " let g:tabman_toggle = '<leader>mt'
 " let g:tabman_focus  = '<leader>mf'
@@ -151,8 +156,8 @@ func! DeleteTrailingWS()
     %s/\s\+$//ge
     exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.py call DeleteTrailingWS()
+autocmd BufWrite *.coffee call DeleteTrailingWS()
 
 source ~/unix_setup/src/vim/syntax.vim
 source ~/unix_setup/src/vim/vimfolding.vim
@@ -327,6 +332,7 @@ function! OnFileLoad()
     if exists("#airline")
         AirlineToggle
     endif
+
     autocmd InsertEnter <buffer> set colorcolumn=82
     autocmd InsertEnter <buffer> set nu
     autocmd InsertEnter <buffer> set foldcolumn=8
@@ -335,11 +341,12 @@ function! OnFileLoad()
     autocmd InsertLeave <buffer> set nu!
     autocmd InsertLeave <buffer> set nonu
     autocmd InsertLeave <buffer> set foldcolumn=12
+    autocmd InsertLeave <buffer> call ShrinkAll()
 endfunction
 autocmd FileReadPost * call OnFileLoad()
 autocmd BufRead * call OnFileLoad()
 
-function! Shrinkbuff()
+function! ShrinkBuff()
     let bufferheight = line('$')
     if bufferheight < 26
         let &wh=bufferheight + 2
@@ -347,10 +354,12 @@ function! Shrinkbuff()
         let &wh=28
     endif
 endfunction
+autocmd BufEnter * call ShrinkBuff()
 set wmh=0
-autocmd BufEnter * call Shrinkbuff()
 
-function! Shrinkall()
+function! ShrinkAll()
+    let winno=tabpagewinnr(tabpagenr())
+
     " - go to top
     wincmd k
     wincmd k
@@ -402,8 +411,11 @@ function! Shrinkall()
     wincmd j
     execute 'normal! msgg`s'
     wincmd j
+
+    execute winno . 'wincmd w'
 endfunction
-nmap <leader>w :call Shrinkall() <CR>
+map <leader>w :call ShrinkAll()<CR>
+autocmd InsertLeave <buffer> call ShrinkAll()
 
 hi StatusLineNC ctermbg=grey ctermfg=white
 hi StatusLine ctermbg=white ctermfg=grey cterm=bold
@@ -418,3 +430,4 @@ set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f\ \ \ \ \ \ \ \ \ \ \ \
 hi TabLineFill ctermbg=white ctermfg=grey cterm=bold
 set showtabline=2
 noh
+hi VertSplit ctermfg=bg ctermbg=white
