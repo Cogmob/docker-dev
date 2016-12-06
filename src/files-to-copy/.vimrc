@@ -19,7 +19,9 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'L9'
 NeoBundle 'wincent/command-t'
 NeoBundle 'benmills/vimux'
+NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
 NeoBundle 'Chiel92/vim-autoformat'
+NeoBundle 'ryanoasis/vim-devicons'
 NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'scrooloose/nerdtree'
@@ -125,7 +127,7 @@ vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 " map <silent> <leader><cr> :noh<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-map <leader>t <plug>NERDTreeTabsToggle<CR> :call ShrinkAll()<CR>
+map <leader>t <plug>NERDTreeTabsToggle<CR>
 nnoremap <SPACE> <Nop>
 " let g:tabman_toggle = '<leader>mt'
 " let g:tabman_focus  = '<leader>mf'
@@ -341,7 +343,6 @@ function! OnFileLoad()
     autocmd InsertLeave <buffer> set nu!
     autocmd InsertLeave <buffer> set nonu
     autocmd InsertLeave <buffer> set foldcolumn=12
-    autocmd InsertLeave <buffer> call ShrinkAll()
 endfunction
 autocmd FileReadPost * call OnFileLoad()
 autocmd BufRead * call OnFileLoad()
@@ -431,3 +432,5 @@ hi TabLineFill ctermbg=white ctermfg=grey cterm=bold
 set showtabline=2
 noh
 hi VertSplit ctermfg=bg ctermbg=white
+
+set encoding=utf8
