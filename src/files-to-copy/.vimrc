@@ -433,5 +433,5 @@ hi TabLineFill ctermbg=white ctermfg=grey cterm=bold
 set showtabline=2
 noh
 hi VertSplit ctermfg=bg ctermbg=white
-
+set fillchars+=vert:\|
 set encoding=utf8
