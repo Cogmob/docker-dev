@@ -49,7 +49,6 @@ NeoBundle 'sidorares/node-vim-debugger'
 call neobundle#end()
 
 " global variables
-set splitbelow
 set nobackup
 set noswapfile
 "set laststatus=2
@@ -330,7 +329,7 @@ map <c-g> :wincmd h<CR>
 function! OnFileLoad()
     set foldlevelstart=99
     set foldlevel=99
-    nmap <C-n> :only<CR>
+    map <leader>n :only<CR>
     set foldcolumn=12
     if exists("#airline")
         AirlineToggle
