@@ -99,6 +99,9 @@ nmap <silent> <C-i> :res +5<CR>
 nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
+nmap <leader>3 :test
+map <leader>4 "
+map <leader>5 @
 " nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
 
