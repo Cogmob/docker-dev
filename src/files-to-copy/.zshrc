@@ -181,6 +181,7 @@ alias fsi='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/
 alias fsc='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsc.exe'
 alias explore='/home/home/unix_setup/src/other/explore.bash'
 alias ts='/home/home/unix_setup/src/other/tmux-split.sh'
+alias grep='grep -r --color=always'
 
 source ~/unix_setup/src/other/shell_prompt.sh
 
@@ -194,3 +195,4 @@ autoload -U add-zsh-hook
 
 export HOME='/home/home'
 stty ixany
+setopt extendedglob
