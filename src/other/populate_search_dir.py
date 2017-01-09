@@ -24,6 +24,7 @@ os.chdir(search_results)
 for line in sys.stdin:
     line = line.replace('\n', '')
     line = r.sub('', line)
+    print(line)
     if (dirs):
         pathname = os.path.expanduser('~/search_results/' + line)
         d = os.path.dirname(pathname)
@@ -32,14 +33,15 @@ for line in sys.stdin:
         os.symlink(current_dir + '/' + line, pathname)
     else:
         dir_string = ''
-        for part in line.split('/'):
+        for part in reversed(line.split('/')):
             add_str = part[:4].replace('.','')
             if add_str is not '':
                 dir_string += add_str
                 dir_string += '.'
         pathname = os.path.expanduser(
                 '~/search_results/'
+                + os.path.basename(line)
+                + '__'
                 + dir_string
                 + os.path.basename(line))
-        print(pathname)
         os.symlink(current_dir + '/' + line, pathname)
