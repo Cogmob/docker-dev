@@ -75,6 +75,7 @@ set wildmode=list:longest
 let g:ctrlp_working_path_mode = 0
 set shortmess=a
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript']
+set cmdheight=2
 
 " Color scheme
 "let g:solarized_termcolors=256
@@ -237,51 +238,51 @@ if has("folding")
     endfunction
 endif
 
-" disable simple movements
-function! DisableIfNonCounted(move) range
-    if v:count
-        return a:move
-    else
-        " You can make this do something annoying like:
-           " echoerr "Count required!"
-           " sleep 2
-        return ""
-    endif
-endfunction
-
-function! SetDisablingOfBasicMotionsIfNonCounted(on)
-    let keys_to_disable = get(g:, "keys_to_disable_if_not_preceded_by_count", ["j", "k", "l", "h"])
-    if a:on
-        for key in keys_to_disable
-            execute "noremap <expr> <silent> " . key . " DisableIfNonCounted('" . key . "')"
-        endfor
-        let g:keys_to_disable_if_not_preceded_by_count = keys_to_disable
-        let g:is_non_counted_basic_motions_disabled = 1
-    else
-        for key in keys_to_disable
-            try
-                execute "unmap " . key
-            catch /E31:/
-            endtry
-        endfor
-        let g:is_non_counted_basic_motions_disabled = 0
-    endif
-endfunction
-
-function! ToggleDisablingOfBasicMotionsIfNonCounted()
-    let is_disabled = get(g:, "is_non_counted_basic_motions_disabled", 0)
-    if is_disabled
-        call SetDisablingOfBasicMotionsIfNonCounted(0)
-    else
-        call SetDisablingOfBasicMotionsIfNonCounted(1)
-    endif
-endfunction
-
-command! ToggleDisablingOfNonCountedBasicMotions :call ToggleDisablingOfBasicMotionsIfNonCounted()
-command! DisableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(1)
-command! EnableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(0)
-
-DisableNonCountedBasicMotions
+" " disable simple movements
+" function! DisableIfNonCounted(move) range
+"     if v:count
+"         return a:move
+"     else
+"         " You can make this do something annoying like:
+"            " echoerr "Count required!"
+"            " sleep 2
+"         return ""
+"     endif
+" endfunction
+" 
+" function! SetDisablingOfBasicMotionsIfNonCounted(on)
+"     let keys_to_disable = get(g:, "keys_to_disable_if_not_preceded_by_count", ["j", "k", "l", "h"])
+"     if a:on
+"         for key in keys_to_disable
+"             execute "noremap <expr> <silent> " . key . " DisableIfNonCounted('" . key . "')"
+"         endfor
+"         let g:keys_to_disable_if_not_preceded_by_count = keys_to_disable
+"         let g:is_non_counted_basic_motions_disabled = 1
+"     else
+"         for key in keys_to_disable
+"             try
+"                 execute "unmap " . key
+"             catch /E31:/
+"             endtry
+"         endfor
+"         let g:is_non_counted_basic_motions_disabled = 0
+"     endif
+" endfunction
+" 
+" function! ToggleDisablingOfBasicMotionsIfNonCounted()
+"     let is_disabled = get(g:, "is_non_counted_basic_motions_disabled", 0)
+"     if is_disabled
+"         call SetDisablingOfBasicMotionsIfNonCounted(0)
+"     else
+"         call SetDisablingOfBasicMotionsIfNonCounted(1)
+"     endif
+" endfunction
+" 
+" command! ToggleDisablingOfNonCountedBasicMotions :call ToggleDisablingOfBasicMotionsIfNonCounted()
+" command! DisableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(1)
+" command! EnableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(0)
+" 
+" DisableNonCountedBasicMotions
 
 " large files "
 " file is large from 2mb
@@ -441,14 +442,13 @@ set encoding=utf8
 " move cursor by display lines when wrapping
 set columns=94
 autocmd VimResized * if (&columns > 94) | set columns=94 | endif
-set wrap
 set linebreak
 
-noremap <leader>4 :call ToggleWrap()<CR> afsjdfkljaslkdfj klajsdklfjakl sjdfkl jaskljdfklaj s
+noremap <leader>4 :call ToggleWrap()<CR>
 function! ToggleWrap()
     if &wrap
         echo "Wrap OFF"
-        setlocal nowrap
+        set nowrap
         set virtualedit=all
 		silent! nunmap <buffer> <Up>
 		silent! nunmap <buffer> <Down>
@@ -460,8 +460,8 @@ function! ToggleWrap()
 		silent! iunmap <buffer> <End>
     else
 		echo "Wrap ON"
-        setlocal wrap linebreak nolist
-        set virtualedit=
+        set wrap linebreak nolist
+        set virtualedit=all
         setlocal display+=lastline
         noremap  <buffer> <silent> <Up>   gk
         noremap  <buffer> <silent> <Down> gj
