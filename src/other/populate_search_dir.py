@@ -45,3 +45,6 @@ for line in sys.stdin:
                 + dir_string
                 + os.path.basename(line))
         os.symlink(current_dir + '/' + line, pathname)
+        os.symlink(
+                current_dir + '/' + os.path.dirname(line),
+                pathname + '__folder')
