@@ -1,5 +1,5 @@
 #!/bin/bash
-for el in $( cat folders_to_check )
+for el in $( cat .folders_to_check )
 do
     cd $el
 
