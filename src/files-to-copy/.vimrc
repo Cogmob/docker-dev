@@ -105,6 +105,7 @@ map <leader>4 "
 map <leader>5 @
 " nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
+nnoremap Y y$
 
 nmap <leader>f :call Ack()<CR>
 function! Ack()

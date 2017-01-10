@@ -31,8 +31,9 @@ def search(dirs, title):
     ansi_escape = re.compile(r'/(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]/')
     r= re.compile("\033\[[0-9;]+m")
     current_dir = os.getcwd()
-    search_results = os.path.expanduser('~/search_results/..current')
-    shutil.rmtree(search_results)
+    search_results = os.path.expanduser('~/search_results/_..current')
+    if os.path.exists(search_results):
+        shutil.rmtree(search_results)
     os.mkdir(search_results)
     os.chdir(search_results)
 
@@ -47,18 +48,18 @@ def search(dirs, title):
                 os.makedirs(d)
             os.symlink(current_dir + '/' + line, pathname)
         else:
-            dir_string = ''
+            dir_string = []
             for part in reversed(line.split('/')):
-                add_str = part[:4].replace('.','')
+                add_str = part[:6].replace('.','')
                 if add_str is not '':
-                    dir_string += add_str
-                    dir_string += '.'
+                    dir_string.append(add_str)
+            dir_string = '.'.join(dir_string)
             pathname = search_results + '/' + os.path.basename(line) + '__'
-            pathname += dir_string + os.path.basename(line)
+            pathname += dir_string
             os.symlink(current_dir + '/' + line, pathname)
-            os.symlink(
-                    current_dir + '/' + os.path.dirname(line),
-                    pathname + '__folder')
+            pathname = search_results + '/.' + os.path.basename(line) + '__'
+            pathname += dir_string + '__folder'
+            os.symlink(current_dir + '/' + os.path.dirname(line), pathname)
 
     metapath = search_results +'/.meta'
     with open(metapath, 'w+') as f:
@@ -67,13 +68,13 @@ def search(dirs, title):
         f.write(title + '_' + '.'.join(cdf))
 
 def save():
-    search_results = os.path.expanduser('~/search_results/..current')
+    search_results = os.path.expanduser('~/search_results/_..current')
     with open(search_results + '/.meta') as f:
         filename = f.read().replace('/n', '')
         print('saving ' + filename)
-        shutil.copytree(
-                search_results,
-                search_results + '/../' + filename,
-                symlinks=True)
+        new_path = search_results + '/../_' + filename
+        if os.path.exists(new_path):
+            shutil.rmtree(new_path)
+        shutil.copytree(search_results, new_path, symlinks=True)
 
 run()
