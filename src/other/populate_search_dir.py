@@ -54,8 +54,9 @@ def search(dirs, title):
                 if add_str is not '':
                     dir_string.append(add_str)
             dir_string = '.'.join(dir_string)
+            extension = os.path.basename(line).split('.')[-1]
             pathname = search_results + '/' + os.path.basename(line) + '__'
-            pathname += dir_string
+            pathname += dir_string + '.' + extension
             os.symlink(current_dir + '/' + line, pathname)
             pathname = search_results + '/.' + os.path.basename(line) + '__'
             pathname += dir_string + '__folder'

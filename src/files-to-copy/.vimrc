@@ -20,6 +20,7 @@ NeoBundle 'L9'
 NeoBundle 'wincent/command-t'
 NeoBundle 'benmills/vimux'
 NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'Chiel92/vim-autoformat'
 NeoBundle 'ryanoasis/vim-devicons'
 NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
