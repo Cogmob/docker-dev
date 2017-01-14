@@ -50,7 +50,7 @@ def search(dirs, title):
         else:
             dir_string = []
             for part in reversed(line.split('/')):
-                add_str = part[:6].replace('.','')
+                add_str = part.replace('.','')
                 if add_str is not '':
                     dir_string.append(add_str)
             dir_string = '.'.join(dir_string)
