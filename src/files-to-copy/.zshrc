@@ -186,6 +186,7 @@ alias grep='grep -r --color=always --ignore-case'
 alias frep='grep -l --color=never --exclude=\*.{anim,atf,bmp,bnk,csh,dds,exe,fla,jpg,mani,noise,png,psd,sdb,stationData,str,swf,sysmeta,tga,ttf,wem,xls,xmdl}'
 alias psd='python3 ~/unix_setup/src/other/populate_search_dir.py'
 alias prep='/home/home/unix_setup/src/other/prep.sh'
+alias glog='git log --pretty=oneline --abbrev-commit'
 
 source ~/unix_setup/src/other/shell_prompt.sh
 
