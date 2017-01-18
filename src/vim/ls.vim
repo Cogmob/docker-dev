@@ -23,8 +23,7 @@ syn match lsKey "\w*\:"
 syn keyword lsCont cont
 
 syn keyword lsMainKw break do in typeof case else instanceof var catch export new void class extends return while const finally super with continue for switch yield debugger function this default if throw delete import try enum await implements package protected interface private public next cont
-syn match lsMainKw "[<>\(\)\[\]\{\}+\*/=>\,]"
-            "<>'"()[]{}+*/]"
+syn match lsPunc "[<>\(\)\[\]\{\}+\*/=>\,\.]"
 
 let b:current_syntax = "ls"
 

@@ -512,3 +512,4 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 hi lsKey ctermfg=darkcyan
+hi lsPunc ctermfg=darkgreen cterm=bold

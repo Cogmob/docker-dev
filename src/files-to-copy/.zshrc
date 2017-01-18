@@ -182,7 +182,7 @@ alias fsi='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/
 alias fsc='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsc.exe'
 alias explore='/home/home/unix_setup/src/other/explore.bash'
 alias ts='/home/home/unix_setup/src/other/tmux-split.sh'
-alias grep='grep -r --color=always --ignore-case'
+alias grep='grep --color=always --ignore-case'
 alias frep='grep -l --color=never --exclude=\*.{anim,atf,bmp,bnk,csh,dds,exe,fla,jpg,mani,noise,png,psd,sdb,stationData,str,swf,sysmeta,tga,ttf,wem,xls,xmdl}'
 alias psd='python3 ~/unix_setup/src/other/populate_search_dir.py'
 alias prep='/home/home/unix_setup/src/other/prep.sh'
