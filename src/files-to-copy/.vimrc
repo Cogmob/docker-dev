@@ -79,12 +79,13 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript']
 set cmdheight=2
 
 " Color scheme
-"let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 filetype plugin indent on    " required
 syntax enable
+au BufRead,BufNewFile *.ls set filetype=ls
 set background=light
-colorscheme solarized
 set t_Co=256
+colorscheme solarized
 
 " don't wrap at the end of lines
 set wrap
@@ -167,7 +168,7 @@ endfunc
 autocmd BufWrite *.py call DeleteTrailingWS()
 autocmd BufWrite *.coffee call DeleteTrailingWS()
 
-source ~/unix_setup/src/vim/syntax.vim
+" source ~/unix_setup/src/vim/syntax.vim
 source ~/unix_setup/src/vim/vimfolding.vim
 source ~/unix_setup/src/vim/cscope_maps.vim
 
@@ -446,7 +447,7 @@ set columns=94
 autocmd VimResized * if (&columns > 94) | set columns=94 | endif
 set linebreak
 
-noremap <leader>4 :call ToggleWrap()<CR>
+noremap <leader>3 :call ToggleWrap()<CR>
 function! ToggleWrap()
     if &wrap
         echo "Wrap OFF"
@@ -501,3 +502,13 @@ function! FloatDown()
     endwhile
 endfunction
 nnoremap gD :call FloatDown()<CR>
+
+" Show syntax highlighting groups for word under cursor
+nmap <leader>o :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+hi lsKey ctermfg=darkcyan

@@ -86,6 +86,7 @@ source $ZSH/oh-my-zsh.sh
 
 # general settings
 export TERM="xterm-256color"
+[ -n "$TMUX" ] && export TERM=screen-256color
 source "$HOME/.antigen/antigen.zsh"
 
 BULLETTRAIN_PROMPT_ORDER=(

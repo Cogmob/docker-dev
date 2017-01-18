@@ -21,17 +21,25 @@ def run():
         dest='dirs',
         help='create folders in the results',
         action='store_true')
+    parser.add_argument(
+        '-i',
+        dest='inplace',
+        help='store the results in the current folder',
+        action='store_true')
     args = parser.parse_args()
     if (args.save):
-        save()
+        save(args.inplace)
     else:
-        search(args.dirs, args.title)
+        search(args.dirs, args.title, args.inplace)
 
-def search(dirs, title):
+def search(dirs, title, inplace):
     ansi_escape = re.compile(r'/(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]/')
     r= re.compile("\033\[[0-9;]+m")
     current_dir = os.getcwd()
-    search_results = os.path.expanduser('~/search_results/_..current')
+    if inplace:
+        search_results = current_dir + '/_search_results'
+    else:
+        search_results = os.path.expanduser('~/search_results/_..current')
     if os.path.exists(search_results):
         shutil.rmtree(search_results)
     os.mkdir(search_results)
@@ -68,14 +76,17 @@ def search(dirs, title):
         cdf = [i for i in cdf if i]
         f.write(title + '_' + '.'.join(cdf))
 
-def save():
-    search_results = os.path.expanduser('~/search_results/_..current')
-    with open(search_results + '/.meta') as f:
+def save(inplace):
+    from_path = os.path.expanduser('~/search_results/_..current')
+    if inplace:
+        frompath = os.getcwd() + '/_search_results'
+    to_path = os.path.expanduser('~/search_results')
+    with open(from_path + '/.meta') as f:
         filename = f.read().replace('/n', '')
         print('saving ' + filename)
-        new_path = search_results + '/../_' + filename
+        new_path = to_path + '/../_' + filename
         if os.path.exists(new_path):
             shutil.rmtree(new_path)
-        shutil.copytree(search_results, new_path, symlinks=True)
+        shutil.copytree(from_path, new_path, symlinks=True)
 
 run()
