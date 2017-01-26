@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -15,7 +15,7 @@ export ZSH=$HOME/.oh-my-zsh
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -24,7 +24,7 @@ export ZSH=$HOME/.oh-my-zsh
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -49,7 +49,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+#plugins=(git)
 
 # User configuration
 
@@ -57,7 +57,7 @@ plugins=(git)
 # export MANPATH="/usr/local/man:$MANPATH"
 unlink ~/bin
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -87,34 +87,34 @@ source $ZSH/oh-my-zsh.sh
 # general settings
 export TERM="xterm-256color"
 [ -n "$TMUX" ] && export TERM=screen-256color
-source "$HOME/.antigen/antigen.zsh"
-
-BULLETTRAIN_PROMPT_ORDER=(
-    dir
-    status
-    virtualenv
-)
-BULLETTRAIN_PROMPT_CHAR=''
-BULLETTRAIN_PROMPT_ROOT=true
-BULLETTRAIN_PROMPT_ADD_NEWLINE=true
-BULLETTRAIN_STATUS_SHOW=true
-BULLETTRAIN_VIRTUALENV_SHOW=true
-BULLETTRAIN_DIR_SHOW=true
-BULLETTRAIN_DIR_EXTENDED=1
-BULLETTRAIN_GIT_SHOW=true
-BULLETTRAIN_GIT_UNMERGED=' ='
-BULLETTRAIN_GIT_AHEAD=' →'
-BULLETTRAIN_GIT_BEHIND=' ←'
-BULLETTRAIN_GIT_DIVERGED=' ➚'
-BULLETTRAIN_GIT_EXTENDED=false
-BULLETTRAIN_GIT_PROMPT_CMD="\$(custom_git_prompt)"
-
-custom_git_prompt() {
-  prompt=$(git_prompt_info)
-  prompt=${prompt//\//\ \ }
-  prompt=${prompt//_/\ }
-  echo ${prompt}
-}
+#source "$HOME/.antigen/antigen.zsh"
+#
+#BULLETTRAIN_PROMPT_ORDER=(
+#    dir
+#    status
+#    virtualenv
+#)
+#BULLETTRAIN_PROMPT_CHAR=''
+#BULLETTRAIN_PROMPT_ROOT=true
+#BULLETTRAIN_PROMPT_ADD_NEWLINE=true
+#BULLETTRAIN_STATUS_SHOW=true
+#BULLETTRAIN_VIRTUALENV_SHOW=true
+#BULLETTRAIN_DIR_SHOW=true
+#BULLETTRAIN_DIR_EXTENDED=1
+#BULLETTRAIN_GIT_SHOW=true
+#BULLETTRAIN_GIT_UNMERGED=' ='
+#BULLETTRAIN_GIT_AHEAD=' →'
+#BULLETTRAIN_GIT_BEHIND=' ←'
+#BULLETTRAIN_GIT_DIVERGED=' ➚'
+#BULLETTRAIN_GIT_EXTENDED=false
+#BULLETTRAIN_GIT_PROMPT_CMD="\$(custom_git_prompt)"
+#
+#custom_git_prompt() {
+#  prompt=$(git_prompt_info)
+#  prompt=${prompt//\//\ \ }
+#  prompt=${prompt//_/\ }
+#  echo ${prompt}
+#}
 
 #antigen bundle zsh-users/zsh-syntax-highlighting
 #antigen theme bhilburn/powerlevel9k powerlevel9k
@@ -130,17 +130,17 @@ custom_git_prompt() {
 #antigen bundle sindresorhus/pure
 #antigen theme frisk
 
-antigen apply
+#antigen apply
 
 
 bindkey -v
 
-git_custom_status() {
-  local cb=$(current_branch)
-  if [ -n "$cb" ]; then
-    echo "$(parse_git_dirty)%{$fg_bold[yellow]%}$(work_in_progress)%{$reset_color%}$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-  fi
-}
+#git_custom_status() {
+#  local cb=$(current_branch)
+#  if [ -n "$cb" ]; then
+#    echo "$(parse_git_dirty)%{$fg_bold[yellow]%}$(work_in_progress)%{$reset_color%}$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+#  fi
+#}
 
 bindkey '^P' up-history
 bindkey '^N' down-history
@@ -194,7 +194,7 @@ randomise_prompt_colour () {
   PS1="%n%B%F{$((RANDOM % 8))}@%m %~ %(!.#.\$) "
 }
 
-autoload -U add-zsh-hook
+#autoload -U add-zsh-hook
 
 #add-zsh-hook precmd randomise_prompt_colour
 
