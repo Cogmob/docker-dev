@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-# export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -9,6 +9,9 @@
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+MENU_COMPLETE="true"
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -49,7 +52,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-#plugins=(git)
+plugins=(git)
 
 # User configuration
 
@@ -57,7 +60,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # export MANPATH="/usr/local/man:$MANPATH"
 unlink ~/bin
 
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -87,7 +90,7 @@ unlink ~/bin
 # general settings
 export TERM="xterm-256color"
 [ -n "$TMUX" ] && export TERM=screen-256color
-#source "$HOME/.antigen/antigen.zsh"
+source "$HOME/.antigen/antigen.zsh"
 #
 #BULLETTRAIN_PROMPT_ORDER=(
 #    dir
@@ -130,17 +133,17 @@ export TERM="xterm-256color"
 #antigen bundle sindresorhus/pure
 #antigen theme frisk
 
-#antigen apply
+antigen apply
 
 
 bindkey -v
 
-#git_custom_status() {
-#  local cb=$(current_branch)
-#  if [ -n "$cb" ]; then
-#    echo "$(parse_git_dirty)%{$fg_bold[yellow]%}$(work_in_progress)%{$reset_color%}$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-#  fi
-#}
+git_custom_status() {
+  local cb=$(current_branch)
+  if [ -n "$cb" ]; then
+    echo "$(parse_git_dirty)%{$fg_bold[yellow]%}$(work_in_progress)%{$reset_color%}$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  fi
+}
 
 bindkey '^P' up-history
 bindkey '^N' down-history
@@ -188,6 +191,7 @@ alias frep='grep -l --color=never --exclude=\*.{anim,atf,bmp,bnk,csh,dds,exe,fla
 alias psd='python3 ~/unix_setup/src/other/populate_search_dir.py'
 alias prep='/home/home/unix_setup/src/other/prep.sh'
 alias glog='git log --pretty=oneline --abbrev-commit'
+alias sizes='du -h --max-depth=1 | sort -hr'
 
 source ~/unix_setup/src/other/shell_prompt.sh
 
@@ -195,7 +199,7 @@ randomise_prompt_colour () {
   PS1="%n%B%F{$((RANDOM % 8))}@%m %~ %(!.#.\$) "
 }
 
-#autoload -U add-zsh-hook
+autoload -U add-zsh-hook
 
 #add-zsh-hook precmd randomise_prompt_colour
 

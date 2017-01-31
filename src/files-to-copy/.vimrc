@@ -129,7 +129,6 @@ hi! Comment guifg=bg ctermfg=DarkBlue
 
 nmap <leader>h :noh<CR>
 map # <Nop>
-nmap <c-z> :w<CR> :call VimuxRunCommand('clear ; npm test')<CR>
 " vnoremap <silent> * :call VisualSelection('f')<CR>
 " vnoremap <silent> # :call VisualSelection('b')<CR>
 " map <silent> <leader><cr> :noh<cr>
