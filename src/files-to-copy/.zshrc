@@ -50,11 +50,13 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git, zsh-autosuggestions)
 
 # User configuration
 
@@ -92,6 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # general settings
 export TERM="xterm-256color"
 [ -n "$TMUX" ] && export TERM=screen-256color
+
 source "$HOME/.antigen/antigen.zsh"
 #
 #BULLETTRAIN_PROMPT_ORDER=(
@@ -134,6 +137,8 @@ source "$HOME/.antigen/antigen.zsh"
 #antigen bundle mafredri/zsh-async
 #antigen bundle sindresorhus/pure
 #antigen theme frisk
+
+antigen bundle RobSis/zsh-completion-generator
 
 antigen apply
 
