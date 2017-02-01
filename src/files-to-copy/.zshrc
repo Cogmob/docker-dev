@@ -194,7 +194,8 @@ alias psd='python3 ~/unix_setup/src/other/populate_search_dir.py'
 alias prep='/home/home/unix_setup/src/other/prep.sh'
 alias glog='git log --pretty=oneline --abbrev-commit'
 alias sizes='du -h --max-depth=1 | sort -hr'
-alias msg='~/unix_setup/src/other/notify /m'
+alias msg='~/unix_setup/src/other/notifu /m -'
+alias -g WW=' ; ~/unix_setup/src/other/notifu /m - /d 1500 &'
 
 source ~/unix_setup/src/other/shell_prompt.sh
 
