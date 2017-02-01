@@ -215,3 +215,4 @@ autoload -U add-zsh-hook
 export HOME='/home/home'
 stty ixany
 setopt extendedglob
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
