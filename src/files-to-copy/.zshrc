@@ -10,8 +10,10 @@ export ZSH=$HOME/.oh-my-zsh
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-MENU_COMPLETE="true"
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# MENU_COMPLETE="true"
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# zstyle ':completion:*' matcher-complete
+# zstyle ':completion:*' menu select
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -192,6 +194,7 @@ alias psd='python3 ~/unix_setup/src/other/populate_search_dir.py'
 alias prep='/home/home/unix_setup/src/other/prep.sh'
 alias glog='git log --pretty=oneline --abbrev-commit'
 alias sizes='du -h --max-depth=1 | sort -hr'
+alias msg='~/unix_setup/src/other/notify /m'
 
 source ~/unix_setup/src/other/shell_prompt.sh
 
