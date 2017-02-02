@@ -512,3 +512,11 @@ function! <SID>SynStack()
 endfunc
 hi lsKey ctermfg=darkcyan
 hi lsPunc ctermfg=darkgreen cterm=bold
+
+function! Realpath()
+    let new_path = "sp " . system('realpath ' . expand("%"))
+    echo new_path
+    execute "bw"
+    execute new_path
+endfunc
+nnoremap <leader>r :call Realpath()<CR>
