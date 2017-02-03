@@ -47,9 +47,12 @@ NeoBundle 'tpope/vim-obsession'
 NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'sidorares/node-vim-debugger'
+NeoBundle 'w0rp/ale'
 call neobundle#end()
 
+
 " global variables
+set shell=/usr/bin/zsh
 set nobackup
 set noswapfile
 "set laststatus=2
@@ -514,9 +517,14 @@ hi lsKey ctermfg=darkcyan
 hi lsPunc ctermfg=darkgreen cterm=bold
 
 function! Realpath()
-    let new_path = "sp " . system('realpath ' . expand("%"))
+    let new_path = "e " . system('realpath ' . expand("%"))
     echo new_path
     execute "bw"
     execute new_path
 endfunc
 nnoremap <leader>r :call Realpath()<CR>
+
+function! Explore()
+    echo system('/home/home/unix_setup/src/other/explore.bash ' . expand("%:p:h"))
+endfunc
+nnoremap <leader>e :call Explore()<CR>
