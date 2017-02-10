@@ -47,7 +47,6 @@ NeoBundle 'tpope/vim-obsession'
 NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'sidorares/node-vim-debugger'
-NeoBundle 'w0rp/ale'
 call neobundle#end()
 
 
@@ -148,7 +147,6 @@ nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\
 nnoremap <silent> gh "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <C-c> <C-a>
-map <leader>r zR
 
 map <leader>m `a1jmaa
 
@@ -517,8 +515,7 @@ hi lsKey ctermfg=darkcyan
 hi lsPunc ctermfg=darkgreen cterm=bold
 
 function! Realpath()
-    let new_path = "e " . system('realpath ' . expand("%"))
-    echo new_path
+    let new_path = "sp " . system('realpath ' . expand("%"))
     execute "bw"
     execute new_path
 endfunc
