@@ -350,6 +350,12 @@ function! OnFileLoad()
     autocmd InsertLeave <buffer> set nu!
     autocmd InsertLeave <buffer> set nonu
     autocmd InsertLeave <buffer> set foldcolumn=12
+
+    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['es6'] = '6'
+    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = 'y'
+
+    let g:NERDTreeExtensionHighlightColor['es6'] = 'D4843E'
+    let g:NERDTreeExtensionHighlightColor['yaml'] = 'AE403F'
 endfunction
 autocmd FileReadPost * call OnFileLoad()
 autocmd BufRead * call OnFileLoad()
