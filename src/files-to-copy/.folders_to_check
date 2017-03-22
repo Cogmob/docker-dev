@@ -1,5 +1,9 @@
-ahk
-unix_setup
-mu
-bchords
 .jspm_global_packages
+ahk
+bchords
+capn
+cognizant
+first_principles
+gcv
+mu
+unix_setup
