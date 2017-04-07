@@ -90,7 +90,7 @@ set t_Co=256
 colorscheme solarized
 
 " don't wrap at the end of lines
-set wrap
+set nowrap
 " line width and indentation
 set softtabstop=4 shiftwidth=4 tabstop=4
 
