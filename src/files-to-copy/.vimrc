@@ -15,38 +15,38 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'L9'
-NeoBundle 'wincent/command-t'
+" NeoBundle 'tpope/vim-fugitive'
+" NeoBundle 'L9'
+" NeoBundle 'wincent/command-t'
 NeoBundle 'benmills/vimux'
-NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
-NeoBundle 'Chiel92/vim-autoformat'
-NeoBundle 'ryanoasis/vim-devicons'
+" NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
+" NeoBundle 'octol/vim-cpp-enhanced-highlight'
+" NeoBundle 'Chiel92/vim-autoformat'
+" NeoBundle 'ryanoasis/vim-devicons'
 NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'kien/tabman.vim'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tmhedberg/SimpylFold'
-NeoBundle 'vim-scripts/Conque-Shell'
-NeoBundle 'sirver/ultisnips'
-NeoBundle 'wellle/targets.vim'
-NeoBundle 'michaeljsmith/vim-indent-object'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'edkolev/promptline.vim'
-" NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'AndrewRadev/sideways.vim'
-NeoBundle 'derekwyatt/vim-fswitch'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-notes'
-NeoBundle 'tpope/vim-obsession'
-NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'sidorares/node-vim-debugger'
+" NeoBundle 'kien/tabman.vim'
+" NeoBundle 'ctrlpvim/ctrlp.vim'
+" NeoBundle 'tmhedberg/SimpylFold'
+" NeoBundle 'vim-scripts/Conque-Shell'
+" NeoBundle 'sirver/ultisnips'
+" NeoBundle 'wellle/targets.vim'
+" NeoBundle 'michaeljsmith/vim-indent-object'
+" NeoBundle 'tpope/vim-surround'
+" NeoBundle 'honza/vim-snippets'
+" NeoBundle 'edkolev/promptline.vim'
+" " NeoBundle 'edkolev/tmuxline.vim'
+" NeoBundle 'AndrewRadev/sideways.vim'
+" NeoBundle 'derekwyatt/vim-fswitch'
+" NeoBundle 'godlygeek/tabular'
+" NeoBundle 'xolox/vim-misc'
+" NeoBundle 'xolox/vim-notes'
+" NeoBundle 'tpope/vim-obsession'
+" NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
+" NeoBundle 'tpope/vim-markdown'
+" NeoBundle 'sidorares/node-vim-debugger'
 call neobundle#end()
 
 
@@ -324,12 +324,12 @@ hi link javaScriptTemplateVar Text
 hi link javaScriptTemplateString String
 
 " promptline
-let g:promptline_preset = {
-        \'a' : [ '' ],
-        \'x' : [ promptline#slices#cwd() ],
-        \'y' : [ promptline#slices#host({ 'only_if_ssh': 1 })],
-        \'z' : [ promptline#slices#git_status() ],
-        \'warn' : [ promptline#slices#last_exit_code() ]}
+" let g:promptline_preset = {
+"         \'a' : [ '' ],
+"         \'x' : [ promptline#slices#cwd() ],
+"         \'y' : [ promptline#slices#host({ 'only_if_ssh': 1 })],
+"         \'z' : [ promptline#slices#git_status() ],
+"         \'warn' : [ promptline#slices#last_exit_code() ]}
 
 map <c-g> :wincmd h<CR>
 
@@ -351,11 +351,11 @@ function! OnFileLoad()
     autocmd InsertLeave <buffer> set nonu
     autocmd InsertLeave <buffer> set foldcolumn=12
 
-    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['es6'] = '6'
-    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = 'y'
+    " let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['es6'] = '6'
+    " let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = 'y'
 
-    let g:NERDTreeExtensionHighlightColor['es6'] = 'D4843E'
-    let g:NERDTreeExtensionHighlightColor['yaml'] = 'AE403F'
+    " let g:NERDTreeExtensionHighlightColor['es6'] = 'D4843E'
+    " let g:NERDTreeExtensionHighlightColor['yaml'] = 'AE403F'
 endfunction
 autocmd FileReadPost * call OnFileLoad()
 autocmd BufRead * call OnFileLoad()

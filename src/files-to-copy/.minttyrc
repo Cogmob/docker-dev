@@ -35,3 +35,4 @@ BellType=0
 BellTaskbar=no
 FontWeight=500
 BoldAsColour=no
+RowSpacing=5
