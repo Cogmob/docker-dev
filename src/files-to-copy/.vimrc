@@ -104,6 +104,7 @@ nmap <silent> <C-i> :res +5<CR>
 nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
+nmap <leader>w :up!<CR>
 nmap <leader>3 :test
 map <leader>4 "
 map <leader>5 @
@@ -168,7 +169,6 @@ endfunc
 autocmd BufWrite *.py call DeleteTrailingWS()
 autocmd BufWrite *.coffee call DeleteTrailingWS()
 
-" source ~/unix_setup/src/vim/syntax.vim
 source ~/unix_setup/src/vim/vimfolding.vim
 source ~/unix_setup/src/vim/cscope_maps.vim
 
@@ -350,6 +350,7 @@ function! OnFileLoad()
     autocmd InsertLeave <buffer> set nu!
     autocmd InsertLeave <buffer> set nonu
     autocmd InsertLeave <buffer> set foldcolumn=12
+    set noro
 
     " let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['es6'] = '6'
     " let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = 'y'
@@ -428,7 +429,7 @@ function! ShrinkAll()
 
     execute winno . 'wincmd w'
 endfunction
-map <leader>w :call ShrinkAll()<CR>
+map <leader>2 :call ShrinkAll()<CR>
 autocmd InsertLeave <buffer> call ShrinkAll()
 
 hi StatusLineNC ctermbg=grey ctermfg=white

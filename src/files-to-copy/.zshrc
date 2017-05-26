@@ -62,7 +62,12 @@ plugins=(git)
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
-unlink ~/bin
+if [ -e ~/bin ]
+then
+else
+    echo 'bin should exist'
+    unlink ~/bin
+fi
 
 source $ZSH/oh-my-zsh.sh
 
