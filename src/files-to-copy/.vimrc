@@ -47,6 +47,7 @@ NeoBundle 'jistr/vim-nerdtree-tabs'
 " NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
 " NeoBundle 'tpope/vim-markdown'
 " NeoBundle 'sidorares/node-vim-debugger'
+NeoBundle 'gaving/vim-textobj-argument'
 call neobundle#end()
 
 
@@ -93,6 +94,7 @@ colorscheme solarized
 set nowrap
 " line width and indentation
 set softtabstop=4 shiftwidth=4 tabstop=4
+set wrapmargin=0
 
 " mappings
 noremap <C-f> :Autoformat<CR>
@@ -111,6 +113,7 @@ map <leader>5 @
 " nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
 nnoremap Y y$
+map /cyg :e /cyg
 
 nmap <leader>f :call Ack()<CR>
 function! Ack()
@@ -140,7 +143,7 @@ map <leader>t <plug>NERDTreeTabsToggle<CR>
 nnoremap <SPACE> <Nop>
 " let g:tabman_toggle = '<leader>mt'
 " let g:tabman_focus  = '<leader>mf'
-nmap <leader>q :wa<CR> :so $MYVIMRC<CR>
+nmap <leader>q :so $MYVIMRC<CR>
 " map <leader>w :%s/\s\+$//e<CR> :wa<CR> REMOVED FOR WORK
 map <leader>, :SidewaysLeft<CR>
 map <leader>. :SidewaysRight<CR>
