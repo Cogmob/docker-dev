@@ -73,7 +73,8 @@ alias sizes='du -h --max-depth=1 | sort -hr'
 alias msg='~/unix_setup/src/other/notifu /m -'
 alias -g WW=' ; ~/unix_setup/src/other/notifu /m - /d 1500 &'
 
-PROMPT='    '
+NEWLINE=$'\n'
+PROMPT='${NEWLINE}    '
 zle_highlight=( default:fg=cyan )
 #source ~/unix_setup/src/other/shell_prompt.sh
 #
@@ -87,4 +88,3 @@ export HOME='/home/home'
 #stty ixany
 setopt extendedglob
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
-echo ""
