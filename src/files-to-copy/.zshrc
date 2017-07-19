@@ -51,9 +51,9 @@ zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 function lg() {
-    git add -q . :/
-    git commit -qam "$1"
-    git push -q
+    git add . :/
+    git commit -am "$1"
+    git push
 }
 
 export LD_LIBRARY_PATH=/usr/local/lib
