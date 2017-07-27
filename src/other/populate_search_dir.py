@@ -63,12 +63,15 @@ def search(dirs, title, inplace):
                     dir_string.append(add_str)
             dir_string = '.'.join(dir_string)
             extension = os.path.basename(line).split('.')[-1]
+
             pathname = search_results + '/' + os.path.basename(line) + '__'
             pathname += dir_string + '.' + extension
             os.symlink(current_dir + '/' + line, pathname)
-            pathname = search_results + '/.' + os.path.basename(line) + '__'
-            pathname += dir_string + '__folder'
-            os.symlink(current_dir + '/' + os.path.dirname(line), pathname)
+
+            pathname = search_results + '/.' + os.path.dirname(line)
+            if not os.path.exists(pathname):
+                os.makedirs(pathname)
+            os.symlink(current_dir + '/' + line, pathname + '/' + os.path.basename(line))
 
     metapath = search_results +'/.meta'
     with open(metapath, 'w+') as f:
