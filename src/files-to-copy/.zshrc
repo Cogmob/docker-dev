@@ -72,6 +72,8 @@ alias prep='/home/home/unix_setup/src/other/prep.sh'
 alias glog='git log --pretty=oneline --abbrev-commit'
 alias sizes='du -h --max-depth=1 | sort -hr'
 alias msg='~/unix_setup/src/other/notifu /m -'
+alias ahk='~/.useful/ahk/ahk.exe'
+alias viewpdf='~/useful/sumatra_pdf/SumatraPDF.exe'
 alias -g WW=' ; ~/unix_setup/src/other/notifu /m - /d 1500 &'
 
 NEWLINE=$'\n'
