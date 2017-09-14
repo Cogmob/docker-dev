@@ -6,10 +6,8 @@ def get_part(config):
 		    'name': 'back up previous files and link new files',
 		    'instructions': [
 			{'arguments': [
-			    'mkdir -p ~/.config-old',
-
-			    'mv ~/.minttyrc ~/.config-old/.minttyrc',
-			    'mv ~/.zshrc ~/.config-old/.zshrc',
+			    'rm -f ~/.minttyrc',
+			    'rm -f ~/.zshrc',
 
                             'find ~/unix_setup/src/files-to-copy -type f -name \\* -exec ln -f -s "{}" ~ \\;',
 
