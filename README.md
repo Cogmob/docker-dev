@@ -1,7 +1,7 @@
 ### windows 10 babun ###
 
 ```bash
-echo -e  'y\n'|ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk" ; sudo chmod 600 ~/.ssh/* ; cat ~/.ssh/id_rsa.pub
+cd / ; echo -e  'y\n'|ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk" ; sudo chmod 600 ~/.ssh/* ; cat ~/.ssh/id_rsa.pub
 ```
 
 * https://bitbucket.org/account/user/Cogbot/ssh-keys/
