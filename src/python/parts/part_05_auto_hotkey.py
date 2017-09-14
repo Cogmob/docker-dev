@@ -10,7 +10,6 @@ def get_part(config):
 			{'arguments': [
 			    'cd ~',
 			    'rm -rf ahk',
-			    'mkdir downloads',
 			    'git clone git@bitbucket.org:Cogbot/ahk.git',
 			    'git clone git@bitbucket.org:Cogbot/first_principles.git',
 			    'git clone git@bitbucket.org:Cogbot/useful.git',
