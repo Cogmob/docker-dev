@@ -15,7 +15,11 @@ mkdir /home ; export HOME=/home ; mkpasswd -l -p "$(cygpath -H)" > /etc/passwd ;
 ```
 
 ```bash
-cd ~ | mkdir .ssh | yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk" ; sudo chmod 600 ~/.ssh/* ; cat ~/.ssh/id_rsa.pub
+cd ~
+```
+
+```bash
+mkdir .ssh | yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk" ; sudo chmod 600 ~/.ssh/* ; cat ~/.ssh/id_rsa.pub
 ```
 
 * https://bitbucket.org/account/user/Cogbot/ssh-keys/
