@@ -6,6 +6,8 @@ def get_part(config):
 		    'name': 'back up previous files and link new files',
 		    'instructions': [
 			{'arguments': [
+                            'export CYGWIN="winsymlinks"',
+
 			    'rm -f ~/.minttyrc',
 			    'rm -f ~/.zshrc',
 

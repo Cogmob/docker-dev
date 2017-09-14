@@ -11,5 +11,5 @@ def get_part(config):
 			    'cd ~',
 			    'rm -rf ahk',
 			    'git clone git@bitbucket.org:Cogbot/ahk.git',
-                            '~/unix_setup/src/other/explore.bash /home/ahk/shortcuts',
-			    '~/unix_setup/src/other/explore.bash "/cygdrive/c/Users/%s/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"' % config['home_path']]}]}]}
+                            'ln -s -f ahk/main.ahk "/cygdrive/c/Users/%s/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.lnk"' % config['home_path'],
+			    'ahk/main.ahk'}]}]}
