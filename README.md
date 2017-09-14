@@ -15,11 +15,7 @@ Y
 ## initialise it ##
 
 ```bash
-mkdir /home ; export HOME=/home ; mkpasswd -l -p "$(cygpath -H)" > /etc/passwd
-```
-
-```bash
-cd ~
+mkdir /home ; export HOME=/home ; mkpasswd -l -p "$(cygpath -H)" > /etc/passwd | cd ~
 ```
 
 ```bash
@@ -31,8 +27,6 @@ mkdir .ssh | yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.
 ```bash
 git clone git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./install.sh
 ```
-
-yes
 
 ```bash
 vim +NeoBundleInstall +qall
