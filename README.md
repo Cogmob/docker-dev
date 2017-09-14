@@ -1,3 +1,7 @@
+## install these first ##
+
+https://nodejs.org/en/download/
+
 ## create a new babun install ##
 
 change the target address as appropriate:
