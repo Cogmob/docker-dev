@@ -1,3 +1,7 @@
+## install these first ##
+
+https://nodejs.org/en/download/
+
 ## create a new babun install ##
 
 change the target address as appropriate:
@@ -11,7 +15,7 @@ Y
 ## initialise it ##
 
 ```bash
-mkdir /home ; export HOME=/home ; mkpasswd -l -p "$(cygpath -H)" > /etc/passwd ; babun install
+mkdir /home ; export HOME=/home ; mkpasswd -l -p "$(cygpath -H)" > /etc/passwd
 ```
 
 ```bash
