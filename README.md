@@ -7,7 +7,7 @@ https://nodejs.org/en/download/
 change the target address as appropriate:
 
 ```bash
-cd ~/home/Downloads/babun-1.2.0 ; ./install.bat /target "C:\Users\[username]\babun"\
+cd ~/home/Downloads/babun-1.2.0 ; ./install.bat /target "C:\Users\[username]\babun"
 ```
 
 Y
