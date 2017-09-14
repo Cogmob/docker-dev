@@ -1,12 +1,14 @@
-### create a new babun install ###
+## create a new babun install ##
 
 change the target address as appropriate:
 
 ```bash
-cd ~/home/Downloads/babun-1.2.0 ; ./install.bat /target "C:\Users\babun_0"
+cd ~/home/Downloads/babun-1.2.0 ; ./install.bat /target "C:\Users\[username]\babun"\
 ```
 
-### initialise it ###
+Y
+
+## initialise it ##
 
 ```bash
 mkdir /home ; export HOME=/home ; mkpasswd -l -p "$(cygpath -H)" > /etc/passwd ; babun install ; echo -e  'y\n'|ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk" ; sudo chmod 600 ~/.ssh/* ; cat ~/.ssh/id_rsa.pub
