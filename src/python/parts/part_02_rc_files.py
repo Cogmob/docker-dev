@@ -11,7 +11,7 @@ def get_part(config):
 			    'mv ~/.minttyrc ~/.config-old/.minttyrc',
 			    'mv ~/.zshrc ~/.config-old/.zshrc',
 
-                            'find ~/unix_setup/src/files-to-copy -type f -name \\* -exec ln -s "{}" ~ \\;',
+                            'find ~/unix_setup/src/files-to-copy -type f -name \\* -exec ln -f -s "{}" ~ \\;',
 
 			    'alias explore="/home/home/unix_setup/src/other/explore.bash"',
 			    'git config --global core.pager cat',

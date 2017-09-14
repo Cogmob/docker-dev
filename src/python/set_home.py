@@ -3,8 +3,7 @@ import subprocess as s
 def set_home(data):
     print ''
     print 'what is your windows username?'
-    print 'this is used for setting the startup programs'
-    print 'it is probably the folder name under Users:'
+    print 'this is needed for setting the startup programs'
     print ''
     s.Popen(['realpath', '~'])
     s.Popen(['echo'])
