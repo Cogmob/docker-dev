@@ -15,4 +15,4 @@ def get_part(config):
 
 			    'alias explore="/home/home/unix_setup/src/other/explore.bash"',
 			    'git config --global core.pager cat',
-                            'export PATH=$PATH:/cygdrive/c/Users/lavery/AppData/Roaming/npm:/cygdrive/c/Program Files/nodejs/']}]}]}
+                            'export PATH="$PATH:/cygdrive/c/Users/lavery/AppData/Roaming/npm:/cygdrive/c/Program Files/nodejs/"']}]}]}
