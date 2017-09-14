@@ -13,7 +13,7 @@ def get_part(config):
 			    'git clone --depth 1 git@bitbucket.org:Cogbot/ahk.git',
 			    'git clone --depth 1 git@bitbucket.org:Cogbot/first_principles.git',
 			    'git clone --depth 1 git@bitbucket.org:Cogbot/cv.git',
-			    'git clone --depth 1 git@gitlab.org:lambdagames/useful.git',
+			    'git clone --depth 1 git@bitbucket.org:Cogbot/useful.git',
                             'mv -r useful .useful',
                             'ln -s -f ahk/main.ahk "/cygdrive/c/Users/%s/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.lnk"' % config['home_path'],
 			    'ahk/main.ahk']}]}]}
