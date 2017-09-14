@@ -5,9 +5,9 @@ def get_part(config):
 		{
 		    'name': 'set up non identifiable home directory',
 		    'instructions': [{'arguments': [
-			'rm -rf /home/home',
-			'ln -s $HOME /home/home',
-			"export HOME='/home/home'"]}]},
+			"export HOME=`cygpath -w -p /`",
+                        'mkpasswd -l -p "$(cygpath -H)" > /etc/passwd',
+                        "babun install"]}]},
 		{
 		    'name': 'set up git user',
 		    'instructions': [{'arguments': [
