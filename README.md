@@ -21,7 +21,3 @@ mkdir /home ; export HOME=/home ; mkpasswd -l -p "$(cygpath -H)" > /etc/passwd ;
 ```bash
 git clone git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./install.sh
 ```
-
-```bash
-vim +NeoBundleInstall +qall
-```
