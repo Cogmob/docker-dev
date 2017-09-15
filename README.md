@@ -17,7 +17,7 @@ run the update.bat
 ## initialise it ##
 
 ```bash
-export HOME=/home ; echo "db_home: /home" >> /etc/nsswitch.conf ; echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf ; mkpasswd -l -p "$(cygpath -H)" > /etc/passwd ; rm /etc/passwd ; rm /etc/group ; cd ~ ; mkdir .ssh ; yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk" ; sudo chmod 600 ~/.ssh/* ; cat ~/.ssh/id_rsa.pub
+export HOME=/home ; echo "db_home: /home" >> /etc/nsswitch.conf ; echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf ; mkpasswd -l -p "$(cygpath -H)" > /etc/passwd ; rm /etc/passwd ; rm /etc/group ; cd ~ ; mkdir -p .ssh ; yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk" ; sudo chmod 600 ~/.ssh/* ; cat ~/.ssh/id_rsa.pub
 ```
 
 * https://bitbucket.org/account/user/Cogbot/ssh-keys/
