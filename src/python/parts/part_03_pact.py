@@ -19,9 +19,4 @@ def get_part(config):
 			    'cd ~/downloads',
 			    'wget https://bootstrap.pypa.io/ez_setup.py -O - | python',
 			    'easy_install pip',
-			    'pip install virtualenv']}]},
-		{
-		    'name': 'source antigen',
-		    'instructions': [
-			{'arguments': [
-			    'source ~/.antigen/antigen.zsh']}]}]}
+			    'pip install virtualenv']}]}]}

@@ -532,6 +532,6 @@ endfunc
 nnoremap <leader>r :call Realpath()<CR>
 
 function! Explore()
-    echo system('/home/home/unix_setup/src/other/explore.bash ' . expand("%:p:h"))
+    echo system('/home/unix_setup/src/other/explore.bash ' . expand("%:p:h"))
 endfunc
 nnoremap <leader>e :call Explore()<CR>
