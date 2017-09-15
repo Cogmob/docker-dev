@@ -8,6 +8,7 @@ def get_part(config):
 			{'arguments': [
 			    'mkdir -p ~/.vim/bundle',
 			    'cd ~/.vim/bundle',
+			    'mkdir -p ~/.vim/colors',
 			    'ln -s ~/unix_setup/src/other/solarized.vim ~/.vim/colors/solarized.vim',
 			    'rm -rf vim-colors-solarized',
 			    'rm -rf neobundle.vim',
