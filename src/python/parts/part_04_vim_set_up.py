@@ -16,4 +16,5 @@ def get_part(config):
 			    'mkdir -p /a/.vim/bundle',
 			    'git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim',
 			    'mkdir -p ~/.vim/bundle/vim/bundle/vim-snippets',
+			    'vim +NeoBundleInstall +qall',
 			    'ln -s ~/unix_setup/src/ulti-snips ~/.vim/bundle/vim/bundle/vim-snippets/UserUltiSnips']}]}]}
