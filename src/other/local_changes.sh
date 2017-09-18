@@ -1,7 +1,8 @@
 #!/bin/bash
-for el in $( cat .folders_to_check )
+cd $HOME
+for el in $( find . -maxdepth 2 -name .git | tr / \  | cut -d' ' -f2 )
 do
-    cd $el
+    cd "$HOME/$el"
 
     res=$(git fetch origin)
     remote_changes=$(git log HEAD..origin/master --oneline)

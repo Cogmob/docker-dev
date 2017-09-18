@@ -1,5 +1,3 @@
-# export HOME='/home'
-export ZSH=$HOME/.oh-my-zsh
 DISABLE_AUTO_UPDATE="true"
 DISABLE_AUTO_TITLE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -16,29 +14,8 @@ fi
 export TERM="xterm-256color"
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-# source "$HOME/.antigen/antigen.zsh"
-# 
-# antigen bundle RobSis/zsh-completion-generator
-# 
-# antigen apply
-
-
 bindkey -v
 
-#git_custom_status() {
-#  local cb=$(current_branch)
-#  if [ -n "$cb" ]; then
-#    echo "$(parse_git_dirty)%{$fg_bold[yellow]%}$(work_in_progress)%{$reset_color%}$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-#  fi
-#}
-#
-#bindkey '^P' up-history
-#bindkey '^N' down-history
-#bindkey '^?' backward-delete-char
-#bindkey '^h' backward-delete-char
-#bindkey '^w' backward-kill-word
-#bindkey '^r' history-incremental-search-backward
-#
 export KEYTIMEOUT=1
 Font="Droid Sans Mono Awesome"
 FontHeight=80
@@ -77,22 +54,17 @@ alias sizes='du -h --max-depth=1 | sort -hr'
 alias msg='~/unix_setup/src/other/notifu /m -'
 alias ahk='~/.useful/ahk/ahk.exe'
 alias viewpdf="$HOME/useful/sumatra_pdf/SumatraPDF.exe"
-alias -g WW=" ; $HOME/unix_setup/src/other/notifu /m - /d 1500 &"
+alias lc="$HOME/unix_setup/src/other/local_changes.sh"
+function ww ()
+{
+    $HOME/unix_setup/src/other/notifu /m $1 $2 $3 $4 /d 3000 &
+}
 
-NEWLINE=$'\n'
-# PROMPT='${NEWLINE}    '
 PROMPT="
     "
+
 zle_highlight=( default:fg=cyan )
-#source ~/unix_setup/src/other/shell_prompt.sh
-#
-#randomise_prompt_colour () {
-#  PS1="%n%B%F{$((RANDOM % 8))}@%m %~ %(!.#.\$) "
-#}
-#
-#autoload -U add-zsh-hook
-#
-#stty ixany
+
 setopt extendedglob
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 
