@@ -11,16 +11,16 @@ else
     unlink ~/bin
 fi
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 export TERM="xterm-256color"
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-source "$HOME/.antigen/antigen.zsh"
-
-antigen bundle RobSis/zsh-completion-generator
-
-antigen apply
+# source "$HOME/.antigen/antigen.zsh"
+# 
+# antigen bundle RobSis/zsh-completion-generator
+# 
+# antigen apply
 
 
 bindkey -v
@@ -80,7 +80,9 @@ alias viewpdf="$HOME/useful/sumatra_pdf/SumatraPDF.exe"
 alias -g WW=" ; $HOME/unix_setup/src/other/notifu /m - /d 1500 &"
 
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}    '
+# PROMPT='${NEWLINE}    '
+PROMPT="
+    "
 zle_highlight=( default:fg=cyan )
 #source ~/unix_setup/src/other/shell_prompt.sh
 #
