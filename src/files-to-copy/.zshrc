@@ -9,8 +9,6 @@ else
     unlink ~/bin
 fi
 
-# source $ZSH/oh-my-zsh.sh
-
 export TERM="xterm-256color"
 [ -n "$TMUX" ] && export TERM=screen-256color
 
@@ -59,9 +57,12 @@ function ww ()
 {
     $HOME/unix_setup/src/other/notifu /m $1 $2 $3 $4 /d 3000 &
 }
+alias cs="/cygdrive/c/Program\ Files/Mono/bin/csc"
+alias nunit='/cygdrive/c/Program\ Files\ (x86)/NUnit.org/nunit-console/nunit3-console.exe'
+alias dotnet='/cygdrive/c/Program\ Files/dotnet/dotnet.exe'
 
 PROMPT="
-    "
+    %F{cyan}-%  "
 
 zle_highlight=( default:fg=cyan )
 

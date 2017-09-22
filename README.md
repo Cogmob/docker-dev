@@ -1,6 +1,7 @@
 ## install these first ##
 
 https://nodejs.org/en/download/
+https://github.com/dotnet/cli
 
 ## create a new babun install ##
 
