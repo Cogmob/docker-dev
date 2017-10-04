@@ -15,7 +15,7 @@ mkdir downloads ; cd downloads ; wget http://projects.reficio.org/babun/download
 ```
 
 ```bash
-cd ~/home/Downloads/babun-1.2.0 ; yes | ./install.bat /target "C:\Users\[username]\babun"
+cd ~/downloads/babun-1.2.0 ; yes | ./install.bat /target "C:\Users\[username]\babun"
 ```
 
 ## update it ##
