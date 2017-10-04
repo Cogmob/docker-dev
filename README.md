@@ -44,4 +44,5 @@ git clone git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./install.sh
 * unity 3d
 * blender
 * gimp
-
+* git
+* tortoise git
