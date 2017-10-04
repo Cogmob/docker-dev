@@ -1,6 +1,9 @@
 ## install these first ##
 
+http://projects.reficio.org/babun/download
+
 https://nodejs.org/en/download/
+
 https://github.com/dotnet/cli
 
 ## create a new babun install ##
