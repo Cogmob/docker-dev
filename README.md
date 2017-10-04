@@ -11,6 +11,10 @@ https://github.com/dotnet/cli
 change the target address as appropriate:
 
 ```bash
+mkdir downloads ; cd downloads ; wget http://projects.reficio.org/babun/download ; unzip download
+```
+
+```bash
 cd ~/home/Downloads/babun-1.2.0 ; yes | ./install.bat /target "C:\Users\[username]\babun"
 ```
 
@@ -29,3 +33,13 @@ mkdir -p /home ; export HOME=/home ; echo "db_home: /home" >> /etc/nsswitch.conf
 ```bash
 git clone git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./install.sh
 ```
+
+## other things to install on new computer ##
+
+* chrome
+* sign in on both accounts
+* visual studio
+* unity 3d
+* blender
+* gimp
+
