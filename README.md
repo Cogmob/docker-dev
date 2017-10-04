@@ -6,6 +6,8 @@ https://nodejs.org/en/download/
 
 https://github.com/dotnet/cli
 
+https://autohotkey.com/download/ahk.zip
+
 ## create a new babun install ##
 
 change the target address as appropriate:
