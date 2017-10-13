@@ -6,6 +6,8 @@ https://nodejs.org/en/download/
 
 https://github.com/dotnet/cli
 
+https://autohotkey.com/download/ahk.zip
+
 ## create a new babun install ##
 
 change the target address as appropriate:
@@ -42,4 +44,5 @@ git clone git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./install.sh
 * unity 3d
 * blender
 * gimp
-
+* git
+* tortoise git
