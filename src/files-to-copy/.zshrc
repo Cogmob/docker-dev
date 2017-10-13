@@ -28,7 +28,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 function lg() {
     git add . :/
-    git commit -am "$1"
+    git commit -am "$*"
     git push
 }
 
@@ -51,7 +51,7 @@ alias glog='git log --pretty=oneline --abbrev-commit'
 alias sizes='du -h --max-depth=1 | sort -hr'
 alias msg='~/unix_setup/src/other/notifu /m -'
 alias ahk='~/.useful/ahk/ahk.exe'
-alias viewpdf="$HOME/useful/sumatra_pdf/SumatraPDF.exe"
+alias viewpdf="$HOME/.useful/sumatra_pdf/SumatraPDF.exe"
 alias lc="$HOME/unix_setup/src/other/local_changes.sh"
 function ww ()
 {
