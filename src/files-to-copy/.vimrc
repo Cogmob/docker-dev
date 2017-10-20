@@ -107,6 +107,7 @@ nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
 nmap <leader>w :up!<CR>
+nmap <leader>g :echo ''<CR>
 nmap <leader>3 :test
 map <leader>4 "
 map <leader>5 @
@@ -535,3 +536,7 @@ function! Explore()
     echo system('/home/unix_setup/src/other/explore.bash ' . expand("%:p:h"))
 endfunc
 nnoremap <leader>e :call Explore()<CR>
+
+set laststatus=0
+set noruler
+set noshowmode
