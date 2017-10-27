@@ -69,9 +69,15 @@ zle_highlight=( default:fg=cyan )
 setopt extendedglob
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 
+if [[ $TMUX == "" ]]; then
+    tmux new-session "~/unix_setup/src/other/tmux-split-first.sh"
+else
+fi
+
 # allow running shell command then enter interactive
 if [[ $1 == eval ]]
 then
     "$@"
 set --
 fi
+

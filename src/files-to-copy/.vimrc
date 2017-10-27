@@ -1,3 +1,8 @@
+" template for new .lvimrc files
+" let root = expand('%:p:h')
+" nmap <leader>j :wall<CR> :call VimuxRunCommand('cd ' . expand('%:p:h') . ' ; clear ; echo command 1')<CR>
+" nmap <leader>k :wall<CR> :call VimuxRunCommand('cd ' . expand('%:p:h') . ' ; clear ; echo command 2')<CR>
+
 " skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
@@ -111,6 +116,9 @@ nmap <leader>g :echo ''<CR>
 nmap <leader>3 :test
 map <leader>4 "
 map <leader>5 @
+nmap <leader>x :! ~/unix_setup/src/other/tmux-close.sh<CR>
+nmap <leader>a :call VimuxRunCommand('clear')<CR>
+
 " nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
 nnoremap Y y$
@@ -347,8 +355,8 @@ function! OnFileLoad()
     endif
 
     autocmd InsertEnter <buffer> set colorcolumn=82
-    autocmd InsertEnter <buffer> set nu
-    autocmd InsertEnter <buffer> set foldcolumn=8
+    autocmd InsertEnter <buffer> set nonu
+    autocmd InsertEnter <buffer> set foldcolumn=12
 
     autocmd InsertLeave <buffer> set colorcolumn=999
     autocmd InsertLeave <buffer> set nu!
