@@ -59,7 +59,6 @@ call neobundle#end()
 " global variables
 set shell=/usr/bin/zsh
 set nobackup
-set noswapfile
 "set laststatus=2
 let g:nerdtree_tabs_open_on_console_startup=0
 " let g:fieldtrip_start_map=<leader>,

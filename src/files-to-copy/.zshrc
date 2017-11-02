@@ -60,6 +60,7 @@ function ww ()
 alias cs="/cygdrive/c/Program\ Files/Mono/bin/csc"
 alias nunit='/cygdrive/c/Program\ Files\ (x86)/NUnit.org/nunit-console/nunit3-console.exe'
 alias dotnet='/cygdrive/c/Program\ Files/dotnet/dotnet.exe'
+alias csc='/cygdrive/c/Windows/Microsoft.NET/Framework64/v3.5/csc.exe'
 
 PROMPT="
     %F{cyan}-%  "
