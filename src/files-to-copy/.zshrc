@@ -61,6 +61,7 @@ alias cs="/cygdrive/c/Program\ Files/Mono/bin/csc"
 alias nunit='/cygdrive/c/Program\ Files\ (x86)/NUnit.org/nunit-console/nunit3-console.exe'
 alias dotnet='/cygdrive/c/Program\ Files/dotnet/dotnet.exe'
 alias csc='/cygdrive/c/Windows/Microsoft.NET/Framework64/v3.5/csc.exe'
+alias nunit_runner='/home/.useful/net-3.5/nunitlite-runner.exe'
 
 PROMPT="
     %F{cyan}-%  "
