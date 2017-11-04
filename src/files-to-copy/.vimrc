@@ -1,7 +1,9 @@
 " template for new .lvimrc files
 " let root = expand('%:p:h')
-" nmap <leader>j :wall<CR> :call VimuxRunCommand('cd ' . expand('%:p:h') . ' ; clear ; echo command 1')<CR>
-" nmap <leader>k :wall<CR> :call VimuxRunCommand('cd ' . expand('%:p:h') . ' ; clear ; echo command 2')<CR>
+" nmap <leader>j :wall<CR> :call VimuxRunCommand('cd ' . expand('%:p:h') .
+" \ ' ; clear ; echo command 1')<CR>
+" nmap <leader>k :wall<CR> :call VimuxRunCommand('cd ' . expand('%:p:h') .
+" \ ' ; clear ; echo command 2')<CR>
 
 " skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -186,7 +188,7 @@ source ~/unix_setup/src/vim/cscope_maps.vim
 " get rid of annoying temporary files
 set undodir=~/.vimundo
 set directory=~/.vimundo
-" set backupdir=~/.vimundo
+set backupdir=~/.vimundo
 
 if filereadable(".lvimrc")
     source .lvimrc

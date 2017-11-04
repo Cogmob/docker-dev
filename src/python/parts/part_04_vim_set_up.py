@@ -6,6 +6,7 @@ def get_part(config):
 		    'name': 'set up vim',
 		    'instructions': [
 			{'arguments': [
+			    'mkdir ~/.vimundo',
 			    'mkdir -p ~/.vim/bundle',
 			    'cd ~/.vim/bundle',
 			    'mkdir -p ~/.vim/colors',
