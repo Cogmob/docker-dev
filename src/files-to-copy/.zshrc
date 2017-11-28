@@ -4,8 +4,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git)
 if [ -e ~/bin ]
 then
-else
-    echo 'bin should exist'
     unlink ~/bin
 fi
 

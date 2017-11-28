@@ -443,7 +443,7 @@ function! ShrinkAll()
     execute winno . 'wincmd w'
 endfunction
 map <leader>2 :call ShrinkAll()<CR>
-autocmd InsertLeave <buffer> call ShrinkAll()
+" autocmd InsertLeave <buffer> call ShrinkAll()
 
 hi StatusLineNC ctermbg=grey ctermfg=white
 hi StatusLine ctermbg=white ctermfg=grey cterm=bold
@@ -549,3 +549,4 @@ nnoremap <leader>e :call Explore()<CR>
 set laststatus=0
 set noruler
 set noshowmode
+set noswapfile
