@@ -22,38 +22,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-" NeoBundle 'tpope/vim-fugitive'
-" NeoBundle 'L9'
-" NeoBundle 'wincent/command-t'
 NeoBundle 'benmills/vimux'
-" NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
-" NeoBundle 'octol/vim-cpp-enhanced-highlight'
-" NeoBundle 'Chiel92/vim-autoformat'
-" NeoBundle 'ryanoasis/vim-devicons'
 NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
-" NeoBundle 'kien/tabman.vim'
-" NeoBundle 'ctrlpvim/ctrlp.vim'
-" NeoBundle 'tmhedberg/SimpylFold'
-" NeoBundle 'vim-scripts/Conque-Shell'
-" NeoBundle 'sirver/ultisnips'
-" NeoBundle 'wellle/targets.vim'
-" NeoBundle 'michaeljsmith/vim-indent-object'
-" NeoBundle 'tpope/vim-surround'
-" NeoBundle 'honza/vim-snippets'
-" NeoBundle 'edkolev/promptline.vim'
-" " NeoBundle 'edkolev/tmuxline.vim'
-" NeoBundle 'AndrewRadev/sideways.vim'
-" NeoBundle 'derekwyatt/vim-fswitch'
-" NeoBundle 'godlygeek/tabular'
-" NeoBundle 'xolox/vim-misc'
-" NeoBundle 'xolox/vim-notes'
-" NeoBundle 'tpope/vim-obsession'
-" NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
-" NeoBundle 'tpope/vim-markdown'
-" NeoBundle 'sidorares/node-vim-debugger'
 NeoBundle 'gaving/vim-textobj-argument'
 call neobundle#end()
 
@@ -117,7 +90,6 @@ nmap <leader>g :echo ''<CR>
 nmap <leader>3 :test
 map <leader>4 "
 map <leader>5 @
-nmap <leader>x :! ~/unix_setup/src/other/tmux-close.sh<CR>
 nmap <leader>a :call VimuxRunCommand('clear')<CR>
 
 " nmap <c-x> :call ToggleComments()<cr>
