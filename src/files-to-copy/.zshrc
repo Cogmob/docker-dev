@@ -30,6 +30,14 @@ function lg() {
     git push
 }
 
+function cclg() {
+    git add . :/
+    git commit -am "$*"
+    url=`git remote get-url origin`
+    url="${url:0:8}lga:Alpha314@${url:8}"
+    git push $url
+}
+
 export LD_LIBRARY_PATH=/usr/local/lib
 export LIBRARY_PATH=/usr/local/lib
 export CPATH=/usr/local/include
