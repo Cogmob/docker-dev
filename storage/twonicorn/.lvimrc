@@ -1,0 +1,16 @@
+let root = expand('%:p:h')
+
+nmap <leader>y :wall<CR> :call VimuxRunCommand(
+    \'vagrant up')<CR>
+
+nmap <leader>j :wall<CR> :call VimuxRunCommand(
+    \'vagrant ssh -c "cd /Twonicorn/electronic-production ;
+    \ sudo docker-compose up --build"')<CR>
+
+nmap <leader>k :wall<CR> :call VimuxInterruptRunner()<CR>
+
+nmap <leader>l :wall<CR> :call VimuxRunCommand(
+    \'cd ' . root . '/stylesheets ; ./build.sh css')<CR>
+
+nmap <leader>u :wall<CR> :call VimuxRunCommand(
+    \'cd ' . root . '/stylesheets ; ./build.sh bootstrap')<CR>

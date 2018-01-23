@@ -25,17 +25,17 @@ zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 function lg() {
-    git add . :/
-    git commit -am "$*"
+    git commit -m "$*"
     git push
 }
 
 function cclg() {
-    git add . :/
-    git commit -am "$*"
+    branch=`git rev-parse --abbrev-ref HEAD`
+    author="Luke Avery <luke.avery@cambridgeconsultants.com>"
+    git commit -m "$*" --author=$author
     url=`git remote get-url origin`
     url="${url:0:8}lga:Alpha314@${url:8}"
-    git push $url
+    git push $url $branch
 }
 
 export LD_LIBRARY_PATH=/usr/local/lib
@@ -44,6 +44,7 @@ export CPATH=/usr/local/include
 
 export CYGWIN="winsymlinks"
 
+alias nodejs='node'
 alias fsi='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsi.exe'
 alias fsc='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsc.exe'
 alias explore="$HOME/unix_setup/src/other/explore.bash"
@@ -68,6 +69,7 @@ alias nunit='/cygdrive/c/Program\ Files\ (x86)/NUnit.org/nunit-console/nunit3-co
 alias dotnet='/cygdrive/c/Program\ Files/dotnet/dotnet.exe'
 alias csc='/cygdrive/c/Windows/Microsoft.NET/Framework64/v3.5/csc.exe'
 alias nunit_runner='/home/.useful/net-3.5/nunitlite-runner.exe'
+alias sp='shutdown --suspend now'
 
 PROMPT="
     %F{cyan}-%  "
