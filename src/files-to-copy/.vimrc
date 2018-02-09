@@ -512,6 +512,9 @@ function! Realpath()
     execute new_path
 endfunc
 nnoremap <leader>r :call Realpath()<CR>
+nnoremap <leader>x //e<CR>ld??a<CR>
+nnoremap <expr> n 'Nn'[v:searchforward] . 'zv'
+nnoremap <expr> N 'nN'[v:searchforward] . 'zv'
 
 function! Explore()
     echo system('/home/unix_setup/src/other/explore.bash ' . expand("%:p:h"))
@@ -522,3 +525,8 @@ set laststatus=0
 set noruler
 set noshowmode
 set noswapfile
+
+set notimeout
+set ttimeout
+
+nnoremap ' "

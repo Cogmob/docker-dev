@@ -10,7 +10,17 @@ nmap <leader>j :wall<CR> :call VimuxRunCommand(
 nmap <leader>k :wall<CR> :call VimuxInterruptRunner()<CR>
 
 nmap <leader>l :wall<CR> :call VimuxRunCommand(
-    \'cd ' . root . '/stylesheets ; ./build.sh css')<CR>
+    \'clear ; cd ' . root . '/src/build ;
+    \ ./build.sh app_min_css css ; cd ..')<CR>
 
 nmap <leader>u :wall<CR> :call VimuxRunCommand(
-    \'cd ' . root . '/stylesheets ; ./build.sh bootstrap')<CR>
+    \'clear ; cd ' . root . '/src/build ;
+    \ ./build.sh app_min_js ; cd ..')<CR>
+
+nmap <leader>i :wall<CR> :call VimuxRunCommand(
+    \'clear ; cd ' . root . '/src/build ;
+    \ ./build.sh templates ; cd ..')<CR>
+
+nmap <leader>o :wall<CR> :call VimuxRunCommand(
+    \'clear ; cd ' . root . '/src/build ;
+    \ ./build.sh other ; cd ..')<CR>

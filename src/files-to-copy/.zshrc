@@ -44,6 +44,7 @@ export CPATH=/usr/local/include
 
 export CYGWIN="winsymlinks"
 
+alias ga='git add -A'
 alias nodejs='node'
 alias fsi='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsi.exe'
 alias fsc='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsc.exe'
