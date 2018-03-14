@@ -55,6 +55,7 @@ alias grep='grep --color=always --ignore-case'
 alias frep='grep -l --color=never --exclude=\*.{anim,atf,bmp,bnk,csh,dds,exe,fla,jpg,mani,noise,png,psd,sdb,stationData,str,swf,sysmeta,tga,ttf,wem,xls,xmdl}'
 alias psd='python3 ~/unix_setup/src/other/populate_search_dir.py'
 alias prep="$HOME/unix_setup/src/other/prep.sh"
+alias irep="$HOME/unix_setup/src/other/irep.sh"
 alias glog='git log --pretty=oneline --abbrev-commit'
 alias sizes='du -h --max-depth=1 | sort -hr'
 alias msg='~/unix_setup/src/other/notifu /m -'
@@ -71,6 +72,7 @@ alias dotnet='/cygdrive/c/Program\ Files/dotnet/dotnet.exe'
 alias csc='/cygdrive/c/Windows/Microsoft.NET/Framework64/v3.5/csc.exe'
 alias nunit_runner='/home/.useful/net-3.5/nunitlite-runner.exe'
 alias sp='shutdown --suspend now'
+alias vssh='$HOME/unix_setup/src/vssh/vssh'
 
 PROMPT="
     %F{cyan}-%  "
@@ -92,3 +94,4 @@ then
 set --
 fi
 
+source '/home/.babun-docker/setup.sh'

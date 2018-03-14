@@ -28,6 +28,8 @@ NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'gaving/vim-textobj-argument'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'tpope/vim-fugitive'
 call neobundle#end()
 
 
@@ -530,3 +532,5 @@ set notimeout
 set ttimeout
 
 nnoremap ' "
+nnoremap cd /\%<C-R>=virtcol(".")<CR>v\S<CR>:noh<CR>
+nnoremap cu ?\%<C-R>=virtcol(".")<CR>v\S<CR>:noh<CR>

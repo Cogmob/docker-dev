@@ -5,3 +5,27 @@
 	default = matching
 [core]
 	trustctime = false
+[diff]
+    tool = meld
+	guitool = kdiff3
+	guitool = kdiff3
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+    tool = meld
+	tool = kdiff3
+	tool = kdiff3
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[mergetool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+	trustExitCode = false
+	path = C:/Program Files/KDiff3/kdiff3.exe
+	trustExitCode = false
+[difftool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+	trustExitCode = falsE
+	path = C:/Program Files/KDiff3/kdiff3.exe
+	trustExitCode = falsE
