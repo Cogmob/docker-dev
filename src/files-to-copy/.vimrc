@@ -27,20 +27,27 @@ NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript'
 NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'EvanDotPro/nerdtree-chmod'
 NeoBundle 'gaving/vim-textobj-argument'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle '907th/vim-auto-save'
 call neobundle#end()
 
 
 " global variables
+set textwidth=0
 set shell=/usr/bin/zsh
 set nobackup
 "set laststatus=2
 let g:nerdtree_tabs_open_on_console_startup=0
 " let g:fieldtrip_start_map=<leader>,
 let g:NERDTreeWinSize = 40
-let g:gitgutter_sign_column_always = 1
+let g:auto_save_in_insert_mode = 1
+let g:auto_save_silent = 1
+let g:gitgutter_sign_column_always = 3
+let g:auto_save = 1
 set ic
 set cursorline
 set expandtab
@@ -87,12 +94,13 @@ nmap <silent> <C-i> :res +5<CR>
 nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
-nmap <leader>w :up!<CR>
 nmap <leader>g :echo ''<CR>
 nmap <leader>3 :test
 map <leader>4 "
 map <leader>5 @
 nmap <leader>a :call VimuxRunCommand('clear')<CR>
+nnoremap J gJ
+nmap <leader>w "w
 
 " nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
@@ -517,6 +525,11 @@ nnoremap <leader>r :call Realpath()<CR>
 nnoremap <leader>x //e<CR>ld??a<CR>
 nnoremap <expr> n 'Nn'[v:searchforward] . 'zv'
 nnoremap <expr> N 'nN'[v:searchforward] . 'zv'
+
+function! Strip(input_string)
+    return substitute(a:input_string, '^\s*\(.\{-}\)\s*$', '\1', '')
+endfunction
+nnoremap <leader>b :call VimuxRunCommand(Strip(getline('.')))<CR>
 
 function! Explore()
     echo system('/home/unix_setup/src/other/explore.bash ' . expand("%:p:h"))
