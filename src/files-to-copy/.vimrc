@@ -33,6 +33,7 @@ NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle '907th/vim-auto-save'
+NeoBundle 'airblade/vim-gitgutter'
 call neobundle#end()
 
 
@@ -46,7 +47,6 @@ let g:nerdtree_tabs_open_on_console_startup=0
 let g:NERDTreeWinSize = 40
 let g:auto_save_in_insert_mode = 1
 let g:auto_save_silent = 1
-let g:gitgutter_sign_column_always = 3
 let g:auto_save = 1
 set ic
 set cursorline
@@ -346,6 +346,7 @@ function! OnFileLoad()
     autocmd InsertLeave <buffer> set nonu
     autocmd InsertLeave <buffer> set foldcolumn=12
     set noro
+    call ClearSyntax()
 
     " let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['es6'] = '6'
     " let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = 'y'
@@ -445,8 +446,8 @@ set fillchars+=vert:\|
 set encoding=utf8
 
 " move cursor by display lines when wrapping
-set columns=94
-autocmd VimResized * if (&columns > 94) | set columns=94 | endif
+"set columns=94
+"autocmd VimResized * if (&columns > 94) | set columns=94 | endif
 set linebreak
 
 noremap <leader>3 :call ToggleWrap()<CR>
@@ -547,3 +548,28 @@ set ttimeout
 nnoremap ' "
 nnoremap cd /\%<C-R>=virtcol(".")<CR>v\S<CR>:noh<CR>
 nnoremap cu ?\%<C-R>=virtcol(".")<CR>v\S<CR>:noh<CR>
+
+" highlight only comments
+func! ClearSyntax()
+    let syn=split(execute('syn list'), "\n")[1:]
+    call filter(syn, {idx, val -> match(val, '^\w') > -1})
+    call map(syn, {idx, val -> split(val)[0]})
+    for item in syn
+        if match(item, '\c\mcomment') == -1
+            try
+                exe 'syn clear' item
+                " ignore E28 (no such highlight group)
+            catch /^Vim\%((\a\+)\)\=:E28/
+            endtry
+        endif
+    endfor
+endfu
+call ClearSyntax()
+
+" com! ClearSyntaxExceptComments :call ClearSyntax()
+
+let g:gitgutter_sign_added = '+ '
+let g:gitgutter_sign_modified = '| '
+let g:gitgutter_sign_removed = '| '
+let g:gitgutter_sign_removed_first_line = '| '
+let g:gitgutter_sign_modified_removed = '| '

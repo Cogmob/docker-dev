@@ -46,3 +46,10 @@ git clone git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./install.sh
 * gimp
 * git
 * tortoise git
+
+## other commands that haven't yet been incorporated
+
+``` sh
+curl -s https://raw.githubusercontent.com/tiangolo/babun-docker/master/setup.sh | source /dev/stdin
+babun-docker-update
+```

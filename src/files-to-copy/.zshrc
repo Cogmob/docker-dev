@@ -81,6 +81,7 @@ alias elm-repl='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-repl.
 alias elm-package='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-package.exe"'
 alias elm-make='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-make.exe"'
 alias elm-reactor='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-reactor.exe"'
+alias tool='/bin/bash -e /home/gc_tool/_.sh'
 
 PROMPT="
     %F{cyan}-%  "
@@ -91,7 +92,7 @@ setopt extendedglob
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 
 if [[ $TMUX == "" ]]; then
-    tmux new-session "~/unix_setup/src/other/tmux-split-first.sh"
+    tmux new-session
 else
 fi
 
@@ -102,6 +103,6 @@ then
 set --
 fi
 
-# source '/home/.babun-docker/setup.sh'
-docker-machine start default
-eval $(docker-machine env default)
+source '/home/.babun-docker/setup.sh'
+# docker-machine start default
+# eval $(docker-machine env default)
