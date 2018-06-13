@@ -1,9 +1,8 @@
 " template for new .lvimrc files
 " let root = expand('%:p:h')
-" nmap <leader>j :wall<CR> :call VimuxRunCommand('cd ' . expand('%:p:h') .
-" \ ' ; clear ; echo command 1')<CR>
-" nmap <leader>k :wall<CR> :call VimuxRunCommand('cd ' . expand('%:p:h') .
-" \ ' ; clear ; echo command 2')<CR>
+" nmap <leader>y :silent execute ':! tmux send-keys -t 2 "cd ' . root . ' ; clear ; 
+"             \ docker-machine start default" C-m
+"             \'<CR> :redraw!<CR>
 
 " skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -34,6 +33,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle '907th/vim-auto-save'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'codable/diffreview'
 call neobundle#end()
 
 
@@ -101,11 +101,13 @@ map <leader>5 @
 nmap <leader>a :call VimuxRunCommand('clear')<CR>
 nnoremap J gJ
 nmap <leader>w "w
+nmap <leader>5 :diffget //2<CR>
+nmap <leader>8 :diffget //3<CR>
 
 " nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
 nnoremap Y y$
-map /cyg :e /cyg
+" map /cyg :e /cyg
 
 nmap <leader>f :call Ack()<CR>
 function! Ack()
@@ -126,6 +128,8 @@ let commentsvisible=1
 hi! Comment guifg=bg ctermfg=DarkBlue
 
 nmap <leader>h :noh<CR>
+set noshowmatch
+au BufEnter * :NoMatchParen
 map # <Nop>
 " vnoremap <silent> * :call VisualSelection('f')<CR>
 " vnoremap <silent> # :call VisualSelection('b')<CR>
@@ -455,7 +459,7 @@ function! ToggleWrap()
     if &wrap
         echo "Wrap OFF"
         set nowrap
-        set virtualedit=
+        set virtualedit=all
 		silent! nunmap <buffer> <Up>
 		silent! nunmap <buffer> <Down>
 		silent! nunmap <buffer> <Home>
@@ -467,7 +471,7 @@ function! ToggleWrap()
     else
 		echo "Wrap ON"
         set wrap linebreak nolist
-        set virtualedit=
+        set virtualedit=all
         setlocal display+=lastline
         noremap  <buffer> <silent> <Up>   gk
         noremap  <buffer> <silent> <Down> gj
@@ -563,13 +567,36 @@ func! ClearSyntax()
             endtry
         endif
     endfor
+    hi Normal ctermfg=0
+    hi Comment ctermfg=12
 endfu
 call ClearSyntax()
+set virtualedit=all
 
 " com! ClearSyntaxExceptComments :call ClearSyntax()
 
-let g:gitgutter_sign_added = '+ '
+let g:gitgutter_sign_added = '| '
 let g:gitgutter_sign_modified = '| '
 let g:gitgutter_sign_removed = '| '
 let g:gitgutter_sign_removed_first_line = '| '
 let g:gitgutter_sign_modified_removed = '| '
+
+let root = expand('%:p:h')
+nnoremap <leader>y :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; . commands.sh ' . root . ' 1" C-m'<CR> :redraw!<CR>
+nnoremap <leader>u :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; . commands.sh ' . root . ' 2" C-m'<CR> :redraw!<CR>
+nnoremap <leader>i :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; . commands.sh ' . root . ' 3" C-m'<CR> :redraw!<CR>
+nnoremap <leader>o :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; . commands.sh ' . root . ' 4" C-m'<CR> :redraw!<CR>
+nnoremap <leader>p :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; . commands.sh ' . root . ' 5" C-m'<CR> :redraw!<CR>
+nnoremap <leader>j :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; . commands.sh ' . root . ' 6" C-m'<CR> :redraw!<CR>
+nnoremap <leader>k :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; . commands.sh ' . root . ' 7" C-m'<CR> :redraw!<CR>
+nnoremap <leader>l :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; . commands.sh ' . root . ' 8" C-m'<CR> :redraw!<CR>
+nnoremap <leader>m :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; . commands.sh ' . root . ' 9" C-m'<CR> :redraw!<CR>

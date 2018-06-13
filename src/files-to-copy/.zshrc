@@ -1,4 +1,5 @@
 DISABLE_AUTO_UPDATE="true"
+
 DISABLE_AUTO_TITLE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git)
@@ -13,7 +14,7 @@ export TERM="xterm-256color"
 bindkey -v
 
 export KEYTIMEOUT=1
-Font="Droid Sans Mono Awesome"
+# Font="Droid Sans Mono Awesome"
 FontHeight=80
 Transparency=low
 
@@ -30,10 +31,10 @@ function lg() {
 }
 
 function cclg() {
-    branch=`git rev-parse --abbrev-ref HEAD`
+    branch=$(git rev-parse --abbrev-ref HEAD)
     author="Luke Avery <luke.avery@cambridgeconsultants.com>"
     git commit -m "$*" --author=$author
-    url=`git remote get-url origin`
+    url=$(git remote get-url origin)
     url="${url:0:8}lga:Alpha314@${url:8}"
     git push $url $branch
 }
@@ -81,20 +82,17 @@ alias elm-repl='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-repl.
 alias elm-package='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-package.exe"'
 alias elm-make='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-make.exe"'
 alias elm-reactor='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-reactor.exe"'
-alias tool='/bin/bash -e /home/gc_tool/_.sh'
+alias tool='/bin/bash -e /home/gc_tool/_.sh /home/gc_tool'
+alias tm='tmux new-session ~/unix_setup/src/other/tmux-split-b.sh'
 
 PROMPT="
-    %F{cyan}-%  "
 
-zle_highlight=( default:fg=cyan )
+    - "
+
+zle_highlight=( default:fg=black )
 
 setopt extendedglob
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
-
-if [[ $TMUX == "" ]]; then
-    tmux new-session
-else
-fi
 
 # allow running shell command then enter interactive
 if [[ $1 == eval ]]
