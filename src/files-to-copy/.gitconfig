@@ -5,6 +5,7 @@
 	default = matching
 [core]
 	trustctime = false
+	filemode = false
 [diff]
     tool = meld
 	guitool = kdiff3

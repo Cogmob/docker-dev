@@ -34,6 +34,7 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle '907th/vim-auto-save'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'codable/diffreview'
+NeoBundle 'markonm/traces'
 call neobundle#end()
 
 
@@ -583,20 +584,24 @@ let g:gitgutter_sign_modified_removed = '| '
 
 let root = expand('%:p:h')
 nnoremap <leader>y :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 1" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' list" C-m'<CR> :redraw!<CR>
 nnoremap <leader>u :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 2" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' 1" C-m'<CR> :redraw!<CR>
 nnoremap <leader>i :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 3" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' 2" C-m'<CR> :redraw!<CR>
 nnoremap <leader>o :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 4" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' 3" C-m'<CR> :redraw!<CR>
 nnoremap <leader>p :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 5" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' 4" C-m'<CR> :redraw!<CR>
 nnoremap <leader>j :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 6" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' 5" C-m'<CR> :redraw!<CR>
 nnoremap <leader>k :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 7" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' 6" C-m'<CR> :redraw!<CR>
 nnoremap <leader>l :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 8" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' 7" C-m'<CR> :redraw!<CR>
 nnoremap <leader>m :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; source dev.sh ' . root . ' 8" C-m'<CR> :redraw!<CR>
+nnoremap <leader>, :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
             \ ; clear ; source dev.sh ' . root . ' 9" C-m'<CR> :redraw!<CR>
+nnoremap <leader>. :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+            \ ; clear ; source dev.sh ' . root . ' 10" C-m'<CR> :redraw!<CR>
