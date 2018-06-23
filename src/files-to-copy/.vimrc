@@ -34,7 +34,8 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle '907th/vim-auto-save'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'codable/diffreview'
-NeoBundle 'markonm/traces'
+NeoBundle 'ruanyl/vim-fixmyjs'
+
 call neobundle#end()
 
 
@@ -102,8 +103,8 @@ map <leader>5 @
 nmap <leader>a :call VimuxRunCommand('clear')<CR>
 nnoremap J gJ
 nmap <leader>w "w
-nmap <leader>5 :diffget //2<CR>
-nmap <leader>8 :diffget //3<CR>
+" nmap <leader>5 :diffget //2<CR>
+" nmap <leader>8 :diffget //3<CR>
 
 " nmap <c-x> :call ToggleComments()<cr>
 " nmap <C-w> :sp<CR><C-j>:FSAbove<CR>
@@ -582,26 +583,30 @@ let g:gitgutter_sign_removed = '| '
 let g:gitgutter_sign_removed_first_line = '| '
 let g:gitgutter_sign_modified_removed = '| '
 
+set autoread
+au CursorHold * checktime
+set switchbuf=useopen,usetab
+
 let root = expand('%:p:h')
 nnoremap <leader>y :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' list" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' list" C-m'<CR> :redraw!<CR>
 nnoremap <leader>u :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 1" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 1" C-m'<CR> :redraw!<CR>
 nnoremap <leader>i :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 2" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 2" C-m'<CR> :redraw!<CR>
 nnoremap <leader>o :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 3" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 3" C-m'<CR> :redraw!<CR>
 nnoremap <leader>p :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 4" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 4" C-m'<CR> :redraw!<CR>
 nnoremap <leader>j :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 5" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 5" C-m'<CR> :redraw!<CR>
 nnoremap <leader>k :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 6" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 6" C-m'<CR> :redraw!<CR>
 nnoremap <leader>l :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 7" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 7" C-m'<CR> :redraw!<CR>
 nnoremap <leader>m :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 8" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 8" C-m'<CR> :redraw!<CR>
 nnoremap <leader>, :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 9" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 9" C-m'<CR> :redraw!<CR>
 nnoremap <leader>. :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' 10" C-m'<CR> :redraw!<CR>
+            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 10" C-m'<CR> :redraw!<CR>

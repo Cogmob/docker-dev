@@ -39,6 +39,8 @@ function cclg() {
     git push $url $branch
 }
 
+export PATH=$(npm root -g):$PATH
+
 export LD_LIBRARY_PATH=/usr/local/lib
 export LIBRARY_PATH=/usr/local/lib
 export CPATH=/usr/local/include
