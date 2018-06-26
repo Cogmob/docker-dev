@@ -569,8 +569,15 @@ func! ClearSyntax()
             endtry
         endif
     endfor
-    hi Normal ctermfg=0
-    hi Comment ctermfg=12
+    highlight Normal ctermfg=0
+    highlight Comment ctermfg=Grey
+    highlight VimwikiHeader1 ctermfg=Grey
+    highlight VimwikiHeader2 ctermfg=Grey
+    highlight VimwikiHeader3 ctermfg=Grey
+    highlight VimwikiHeader4 ctermfg=Grey
+    highlight VimwikiHeader5 ctermfg=Grey
+    highlight VimwikiHeader6 ctermfg=Grey
+    highlight Visual ctermbg=DarkBlue ctermfg=White
 endfu
 call ClearSyntax()
 set virtualedit=all
@@ -589,15 +596,16 @@ set switchbuf=useopen,usetab
 
 let root = expand('%:p:h')
 nnoremap <leader>y :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' list" C-m'<CR> :redraw!<CR>
+    \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' list" C-m'<CR> :redraw!<CR>
 nnoremap <leader>u :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 1" C-m'<CR> :redraw!<CR>
+    \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 1" C-m'<CR> :redraw!<CR>
 nnoremap <leader>i :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
             \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 2" C-m'<CR> :redraw!<CR>
 nnoremap <leader>o :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
             \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 3" C-m'<CR> :redraw!<CR>
 nnoremap <leader>p :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 4" C-m'<CR> :redraw!<CR>
+    \ ; clear ; sh dev.sh --tool-root ' . root . ' --file-path ' .
+    \ split(expand('%:p'), root . '/')[0] . ' 4" C-m'<CR> :redraw!<CR>
 nnoremap <leader>j :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
             \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 5" C-m'<CR> :redraw!<CR>
 nnoremap <leader>k :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
@@ -611,5 +619,5 @@ nnoremap <leader>, :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
 nnoremap <leader>. :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
             \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 10" C-m'<CR> :redraw!<CR>
 
-highlight Search cterm=NONE ctermfg=DarkBlue
-highlight IncSearch cterm=NONE ctermfg=black ctermbg=DarkBlue
+highlight Search cterm=NONE ctermfg=DarkBlue ctermbg=White
+highlight IncSearch cterm=NONE ctermfg=White ctermbg=DarkBlue

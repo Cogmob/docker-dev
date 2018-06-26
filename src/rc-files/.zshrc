@@ -88,7 +88,6 @@ alias tool='/bin/bash -e /home/gc_tool/_.sh /home/gc_tool'
 alias tm='tmux new-session ~/unix_setup/src/other/tmux-split-b.sh'
 
 PROMPT="
-
     - "
 
 zle_highlight=( default:fg=black )
