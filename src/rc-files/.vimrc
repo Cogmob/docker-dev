@@ -338,19 +338,19 @@ function! OnFileLoad()
     set foldlevelstart=99
     set foldlevel=99
     map <leader>n :only<CR>
-    set foldcolumn=12
+    set foldcolumn=2
     if exists("#airline")
         AirlineToggle
     endif
 
     autocmd InsertEnter <buffer> set colorcolumn=82
     autocmd InsertEnter <buffer> set nonu
-    autocmd InsertEnter <buffer> set foldcolumn=12
+    autocmd InsertEnter <buffer> set foldcolumn=2
 
     autocmd InsertLeave <buffer> set colorcolumn=999
     autocmd InsertLeave <buffer> set nu!
     autocmd InsertLeave <buffer> set nonu
-    autocmd InsertLeave <buffer> set foldcolumn=12
+    autocmd InsertLeave <buffer> set foldcolumn=2
     set noro
     call ClearSyntax()
 
@@ -443,7 +443,7 @@ hi NonText guifg=white ctermfg=white
 set statusline=\ \ \ \ \ \ \ \ -
 
 set ls=0
-set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f\ \ \ \ \ \ \ \ \ \ \ \ 
+set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f
 hi TabLineFill ctermbg=white ctermfg=grey cterm=bold
 set showtabline=2
 noh
@@ -610,3 +610,6 @@ nnoremap <leader>, :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
             \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 9" C-m'<CR> :redraw!<CR>
 nnoremap <leader>. :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
             \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 10" C-m'<CR> :redraw!<CR>
+
+highlight Search cterm=NONE ctermfg=DarkBlue
+highlight IncSearch cterm=NONE ctermfg=black ctermbg=DarkBlue
