@@ -621,3 +621,4 @@ nnoremap <leader>. :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
 
 highlight Search cterm=NONE ctermfg=DarkBlue ctermbg=White
 highlight IncSearch cterm=NONE ctermfg=White ctermbg=DarkBlue
+let g:gitgutter_map_keys = 0
