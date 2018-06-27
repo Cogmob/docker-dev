@@ -3,10 +3,6 @@ DISABLE_AUTO_UPDATE="true"
 DISABLE_AUTO_TITLE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git)
-if [ -e ~/bin ]
-then
-    unlink ~/bin
-fi
 
 export TERM="xterm-256color"
 [ -n "$TMUX" ] && export TERM=screen-256color

@@ -7,10 +7,10 @@ set -g status-justify "right"
 set -g status-left-length "100"
 set -g status "on"
 set -g pane-active-border-fg "#ffffff"
-set -g message-bg "colour"
+set -g message-bg "colour7"
+set -g message-fg "colour8"
 set -g status-right-length "100"
 set -g status-right-attr "none"
-set -g message-fg "colour1"
 set -g message-command-bg "colour14"
 set -g status-attr "none"
 # set -g status-utf8 "on"
@@ -26,5 +26,8 @@ setw -g window-status-bg "colour1"
 set -g status-left "            "
 set -g status-right "            "
 
-setw -g window-status-format "#[fg=colour14,bg=colour1] #W "
-setw -g window-status-current-format "#[fg=colour0,bg=colour1] #W"
+setw -g window-status-format "#[fg=colour14,bg=colour7] #W "
+setw -g window-status-current-format "#[fg=colour0,bg=colour7] #W"
+
+set -g status-bg white
+set -g status-fg colour12
