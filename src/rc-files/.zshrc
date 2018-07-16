@@ -31,7 +31,7 @@ function cclg() {
     author="Luke Avery <luke.avery@cambridgeconsultants.com>"
     git commit -m "$*" --author=$author
     url=$(git remote get-url origin)
-    url="${url:0:8}lga:Alpha314@${url:8}"
+    url="${url:0:8}lga:Bravabrava314@${url:8}"
     git push $url $branch
 }
 
@@ -84,9 +84,12 @@ alias tool='/bin/bash -e /home/gc_tool/_.sh /home/gc_tool'
 alias tm='tmux new-session ~/unix_setup/src/other/tmux-split-b.sh'
 
 PROMPT="
-    - "
 
-zle_highlight=( default:fg=black )
+        - "
+preexec() { print "" }
+
+
+zle_highlight=( default:fg=colour3 )
 
 setopt extendedglob
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'

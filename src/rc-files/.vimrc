@@ -35,6 +35,7 @@ NeoBundle '907th/vim-auto-save'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'codable/diffreview'
 NeoBundle 'ruanyl/vim-fixmyjs'
+NeoBundle 'tpope/vim-commentary'
 
 call neobundle#end()
 
@@ -343,14 +344,6 @@ function! OnFileLoad()
         AirlineToggle
     endif
 
-    autocmd InsertEnter <buffer> set colorcolumn=82
-    autocmd InsertEnter <buffer> set nonu
-    autocmd InsertEnter <buffer> set foldcolumn=2
-
-    autocmd InsertLeave <buffer> set colorcolumn=999
-    autocmd InsertLeave <buffer> set nu!
-    autocmd InsertLeave <buffer> set nonu
-    autocmd InsertLeave <buffer> set foldcolumn=2
     set noro
     call ClearSyntax()
 
@@ -365,11 +358,7 @@ autocmd BufRead * call OnFileLoad()
 
 function! ShrinkBuff()
     let bufferheight = line('$')
-    if bufferheight < 26
-        let &wh=bufferheight + 2
-    else
-        let &wh=28
-    endif
+    let &wh=bufferheight + 2
 endfunction
 autocmd BufEnter * call ShrinkBuff()
 set wmh=0
@@ -578,17 +567,23 @@ func! ClearSyntax()
     highlight VimwikiHeader5 ctermfg=Grey
     highlight VimwikiHeader6 ctermfg=Grey
     highlight Visual ctermbg=DarkBlue ctermfg=White
+    highlight SignColumn ctermfg=White ctermbg=White
+    highlight GitGutterAdd ctermfg=Grey ctermbg=White
+    highlight GitGutterChange ctermfg=Grey ctermbg=White
+    highlight GitGutterDelete ctermfg=Grey ctermbg=White
+    highlight GitGutterChangeDelete ctermfg=Grey ctermbg=White
 endfu
 call ClearSyntax()
 set virtualedit=all
 
 " com! ClearSyntaxExceptComments :call ClearSyntax()
 
-let g:gitgutter_sign_added = '. '
-let g:gitgutter_sign_modified = '. '
-let g:gitgutter_sign_removed = '. '
-let g:gitgutter_sign_removed_first_line = '. '
-let g:gitgutter_sign_modified_removed = '. '
+let g:gitgutter_sign_added = '| '
+let g:gitgutter_sign_modified = '| '
+let g:gitgutter_sign_removed = '| '
+let g:gitgutter_sign_removed_first_line = '| '
+let g:gitgutter_sign_modified_removed = '| '
+let g:gitgutter_override_sign_column_highlight = 0
 
 set autoread
 au CursorHold * checktime
@@ -596,29 +591,42 @@ set switchbuf=useopen,usetab
 
 let root = expand('%:p:h')
 nnoremap <leader>y :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' list" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command list" C-m'<CR> :redraw!<CR>
 nnoremap <leader>u :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 1" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command 1" C-m'<CR> :redraw!<CR>
 nnoremap <leader>i :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 2" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command 2" C-m'<CR> :redraw!<CR>
 nnoremap <leader>o :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 3" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command 3" C-m'<CR> :redraw!<CR>
 nnoremap <leader>p :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; sh dev.sh --tool-root ' . root . ' --file-path ' .
-    \ split(expand('%:p'), root . '/')[0] . ' 4" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command 4" C-m'<CR> :redraw!<CR>
 nnoremap <leader>j :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 5" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command 5" C-m'<CR> :redraw!<CR>
 nnoremap <leader>k :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 6" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command 6" C-m'<CR> :redraw!<CR>
 nnoremap <leader>l :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 7" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command 7" C-m'<CR> :redraw!<CR>
 nnoremap <leader>m :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 8" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command 8" C-m'<CR> :redraw!<CR>
 nnoremap <leader>, :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 9" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command 10" C-m'<CR> :redraw!<CR>
 nnoremap <leader>. :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-            \ ; clear ; source dev.sh ' . root . ' ' . split(expand('%:p'), root . '/')[0] . ' 10" C-m'<CR> :redraw!<CR>
+    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+    \ . ' --command 11" C-m'<CR> :redraw!<CR>
 
 highlight Search cterm=NONE ctermfg=DarkBlue ctermbg=White
 highlight IncSearch cterm=NONE ctermfg=White ctermbg=DarkBlue
 let g:gitgutter_map_keys = 0
+
+set winheight=5
+set winminheight=5
