@@ -80,7 +80,6 @@ alias elm-repl='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-repl.
 alias elm-package='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-package.exe"'
 alias elm-make='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-make.exe"'
 alias elm-reactor='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-reactor.exe"'
-alias tool='/bin/bash -e /home/gc_tool/_.sh /home/gc_tool'
 alias tm='tmux new-session ~/unix_setup/src/other/tmux-split-b.sh'
 
 PROMPT="

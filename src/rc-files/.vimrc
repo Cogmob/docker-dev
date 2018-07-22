@@ -423,7 +423,7 @@ endfunction
 map <leader>2 :call ShrinkAll()<CR>
 " autocmd InsertLeave <buffer> call ShrinkAll()
 
-hi StatusLineNC ctermbg=grey ctermfg=white
+hi StatusLineNC ctermbg=white ctermfg=grey cterm=bold
 hi StatusLine ctermbg=white ctermfg=grey cterm=bold
 hi LineNr cterm=NONE ctermfg=grey ctermbg=NONE gui=NONE guifg=white guibg=white
 hi CurrentLineNr cterm=NONE ctermfg=white ctermbg=white gui=NONE guifg=white guibg=white
@@ -441,8 +441,8 @@ set fillchars+=vert:\|
 set encoding=utf8
 
 " move cursor by display lines when wrapping
-"set columns=94
-"autocmd VimResized * if (&columns > 94) | set columns=94 | endif
+" set columns=94
+" autocmd V i m Resized * if (&columns > 94) | set columns=94 | endif
 set linebreak
 
 noremap <leader>3 :call ToggleWrap()<CR>
@@ -532,7 +532,7 @@ function! Explore()
 endfunc
 nnoremap <leader>e :call Explore()<CR>
 
-set laststatus=0
+set laststatus=2
 set noruler
 set noshowmode
 set noswapfile
@@ -630,3 +630,28 @@ let g:gitgutter_map_keys = 0
 
 set winheight=5
 set winminheight=5
+
+func! STL()
+  let stl = ''
+  let barWidth = 80
+  let barWidth = barWidth < 3 ? 3 : barWidth
+
+  if line('$') > 1
+    let progress = (line('.')-1) * (barWidth-1) / (line('$')-1)
+  else
+    let progress = barWidth/2
+  endif
+
+  " line + vcol + %
+  let pad = 0
+  let bar = repeat(' ',pad).'   %1*%'.barWidth.'.'.barWidth.'('
+        \.repeat(' ',progress )
+        \.'%2*.%1*'
+        \.repeat(' ',barWidth - progress - 1).'%0*%)%<.'
+
+  return stl.bar
+endfun
+
+hi def link User1 DiffAdd
+hi def link User2 DiffDelete
+set stl=%!STL()

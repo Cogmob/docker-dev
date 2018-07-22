@@ -36,5 +36,6 @@ BellTaskbar=no
 FontWeight=400
 BoldAsColour=no
 RowSpacing=4
+ColSpacing=1
 FontSmoothing=full
 FontIsBold=no
