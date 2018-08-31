@@ -20,6 +20,7 @@ mkdir -p ~/.vimundo
 mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 mkdir -p ~/.vim/colors
+unlink ~/.vim/colors/solarized.vim
 ln -s ~/unix_setup/src/other/solarized.vim ~/.vim/colors/solarized.vim
 rm -rf vim-colors-solarized
 rm -rf neobundle.vim
