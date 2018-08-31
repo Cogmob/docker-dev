@@ -28,8 +28,6 @@ run the update.bat
 	echo "db_home: /home" >> /etc/nsswitch.conf
 	echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf
 	mkpasswd -l -p "$(cygpath -H)" > /etc/passwd
-	rm /etc/passwd
-	rm /etc/group
 	cd ~
 	mkdir -p .ssh
 	yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk"
@@ -62,7 +60,8 @@ after successful ssh
 	yes | ssh-keygen -q -N "" -f .ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk"
 	sudo chmod 600 .ssh/*
 	cat .ssh/id_rsa.pub
-    sudo apt-get install git
+    sudo apt-get install git zsh npm
+    sudo sed -i 's/bash/zsh/g' /etc/passwd
     exit
 
 ## other things to install on new computer ##

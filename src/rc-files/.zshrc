@@ -100,6 +100,6 @@ then
 set --
 fi
 
-source '/home/.babun-docker/setup.sh'
+# source '/home/.babun-docker/setup.sh'
 # docker-machine start default
 # eval $(docker-machine env default)
