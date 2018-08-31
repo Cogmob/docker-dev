@@ -16,7 +16,7 @@ git config --global core.pager cat
 export PATH="$PATH:/cygdrive/c/Users/lavery/AppData/Roaming/npm:/cygdrive/c/Program Files/nodejs/"
 
 # vim
-mkdir ~/.vimundo
+mkdir -p ~/.vimundo
 mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 mkdir -p ~/.vim/colors
