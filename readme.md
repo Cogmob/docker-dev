@@ -42,18 +42,27 @@ run the update.bat
 
 ## ubuntu
 
+    sudo apt-get install openssh-server -y
+    mkdir .ssh
+    chmod 700 .ssh
+    ssh-keygen -t rsa
+    hostname -I
+
+on other machine
+
+    ssh-keygen -R [ip address]
+
+after successful ssh
+
     sudo -i
-    chown -R /home luke
-	rm -rf /home/*
-	export HOME=/home
-	echo "db_home: /home" >> /etc/nsswitch.conf
+	rm -rf ~
+	echo "db_home: $(pwd)" >> /etc/nsswitch.conf
 	echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf
-	rm /etc/group
-	cd ~
-	mkdir -p .ssh
-	yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk"
-	sudo chmod 600 ~/.ssh/*
-	cat ~/.ssh/id_rsa.pub
+	mkdir .ssh
+	yes | ssh-keygen -q -N "" -f .ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk"
+	sudo chmod 600 .ssh/*
+	cat .ssh/id_rsa.pub
+    sudo apt-get install git
     exit
 
 ## other things to install on new computer ##
