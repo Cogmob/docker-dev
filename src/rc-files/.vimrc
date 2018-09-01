@@ -38,7 +38,6 @@ NeoBundle 'ruanyl/vim-fixmyjs'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'idbrii/vim-remarkjs'
 NeoBundle 'idbrii/vim-gogo'
-NeoBundle 'idbrii/vim-ripple'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'Townk/vim-autoclose'
 

@@ -63,6 +63,7 @@ after successful ssh
     sudo apt-get install git zsh npm curl
     sudo sed -i 's/bash/zsh/g' /etc/passwd
     exit
+    git config --global core.editor "vim"
 
 ## other things to install on new computer ##
 
