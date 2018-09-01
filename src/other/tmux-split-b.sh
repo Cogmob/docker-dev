@@ -5,7 +5,7 @@ if [ -z $1 ]; then
 fi
 
 # right page
-tmux split-window -h "cd ~/$1 ; vim readme.md"
+tmux split-window -h "cd ~/$1 ; zsh -is eval \"cd ~/$1 ; vim\""
 
 tmux split-window -b -l 0 -t 0 "read"
 tmux split-window -l 0 -t 1 "read"

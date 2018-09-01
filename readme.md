@@ -60,7 +60,7 @@ after successful ssh
 	yes | ssh-keygen -q -N "" -f .ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk"
 	sudo chmod 600 .ssh/*
 	cat .ssh/id_rsa.pub
-    sudo apt-get install git zsh npm
+    sudo apt-get install git zsh npm curl
     sudo sed -i 's/bash/zsh/g' /etc/passwd
     exit
 

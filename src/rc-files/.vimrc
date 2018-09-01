@@ -36,6 +36,11 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'codable/diffreview'
 NeoBundle 'ruanyl/vim-fixmyjs'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'idbrii/vim-remarkjs'
+NeoBundle 'idbrii/vim-gogo'
+NeoBundle 'idbrii/AsyncCommand'
+NeoBundle 'idbrii/vim-ripple'
+NeoBundle 'mhinz/vim-startify'
 
 call neobundle#end()
 
@@ -655,3 +660,9 @@ endfun
 hi def link User1 DiffAdd
 hi def link User2 DiffDelete
 set stl=%!STL()
+
+ let g:startify_lists = [
+        \ { 'type': 'dir',
+            \ 'footer': ['', '', '', '', '', '', ''] }
+\ ]
+let g:startify_custom_header = ['', '', '', '', '']

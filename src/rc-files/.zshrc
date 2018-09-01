@@ -51,6 +51,7 @@ alias fsi='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/
 alias fsc='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsc.exe'
 alias explore="$HOME/unix_setup/src/other/explore.bash"
 alias ts="$HOME/unix_setup/src/other/tmux-split.sh"
+alias tssh="$HOME/unix_setup/src/other/tmux-split-ssh.sh"
 alias tx="$HOME/unix_setup/src/other/tmux-close.sh"
 alias compile-sass="$HOME/unix_setup/src/other/compile-sass.sh"
 alias grep='grep --color=always --ignore-case'
