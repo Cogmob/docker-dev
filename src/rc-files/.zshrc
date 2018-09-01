@@ -82,7 +82,10 @@ alias elm-package='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-pa
 alias elm-make='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-make.exe"'
 alias elm-reactor='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-reactor.exe"'
 alias tm='tmux new-session ~/unix_setup/src/other/tmux-split-b.sh'
-alias to='tmux select-window -t'
+alias ti='tmux select-window -t'
+alias tw='tmux select-pane -t 2'
+alias te='tmux select-pane -t 3'
+alias to='tmux select-pane -t 7'
 
 PROMPT="
 
