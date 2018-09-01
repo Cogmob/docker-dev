@@ -64,3 +64,4 @@ fi
 # source '/home/.babun-docker/setup.sh'
 # docker-machine start default
 # eval $(docker-machine env default)
+set shell=zsh\ -l
