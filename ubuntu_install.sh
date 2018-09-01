@@ -33,7 +33,7 @@ vim +NeoBundleInstall +qall
 sudo echo "db_home: $(pwd)" >> /etc/nsswitch.conf
 sudo echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf
 sudo apt-get update
-sudo apt-get -y install git zsh npm curl
+sudo apt-get -y install git zsh npm curl tmux
 sudo sed -i 's/bash/zsh/g' /etc/passwd
 git config --global core.editor "vim"
 
