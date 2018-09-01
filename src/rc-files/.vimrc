@@ -40,7 +40,7 @@ NeoBundle 'idbrii/vim-remarkjs'
 NeoBundle 'idbrii/vim-gogo'
 NeoBundle 'idbrii/vim-ripple'
 NeoBundle 'mhinz/vim-startify'
-NeoBunle 'Townk/vim-autoclose'
+NeoBundle 'Townk/vim-autoclose'
 
 call neobundle#end()
 
