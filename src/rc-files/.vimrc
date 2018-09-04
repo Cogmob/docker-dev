@@ -40,6 +40,7 @@ NeoBundle 'idbrii/vim-remarkjs'
 NeoBundle 'idbrii/vim-gogo'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'skywind3000/asyncrun.vim'
 
 call neobundle#end()
 
@@ -102,12 +103,13 @@ nmap <silent> <C-u> :res -5<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>o :CtrlPClearCache<CR>
 nmap <leader>g :echo ''<CR>
-nmap <leader>3 :test
+nmap <leader>3 :silent test
 map <leader>4 "
 map <leader>5 @
-nmap <leader>a :call VimuxRunCommand('clear')<CR>
+nmap <leader>a :silent call VimuxRunCommand('clear')<CR>
 nnoremap J gJ
-nmap <leader>w "w
+" nmap <leader>w "w
+nmap <leader>w :AsyncRun tw<cr>
 " nmap <leader>5 :diffget //2<CR>
 " nmap <leader>8 :diffget //3<CR>
 

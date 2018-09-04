@@ -30,3 +30,5 @@
 	trustExitCode = falsE
 	path = C:/Program Files/KDiff3/kdiff3.exe
 	trustExitCode = falsE
+[http]
+	emptyAuth = 1
