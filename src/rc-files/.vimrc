@@ -431,7 +431,8 @@ function! ShrinkAll()
     execute winno . 'wincmd w'
 endfunction
 map <leader>2 :call ShrinkAll()<CR> :echo<cr>                                                                                         
-autocmd vimenter * call ShrinkAll() echo<cr>                                                                                         
+autocmd vimenter * call ShrinkAll()
+autocmd vimenter * echo     
 " autocmd InsertLeave <buffer> call ShrinkAll()
 autocmd InsertEnter * set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f
 autocmd InsertLeave * set tabline=\ 
