@@ -428,6 +428,8 @@ function! ShrinkAll()
 endfunction
 map <leader>2 :call ShrinkAll()<CR>
 " autocmd InsertLeave <buffer> call ShrinkAll()
+autocmd InsertEnter * set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f
+autocmd InsertLeave * set tabline=\ 
 
 hi StatusLineNC ctermbg=white ctermfg=grey cterm=bold
 hi StatusLine ctermbg=white ctermfg=grey cterm=bold
@@ -438,7 +440,7 @@ hi NonText guifg=white ctermfg=white
 set statusline=\ \ \ \ \ \ \ \ -
 
 set ls=0
-set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f
+set tabline=\ 
 hi TabLineFill ctermbg=white ctermfg=grey cterm=bold
 set showtabline=2
 noh
