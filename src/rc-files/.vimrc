@@ -303,7 +303,7 @@ endif
 " file is large from 2mb
 let g:LargeFile = 1024 * 1024 * 2
 augroup LargeFile 
- autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
 augroup END
 augroup filetypedetect
  au! BufRead,BufNewFile *.es6       set syntax=javascript
@@ -431,7 +431,7 @@ function! ShrinkAll()
     execute winno . 'wincmd w'
 endfunction
 map <leader>2 :call ShrinkAll()<CR> :echo<cr>                                                                                         
-autocmd vimenter * call ShrinkAll() :echo<cr>                                                                                         
+autocmd vimenter * call ShrinkAll() echo<cr>                                                                                         
 " autocmd InsertLeave <buffer> call ShrinkAll()
 autocmd InsertEnter * set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f
 autocmd InsertLeave * set tabline=\ 
