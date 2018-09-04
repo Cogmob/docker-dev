@@ -93,7 +93,7 @@ set softtabstop=4 shiftwidth=4 tabstop=4
 set wrapmargin=0
 
 " mappings
-noremap <C-f> :Autoformat<CR>
+noremap <C-f> :Autoformat<CR> :echo<cr>                                                                                         
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
@@ -109,7 +109,7 @@ map <leader>5 @
 nmap <leader>a :silent call VimuxRunCommand('clear')<CR>
 nnoremap J gJ
 " nmap <leader>w "w
-nmap <leader>w :AsyncRun tw<cr>
+nmap <leader>w :AsyncRun tw<cr> :echo<cr>
 " nmap <leader>5 :diffget //2<CR>
 " nmap <leader>8 :diffget //3<CR>
 
@@ -136,7 +136,7 @@ endfunction
 let commentsvisible=1
 hi! Comment guifg=bg ctermfg=DarkBlue
 
-nmap <leader>h :noh<CR>
+nmap <leader>h :noh<CR> :echo<cr>                                                                                         
 set noshowmatch
 au BufEnter * :NoMatchParen
 map # <Nop>
@@ -144,11 +144,15 @@ map # <Nop>
 " vnoremap <silent> # :call VisualSelection('b')<CR>
 " map <silent> <leader><cr> :noh<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-map <leader>t <plug>NERDTreeTabsToggle<CR> :call ShrinkAll()<CR>
+
+nnoremap <leader>t :NERDTreeTabsToggle<CR> :echo<cr>
+let NERDTreeMinimalUI = 1
+let NERDTreeStatusline=""
+
 nnoremap <SPACE> <Nop>
 " let g:tabman_toggle = '<leader>mt'
 " let g:tabman_focus  = '<leader>mf'
-nmap <leader>q :so $MYVIMRC<CR>
+nmap <leader>q :so $MYVIMRC<CR> :echo<cr>                                                                                         
 " map <leader>w :%s/\s\+$//e<CR> :wa<CR> REMOVED FOR WORK
 map <leader>, :SidewaysLeft<CR>
 map <leader>. :SidewaysRight<CR>
@@ -344,7 +348,7 @@ map <c-g> :wincmd h<CR>
 function! OnFileLoad()
     set foldlevelstart=99
     set foldlevel=99
-    map <leader>n :only<CR>
+    map <leader>n :only<CR> :echo<cr>                                                                                         
     set foldcolumn=2
     if exists("#airline")
         AirlineToggle
@@ -426,12 +430,11 @@ function! ShrinkAll()
 
     execute winno . 'wincmd w'
 endfunction
-map <leader>2 :call ShrinkAll()<CR>
+map <leader>2 :call ShrinkAll()<CR> :echo<cr>                                                                                         
+autocmd vimenter * call ShrinkAll() :echo<cr>                                                                                         
 " autocmd InsertLeave <buffer> call ShrinkAll()
 autocmd InsertEnter * set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f
 autocmd InsertLeave * set tabline=\ 
-
-let NERDTreeMinimalUI = 1
 
 hi StatusLineNC ctermbg=white ctermfg=grey cterm=bold
 hi StatusLine ctermbg=white ctermfg=grey cterm=bold
@@ -455,7 +458,7 @@ set encoding=utf8
 " autocmd V i m Resized * if (&columns > 94) | set columns=94 | endif
 set linebreak
 
-noremap <leader>3 :call ToggleWrap()<CR>
+noremap <leader>3 :call ToggleWrap()<CR> :echo<cr>                                                                                         
 function! ToggleWrap()
     if &wrap
         echo "Wrap OFF"
@@ -500,7 +503,7 @@ function! FloatUp()
         norm 1k
     endwhile
 endfunction
-nnoremap gU :call FloatUp()<CR>
+nnoremap gU :call FloatUp()<CR> :echo<cr>                                                                                         
 
 function! FloatDown()
     while line(".") > 1
@@ -509,7 +512,7 @@ function! FloatDown()
         norm 1j
     endwhile
 endfunction
-nnoremap gD :call FloatDown()<CR>
+nnoremap gD :call FloatDown()<CR> :echo<cr>                                                                                         
 
 " Show syntax highlighting groups for word under cursor
 nmap <leader>o :call <SID>SynStack()<CR>
@@ -527,7 +530,7 @@ function! Realpath()
     execute "bw"
     execute new_path
 endfunc
-nnoremap <leader>r :call Realpath()<CR>
+nnoremap <leader>r :call Realpath()<CR> :echo<cr>                                                                                         
 nnoremap <leader>x //e<CR>ld??a<CR>
 nnoremap <expr> n 'Nn'[v:searchforward] . 'zv'
 nnoremap <expr> N 'nN'[v:searchforward] . 'zv'
@@ -535,12 +538,12 @@ nnoremap <expr> N 'nN'[v:searchforward] . 'zv'
 function! Strip(input_string)
     return substitute(a:input_string, '^\s*\(.\{-}\)\s*$', '\1', '')
 endfunction
-nnoremap <leader>b :call VimuxRunCommand(Strip(getline('.')))<CR>
+nnoremap <leader>b :call VimuxRunCommand(Strip(getline('.')))<CR> :echo<cr>                                                                                         
 
 function! Explore()
     echo system('/home/unix_setup/src/other/explore.bash ' . expand("%:p:h"))
 endfunc
-nnoremap <leader>e :call Explore()<CR>
+nnoremap <leader>e :call Explore()<CR> :echo<cr>                                                                                         
 
 set laststatus=2
 set noruler
@@ -602,37 +605,37 @@ set switchbuf=useopen,usetab
 let root = expand('%:p:h')
 nnoremap <leader>y :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command list" C-m'<CR> :redraw!<CR>
+    \ . ' --command list" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 nnoremap <leader>u :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 1" C-m'<CR> :redraw!<CR>
+    \ . ' --command 1" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 nnoremap <leader>i :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 2" C-m'<CR> :redraw!<CR>
+    \ . ' --command 2" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 nnoremap <leader>o :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 3" C-m'<CR> :redraw!<CR>
+    \ . ' --command 3" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 nnoremap <leader>p :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 4" C-m'<CR> :redraw!<CR>
+    \ . ' --command 4" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 nnoremap <leader>j :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 5" C-m'<CR> :redraw!<CR>
+    \ . ' --command 5" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 nnoremap <leader>k :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 6" C-m'<CR> :redraw!<CR>
+    \ . ' --command 6" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 nnoremap <leader>l :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 7" C-m'<CR> :redraw!<CR>
+    \ . ' --command 7" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 nnoremap <leader>m :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 8" C-m'<CR> :redraw!<CR>
+    \ . ' --command 8" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 nnoremap <leader>, :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 10" C-m'<CR> :redraw!<CR>
+    \ . ' --command 10" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 nnoremap <leader>. :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 11" C-m'<CR> :redraw!<CR>
+    \ . ' --command 11" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 
 highlight Search cterm=NONE ctermfg=DarkBlue ctermbg=White
 highlight IncSearch cterm=NONE ctermfg=White ctermbg=DarkBlue
