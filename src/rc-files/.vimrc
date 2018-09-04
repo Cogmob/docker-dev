@@ -431,6 +431,8 @@ map <leader>2 :call ShrinkAll()<CR>
 autocmd InsertEnter * set tabline=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %=%f
 autocmd InsertLeave * set tabline=\ 
 
+let NERDTreeMinimalUI = 1
+
 hi StatusLineNC ctermbg=white ctermfg=grey cterm=bold
 hi StatusLine ctermbg=white ctermfg=grey cterm=bold
 hi LineNr cterm=NONE ctermfg=grey ctermbg=NONE gui=NONE guifg=white guibg=white
