@@ -3,6 +3,9 @@
 " nmap <leader>y :silent execute ':! tmux send-keys -t 2 "cd ' . root . ' ; clear ; 
 "             \ docker-machine start default" C-m
 "             \'<CR> :redraw!<CR>
+"
+" const print = i => {console.log(i); return i}
+
 
 " skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -41,6 +44,7 @@ NeoBundle 'idbrii/vim-gogo'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'skywind3000/asyncrun.vim'
+NeoBundle 'johngrib/vim-game-snake'
 
 call neobundle#end()
 
@@ -154,8 +158,8 @@ nnoremap <SPACE> <Nop>
 " let g:tabman_focus  = '<leader>mf'
 nmap <leader>q :so $MYVIMRC<CR> :echo<cr>                                                                                         
 " map <leader>w :%s/\s\+$//e<CR> :wa<CR> REMOVED FOR WORK
-map <leader>, :SidewaysLeft<CR>
-map <leader>. :SidewaysRight<CR>
+" map <leader>, :SidewaysLeft<CR>
+" map <leader>. :SidewaysRight<CR>
 nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
 nnoremap <silent> gh "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
@@ -634,9 +638,13 @@ nnoremap <leader>m :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
 nnoremap <leader>, :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
     \ . ' --command 10" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
-nnoremap <leader>. :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 11" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>. :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command 11" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+nnoremap <leader>. :! tmux send-keys -t 2 --command "!!"'<cr>
+" :echo<cr>                                                                                         
+nmap <leader>. :silent execute ':! tmux send-keys -t 2 "
+            \ \!\!" Enter'<CR> :redraw!<CR>
 
 highlight Search cterm=NONE ctermfg=DarkBlue ctermbg=White
 highlight IncSearch cterm=NONE ctermfg=White ctermbg=DarkBlue
@@ -677,3 +685,20 @@ set stl=%!STL()
 let g:startify_custom_header = ['', '', '', '', '']
 let g:startify_change_to_dir = 0
 autocmd User Startified let &l:stl = ''
+
+" redirect the output of a Vim or external command into a scratch buffer
+function! Redir(cmd)
+  if a:cmd =~ '^!'
+    execute "let output = system('" . substitute(a:cmd, '^!', '', '') . "')"
+  else
+    redir => output
+    execute a:cmd
+    redir END
+  endif
+  tabnew
+  setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
+  call setline(1, split(output, "\n"))
+  put! = a:cmd
+  put = '----'
+endfunction
+command! -nargs=1 Redir silent call Redir(<f-args>)
