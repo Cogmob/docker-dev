@@ -47,7 +47,7 @@ export CYGWIN="winsymlinks"
 
 PROMPT="
 
-        - "
+        "
 preexec() { print "" }
 
 

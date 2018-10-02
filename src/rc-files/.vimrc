@@ -683,6 +683,8 @@ set stl=%!STL()
         \ { 'type': 'dir',
             \ 'footer': ['', '', '', '', '', '', ''] }
 \ ]
+let g:startify_files_number = 0
+let g:startify_enable_special = 0
 let g:startify_custom_header = ['', '', '', '', '']
 let g:startify_change_to_dir = 0
 autocmd User Startified let &l:stl = ''
