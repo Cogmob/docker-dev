@@ -80,6 +80,7 @@ let g:ctrlp_working_path_mode = 0
 set shortmess=a
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript']
 set cmdheight=3
+set ff=unix
 
 " Color scheme
 " let g:solarized_termcolors=256
@@ -608,36 +609,36 @@ au CursorHold * checktime
 set switchbuf=useopen,usetab
 
 let root = expand('%:p:h')
-nnoremap <leader>y :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command list" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
-nnoremap <leader>u :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 1" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
-nnoremap <leader>i :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 2" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
-nnoremap <leader>o :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 3" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
-nnoremap <leader>p :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 4" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
-nnoremap <leader>j :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 5" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
-nnoremap <leader>k :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 6" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
-nnoremap <leader>l :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 7" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
-nnoremap <leader>m :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 8" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
-nnoremap <leader>, :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
-    \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
-    \ . ' --command 10" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>y :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command list" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>u :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command 1" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>i :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command 2" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>o :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command 3" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>p :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command 4" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>j :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command 5" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>k :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command 6" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>l :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command 7" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>m :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command 8" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
+" nnoremap <leader>, :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
+"     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
+"     \ . ' --command 10" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         
 " nnoremap <leader>. :silent execute ':! tmux send-keys -t 2 "cd ' . root . '
 "     \ ; clear ; bash dev.sh --file-path ' . split(expand('%:p'), root . '/')[0]
 "     \ . ' --command 11" C-m'<CR> :redraw!<CR> :echo<cr>                                                                                         

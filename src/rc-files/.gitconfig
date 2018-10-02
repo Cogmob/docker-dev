@@ -6,6 +6,7 @@
 [core]
 	trustctime = false
 	filemode = false
+	autocrlf = input
 [diff]
     tool = meld
 	guitool = kdiff3
