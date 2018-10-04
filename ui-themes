@@ -15,3 +15,4 @@ copy graphql result?
 build flight summary view search page
 search feature on click put abr in search view in url history
 add breadcrumb segment list > segment
+mention to dan that the 5000 threshold on the graph might be to support old design
