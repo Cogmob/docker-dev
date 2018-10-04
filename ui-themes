@@ -1,0 +1,17 @@
+high fidelity single flight view
+error handling
+flo-datamodel instead of hard coded values
+seed data (although we should find someone else to do this)
+testing
+changes to the ui based on design comments
+script to up ground site
+
+investigate why escape isn't working
+
+
+
+meeting with design:
+copy graphql result?
+build flight summary view search page
+search feature on click put abr in search view in url history
+add breadcrumb segment list > segment
