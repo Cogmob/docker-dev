@@ -44,7 +44,7 @@ NeoBundle 'idbrii/vim-gogo'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'johngrib/vim-game-snake'
-:eoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-endwise'
 call neobundle#end()
 
 
