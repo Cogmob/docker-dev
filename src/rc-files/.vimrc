@@ -42,7 +42,7 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'idbrii/vim-remarkjs'
 NeoBundle 'idbrii/vim-gogo'
 NeoBundle 'mhinz/vim-startify'
-NeoBundle 'Townk/vim-autoclose'
+" NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'johngrib/vim-game-snake'
 NeoBundle 'tpope/vim-endwise'
 call neobundle#end()
