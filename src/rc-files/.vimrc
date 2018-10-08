@@ -43,9 +43,8 @@ NeoBundle 'idbrii/vim-remarkjs'
 NeoBundle 'idbrii/vim-gogo'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'skywind3000/asyncrun.vim'
 NeoBundle 'johngrib/vim-game-snake'
-
+:eoBundle 'tpope/vim-endwise'
 call neobundle#end()
 
 
@@ -114,7 +113,7 @@ map <leader>5 @
 nmap <leader>a :silent call VimuxRunCommand('clear')<CR>
 nnoremap J gJ
 " nmap <leader>w "w
-nmap <leader>w :AsyncRun tw<cr> :echo<cr>
+" nmap <leader>w :AsyncRun tw<cr> :echo<cr>
 " nmap <leader>5 :diffget //2<CR>
 " nmap <leader>8 :diffget //3<CR>
 
@@ -705,3 +704,5 @@ function! Redir(cmd)
   put = '----'
 endfunction
 command! -nargs=1 Redir silent call Redir(<f-args>)
+
+let g:AutoClosePumvisible = {"ENTER": "", "ESC": ""}
