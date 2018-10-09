@@ -23,7 +23,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 autoload -U compinit && compinit
 zmodload -i zsh/complist
 
-. ~/.bin/tmuxinator.zsh
+[[ -a ~/.bin/tmuxinator ]] && . ~/.bin/tmuxinator.zsh
 
 function lg() {
     git commit -m "$*"
