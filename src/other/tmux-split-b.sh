@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ -z $1 ]; then
-    tmux rename-window 'home'
+if [ -n "$2" ]; then
+    tmux rename-window $2
 fi
 
 # right page

@@ -42,9 +42,10 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'idbrii/vim-remarkjs'
 NeoBundle 'idbrii/vim-gogo'
 NeoBundle 'mhinz/vim-startify'
-" NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'johngrib/vim-game-snake'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-rshrestha/async'
+NeoBundle 'neilagabriel/vim-geeknote'
 call neobundle#end()
 
 
@@ -113,7 +114,7 @@ map <leader>5 @
 nmap <leader>a :silent call VimuxRunCommand('clear')<CR>
 nnoremap J gJ
 " nmap <leader>w "w
-" nmap <leader>w :AsyncRun tw<cr> :echo<cr>
+nmap <leader>w :AsyncRun tw<cr> :echo<cr>
 " nmap <leader>5 :diffget //2<CR>
 " nmap <leader>8 :diffget //3<CR>
 
