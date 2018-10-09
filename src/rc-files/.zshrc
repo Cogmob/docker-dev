@@ -23,6 +23,8 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 autoload -U compinit && compinit
 zmodload -i zsh/complist
 
+. ~/.bin/tmuxinator.zsh
+
 function lg() {
     git commit -m "$*"
     git push
@@ -44,6 +46,7 @@ export LIBRARY_PATH=/usr/local/lib
 export CPATH=/usr/local/include
 
 export CYGWIN="winsymlinks"
+export EDITOR="vim"
 
 PROMPT="
 
