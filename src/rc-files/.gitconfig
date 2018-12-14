@@ -7,6 +7,7 @@
 	trustctime = false
 	filemode = false
 	autocrlf = input
+	pager = cat
 [diff]
     tool = meld
 	guitool = kdiff3
