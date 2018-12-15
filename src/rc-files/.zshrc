@@ -1,5 +1,4 @@
 DISABLE_AUTO_UPDATE="true"
-export HOME=/home
 
 DISABLE_AUTO_TITLE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -71,3 +70,4 @@ fi
 # docker-machine start default
 # eval $(docker-machine env default)
 set shell=zsh\ -l
+source '/home/cogmob/.babun-docker/setup.sh'

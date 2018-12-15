@@ -1,6 +1,6 @@
 [user]
 	name = Luke Avery
-	email = luke.avery@cambridgeconsultants.com
+	email = "luke.avery@live.co.uk\ngit config --global user.name cogmob\ngit config --global core.autocrlf input\n\n# rc files\nexport CYGWIN=winsymlinks"
 [push]
 	default = matching
 [core]
@@ -8,6 +8,7 @@
 	filemode = false
 	autocrlf = input
 	pager = cat
+	editor = vim
 [diff]
     tool = meld
 	guitool = kdiff3
