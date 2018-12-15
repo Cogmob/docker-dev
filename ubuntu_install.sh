@@ -1,19 +1,16 @@
 #!/bin/bash -e
-git config --global user.email "luke.avery@live.co.uk
+git config --global user.email "luke.avery@live.co.uk"
 git config --global user.name "cogmob"
 git config --global core.autocrlf input
+git config --global core.pager cat
 
 # rc files
-export CYGWIN="winsymlinks
+export CYGWIN="winsymlinks"
 
 rm -f ~/.minttyrc
 rm -f ~/.zshrc
 
 find ~/unix_setup/src/rc-files -type f -name \* -exec ln -f -s "{}" ~ \;
-
-alias explore="/home/unix_setup/src/other/explore.bash"
-git config --global core.pager cat
-export PATH="$PATH:/cygdrive/c/Users/lavery/AppData/Roaming/npm:/cygdrive/c/Program Files/nodejs/"
 
 echo ClientAliveInterval 600 >> /etc/ssh/sshd_config
 echo ClientAliveCountMax 3 >> /etc/ssh/sshd_config
@@ -27,7 +24,8 @@ ln -sf ~/unix_setup/src/other/solarized.vim ~/.vim/colors/solarized.vim
 rm -rf vim-colors-solarized
 git clone git://github.com/altercation/vim-colors-solarized.git
 cd ~
-git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
+sh ./install.sh
 mkdir -p ~/.vim/bundle/vim/bundle/vim-snippets
 vim +NeoBundleInstall +qall
 
