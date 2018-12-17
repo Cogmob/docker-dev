@@ -25,12 +25,13 @@ cd ~/.vim/bundle
 mkdir -p ~/.vim/colors
 ln -sf ~/unix_setup/src/other/solarized.vim ~/.vim/colors/solarized.vim
 rm -rf vim-colors-solarized
-rm -rf neobundle.vim
 git clone git://github.com/altercation/vim-colors-solarized.git
 cd ~
-git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein
+rm installed.sh
 mkdir -p ~/.vim/bundle/vim/bundle/vim-snippets
-vim +NeoBundleInstall +qall
+vim dein#install() +qall
 
 sudo echo "db_home: $(pwd)" >> /etc/nsswitch.conf
 sudo echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf
