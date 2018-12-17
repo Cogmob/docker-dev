@@ -1,19 +1,16 @@
 #!/bin/bash -e
-git config --global user.email "luke.avery@live.co.uk
+git config --global user.email "luke.avery@live.co.uk"
 git config --global user.name "cogmob"
 git config --global core.autocrlf input
+git config --global core.pager cat
 
 # rc files
-export CYGWIN="winsymlinks
+export CYGWIN="winsymlinks"
 
 rm -f ~/.minttyrc
 rm -f ~/.zshrc
 
 find ~/unix_setup/src/rc-files -type f -name \* -exec ln -f -s "{}" ~ \;
-
-alias explore="/home/unix_setup/src/other/explore.bash"
-git config --global core.pager cat
-export PATH="$PATH:/cygdrive/c/Users/lavery/AppData/Roaming/npm:/cygdrive/c/Program Files/nodejs/"
 
 echo ClientAliveInterval 600 >> /etc/ssh/sshd_config
 echo ClientAliveCountMax 3 >> /etc/ssh/sshd_config
