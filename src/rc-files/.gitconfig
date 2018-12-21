@@ -1,8 +1,6 @@
 [user]
 	name = Luke Avery
-	email = "luke.avery@live.co.uk\ngit config --global user.name cogmob\ngit config --global core.autocrlf input\n\n# rc files\nexport CYGWIN=winsymlinks"
-[push]
-	default = matching
+	email = luke.avery@cambridgeconsultants.com
 [core]
 	trustctime = false
 	filemode = false
@@ -39,3 +37,5 @@
 	insteadOf = “https://gitlab.com/”
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
+[push]
+	default = simple
