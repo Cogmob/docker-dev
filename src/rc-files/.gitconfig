@@ -1,8 +1,6 @@
 [user]
 	name = Luke Avery
 	email = luke.avery@cambridgeconsultants.com
-[push]
-	default = matching
 [core]
 	trustctime = false
 	filemode = false
@@ -37,3 +35,5 @@
 	insteadOf = “https://gitlab.com/”
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
+[push]
+	default = simple

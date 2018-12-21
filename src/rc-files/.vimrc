@@ -5,6 +5,8 @@
 "             \'<CR> :redraw!<CR>
 "
 " const print = i => {console.log(i); return i}
+" const printInput = f => i => { console.log(i); return f(i)}
+" const printIO = (s, f) => i => { const o=f(i); console.log({s: s, i: i, o: o}); return o}
 
 
 " skip initialization for vim-tiny or vim-small.
@@ -44,7 +46,7 @@ NeoBundle 'idbrii/vim-gogo'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'johngrib/vim-game-snake'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-rshrestha/async'
+NeoBundle 'skywind3000/asyncrun.vim'
 NeoBundle 'neilagabriel/vim-geeknote'
 call neobundle#end()
 
@@ -112,7 +114,10 @@ nmap <leader>3 :silent test
 map <leader>4 "
 map <leader>5 @
 nmap <leader>a :silent call VimuxRunCommand('clear')<CR>
-nnoremap J gJ
+nnoremap <leader>9 :AsyncRun tmux send-keys -t 2 -R !! C-m<cr> :echo<cr>
+nnoremap J gJi <esc>dw
+nnoremap <leader>0 oconst pio = s => f => (...i) => { console.log(s + ' input'); console.log(...i); const o=f(...i); console.log(s + ' output'); console.log(o); return o}<esc>
+nnoremap <leader>8 oconst print = i => {console.log(i); return i}<esc>
 " nmap <leader>w "w
 nmap <leader>w :AsyncRun tw<cr> :echo<cr>
 " nmap <leader>5 :diffget //2<CR>
@@ -647,6 +652,9 @@ nnoremap <leader>. :! tmux send-keys -t 2 --command "!!"'<cr>
 nmap <leader>. :silent execute ':! tmux send-keys -t 2 "
             \ \!\!" Enter'<CR> :redraw!<CR>
 
+" nnoremap <C-c> "*y
+" nnoremap <C-v> "*p
+
 highlight Search cterm=NONE ctermfg=DarkBlue ctermbg=White
 highlight IncSearch cterm=NONE ctermfg=White ctermbg=DarkBlue
 let g:gitgutter_map_keys = 0
@@ -670,7 +678,7 @@ func! STL()
   let bar = repeat(' ',pad).'   %1*%'.barWidth.'.'.barWidth.'('
         \.repeat(' ',progress )
         \.'%2*.%1*'
-        \.repeat(' ',barWidth - progress - 1).'%0*%)%<.'
+        \.repeat(' ',barWidth - progress - 1).'%0*%)%<.                                                                                                                                '
 
   return stl.bar
 endfun
