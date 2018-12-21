@@ -5,6 +5,8 @@
 	trustctime = false
 	filemode = false
 	autocrlf = input
+	pager = cat
+	editor = vim
 [diff]
     tool = meld
 	guitool = kdiff3

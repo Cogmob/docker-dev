@@ -19,37 +19,36 @@ if has('vim_starting')
 
     " Required:
     set runtimepath+=~/.vim/bundle/neobundle.vim/
+    set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+if dein#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
 
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'benmills/vimux'
-NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
-NeoBundle 'isRuslan/vim-es6'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'EvanDotPro/nerdtree-chmod'
-NeoBundle 'gaving/vim-textobj-argument'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle '907th/vim-auto-save'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'codable/diffreview'
-NeoBundle 'ruanyl/vim-fixmyjs'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'idbrii/vim-remarkjs'
-NeoBundle 'idbrii/vim-gogo'
-NeoBundle 'mhinz/vim-startify'
-NeoBundle 'johngrib/vim-game-snake'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'skywind3000/asyncrun.vim'
-NeoBundle 'neilagabriel/vim-geeknote'
-call neobundle#end()
-
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('vim-airline/vim-airline-themes')
+    call dein#add('benmills/vimux')
+    call dein#add('jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}})
+    call dein#add('isRuslan/vim-es6')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('jistr/vim-nerdtree-tabs')
+    call dein#add('EvanDotPro/nerdtree-chmod')
+    call dein#add('gaving/vim-textobj-argument')
+    call dein#add('Xuyuanp/nerdtree-git-plugin')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('tpope/vim-abolish')
+    call dein#add('907th/vim-auto-save')
+    call dein#add('airblade/vim-gitgutter')
+    call dein#add('codable/diffreview')
+    call dein#add('ruanyl/vim-fixmyjs')
+    call dein#add('tpope/vim-commentary')
+    call dein#add('idbrii/vim-remarkjs')
+    call dein#add('idbrii/vim-gogo')
+    call dein#add('mhinz/vim-startify')
+    call dein#add('johngrib/vim-game-snake')
+    call dein#add('tpope/vim-endwise')
+    call dein#add('tpope/vim-rshrestha/async')
+endif
 
 " global variables
 set textwidth=0
