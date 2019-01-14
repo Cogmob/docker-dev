@@ -70,4 +70,4 @@ fi
 # docker-machine start default
 # eval $(docker-machine env default)
 set shell=zsh\ -l
-source '/home/cogmob/.babun-docker/setup.sh'
+# source '/home/cogmob/.babun-docker/setup.sh'

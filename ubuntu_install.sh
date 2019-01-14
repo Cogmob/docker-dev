@@ -12,6 +12,8 @@ rm -f ~/.zshrc
 
 find ~/unix_setup/src/rc-files -type f -name \* -exec ln -f -s "{}" ~ \;
 
+mkdir -p /etc/ssh
+touch /etc/ssh/sshd_config
 echo ClientAliveInterval 600 >> /etc/ssh/sshd_config
 echo ClientAliveCountMax 3 >> /etc/ssh/sshd_config
 
@@ -26,9 +28,9 @@ git clone git://github.com/altercation/vim-colors-solarized.git
 cd ~
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
-rm installed.sh
+rm installer.sh
 mkdir -p ~/.vim/bundle/vim/bundle/vim-snippets
-vim dein#install() +qall
+vim +"dein#install()" +qall
 
 sudo echo "db_home: $(pwd)" >> /etc/nsswitch.conf
 sudo echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf
