@@ -12,32 +12,17 @@ rm -f ~/.zshrc
 
 find ~/unix_setup/src/rc-files -type f -name \* -exec ln -f -s "{}" ~ \;
 
-mkdir -p /etc/ssh
-touch /etc/ssh/sshd_config
-echo ClientAliveInterval 600 >> /etc/ssh/sshd_config
-echo ClientAliveCountMax 3 >> /etc/ssh/sshd_config
-
 # vim
 mkdir -p ~/.vimundo
 mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 mkdir -p ~/.vim/colors
-ln -sf ~/unix_setup/src/other/solarized.vim ~/.vim/colors/solarized.vim
-rm -rf vim-colors-solarized
-git clone git://github.com/altercation/vim-colors-solarized.git
 cd ~
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
+sh installer.sh ~/.cache/dein
 rm installer.sh
 mkdir -p ~/.vim/bundle/vim/bundle/vim-snippets
-vim +"dein#install()" +qall
-
-sudo echo "db_home: $(pwd)" >> /etc/nsswitch.conf
-sudo echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf
-sudo apt-get update
-sudo apt-get -y install git zsh npm curl tmux
-sudo sed -i 's/bash/zsh/g' /etc/passwd
-git config --global core.editor "vim"
+vim +"call dein#install()" +qall
 
 # docker
 sudo apt-get install \

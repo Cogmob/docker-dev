@@ -74,4 +74,5 @@ after successful ssh
     git clone git@bitbucket.org:Cogbot/unix_setup.git
     cd unix_setup
     chmod +x ubuntu_install.sh
-    sudo ./ubuntu_install.sh
+    sudo ./ubuntu_install_super.sh
+    ./ubuntu_install.sh
