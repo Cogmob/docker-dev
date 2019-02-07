@@ -34,7 +34,7 @@ run the update.bat
 	chmod 601 ~/.ssh/*
 	cat ~/.ssh/id_rsa.pub
 
-* https://bitbucket.org/account/user/Cogbot/ssh-keys/
+https://bitbucket.org/account/user/Cogbot/ssh-keys/
 
     git clone git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./install.sh
 
