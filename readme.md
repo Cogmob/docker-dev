@@ -32,6 +32,7 @@ run the update.bat
 	mkdir -p .ssh
 	yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk"
 	chmod 601 ~/.ssh/*
+    chmod 700 ~/.ssh/id_rsa
 	cat ~/.ssh/id_rsa.pub
 
 https://bitbucket.org/account/user/Cogbot/ssh-keys/
