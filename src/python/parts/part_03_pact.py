@@ -4,13 +4,12 @@ def get_part(config):
 	    'steps': [
 		{
 		    'blacklist': 'windows 10 cygwin',
-		    'name': 'install tmux',
+		    'name': 'install various',
 		    'instructions': [
-			{'arguments': ['pact install tmux']}]},
-		{
-		    'name': 'install cscope',
-		    'instructions': [
-			{'arguments': ['pact install cscope']}]},
+			{'arguments': [
+				'pact install tmux',
+				'pact install cscope',
+				'pact install krb5-workstation']}]},
 		{
 		    'name': 'python',
 		    'instructions': [
