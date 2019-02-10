@@ -10,17 +10,6 @@ https://github.com/dotnet/cli
 
 https://autohotkey.com/download/ahk.zip
 
-## create a new babun install
-
-change the target address as appropriate:
-
-    mkdir downloads ; cd downloads ; wget http://projects.reficio.org/babun/download ; unzip download
-    cd ~/downloads/babun-1.2.0 ; yes | ./install.bat /target "C:\Users\[username]\babun"
-
-## update it
-
-run the update.bat
-
 ## initialise it
 
     mkdir -p /home
@@ -28,8 +17,10 @@ run the update.bat
 	echo "db_home: /home" >> /etc/nsswitch.conf
 	echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf
 	mkpasswd -l -p "$(cygpath -H)" > /etc/passwd
-	cd ~
-	mkdir -p .ssh
+
+restart
+
+    mkdir -p .ssh
 	yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk"
 	chmod 601 ~/.ssh/*
     chmod 700 ~/.ssh/id_rsa
