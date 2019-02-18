@@ -25,6 +25,7 @@ endif
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
 
+    call dein#add('altercation/vim-colors-solarized')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('benmills/vimux')
@@ -168,7 +169,6 @@ nmap <leader>q :so $MYVIMRC<CR> :echo<cr>
 nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
 nnoremap <silent> gh "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-nnoremap <C-c> <C-a>
 
 map <leader>m `a1jmaa
 
@@ -689,7 +689,7 @@ set stl=%!STL()
  let g:startify_lists = [
         \ { 'type': 'dir',
             \ 'footer': ['', '', '', '', '', '', ''] }
-\ ]
+\ ]                   
 let g:startify_files_number = 0
 let g:startify_enable_special = 0
 let g:startify_custom_header = ['', '', '', '', '']
