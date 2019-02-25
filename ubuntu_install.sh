@@ -1,4 +1,7 @@
 #!/bin/bash -e
+cd ~
+pwd
+
 git config --global user.email "luke.avery@live.co.uk"
 git config --global user.name "cogmob"
 git config --global core.autocrlf input
@@ -25,17 +28,17 @@ mkdir -p ~/.vim/bundle/vim/bundle/vim-snippets
 vim +"call dein#install()" +qall
 
 # docker
-sudo apt-get install \
+apt-get --assume-yes install \
     apt-transport-https \
     ca-certificates \
     curl \
     software-properties-common \
     iproute2
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 
-sudo add-apt-repository \
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - 
+add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
-sudo apt-get update
-sudo apt-get install docker
-sudo npm i -g npx
+apt-get update
+apt-get --assume-yes install docker
+npm i -g npx

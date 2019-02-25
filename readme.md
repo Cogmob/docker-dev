@@ -1,3 +1,10 @@
+# docker
+
+    sudo docker prune
+    sudo docker build -t unix_setup .
+    sudo docker run -d -it -p 80:8080 --name=unix_setup unix_setup zsh
+    sudo docker attach unix_setup
+
 # babun
 
 ## install these first ##
