@@ -1,9 +1,10 @@
-#!/bin/bash
-ssh cogmob@$(./get_ip_address.sh $1) -L 3306:localhost:3306
+#!/bin/sh
+dot=$(dirname $(readlink -f $0))
+ssh cogmob@$($dot/get_ip_address.sh $1) -L 3306:localhost:3306
 
 if [ $? -ne 0 ]; then
     echo ' '
-    echo "attempted to ssh to $(./get_ip_address.sh $1)"
+    echo "attempted to ssh to $($dot/get_ip_address.sh $1)"
     echo ' '
     echo check that ssh keys have been installed
     echo ' '
