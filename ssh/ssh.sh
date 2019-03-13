@@ -1,12 +1,15 @@
 #!/bin/sh
 dot=$(dirname $(readlink -f $0))
-ssh cogmob@$($dot/get_ip_address.sh $1) -L 3306:localhost:3306
+echo $dot
+ls $dot
+ssh $($dot/lookup.sh $1 remote_username)@$($dot/lookup.sh $1 remote_ip)
 
 if [ $? -ne 0 ]; then
     echo ' '
-    echo "attempted to ssh to $($dot/get_ip_address.sh $1)"
+    echo attempted to ssh to
+    echo "$($dot/lookup.sh $1 remote_username)@$($dot/lookup.sh $1 remote_ip)"
     echo ' '
-    echo check that ssh keys have been installed
+    echo if this failed, check that ssh keys have been installed
     echo ' '
     echo locally:
     echo 'cat ~/.ssh/id_rsa.pub | pbcopy'

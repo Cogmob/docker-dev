@@ -1,0 +1,4 @@
+local_path: ~/grafana
+remote_path: /home/cogmob/grafana
+remote_username: luke.avery
+remote_ip: 35.246.62.227

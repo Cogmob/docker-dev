@@ -1,0 +1,4 @@
+local_path: ~/dashboard-ferry
+remote_path: /home/volume
+remote_username: luke.avery
+remote_ip: 34.73.93.30
