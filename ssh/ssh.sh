@@ -1,7 +1,5 @@
 #!/bin/sh
 dot=$(dirname $(readlink -f $0))
-echo $dot
-ls $dot
 ssh $($dot/lookup.sh $1 remote_username)@$($dot/lookup.sh $1 remote_ip)
 
 if [ $? -ne 0 ]; then

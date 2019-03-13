@@ -1,4 +1,4 @@
-local_path: ~/grafana
-remote_path: /home/cogmob/grafana
-remote_username: luke.avery
+local_path: /home/h_bougainvillea-dashboard
+remote_path: /home/cogmob/dashboard
+remote_username: cogmob
 remote_ip: 35.246.62.227
