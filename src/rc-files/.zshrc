@@ -51,7 +51,7 @@ export EDITOR="vim"
 PROMPT="
 
         "
-preexec() { print "" }
+preexec() { clear }
 
 
 zle_highlight=( default:fg=colour3 )

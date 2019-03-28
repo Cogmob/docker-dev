@@ -75,3 +75,7 @@ after successful ssh
     chmod +x ubuntu_install.sh
     sudo ./ubuntu_install_super.sh
     ./ubuntu_install.sh
+
+# font for powershell
+
+.\InstallConsoleFont.ps1 -FontName "LM Mono Slanted 10" -FontFile "C:\Users\lga\.babun\cygwin\home\unix_setup\storage\Latin-Modern-Mono\lmmonoslant10-regular.otf"
