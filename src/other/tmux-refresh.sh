@@ -9,4 +9,3 @@ tmux resize-pane -t 5 -y $small
 tmux resize-pane -t 9 -y $small
 tmux resize-pane -t 0 -y $small
 tmux resize-pane -t 6 -y $small
-echo done
