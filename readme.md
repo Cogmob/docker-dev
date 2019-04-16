@@ -53,6 +53,7 @@ https://bitbucket.org/account/user/Cogbot/ssh-keys/
 ``` sh
 curl -s https://raw.githubusercontent.com/tiangolo/babun-docker/master/setup.sh | source /dev/stdin
 babun-docker-update
+compaudit | xargs chmod g-w
 ```
 
 # ubuntu
