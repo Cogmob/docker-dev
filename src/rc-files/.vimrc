@@ -46,7 +46,6 @@ if dein#load_state('~/.cache/dein')
     call dein#add('idbrii/vim-remarkjs')
     call dein#add('idbrii/vim-gogo')
     call dein#add('mhinz/vim-startify')
-    call dein#add('johngrib/vim-game-snake')
     call dein#add('tpope/vim-endwise')
     " call dein#add('tpope/vim-rshrestha/async')
 endif

@@ -25,7 +25,7 @@ https://autohotkey.com/download/ahk.zip
 	echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf
 	mkpasswd -l -p "$(cygpath -H)" > /etc/passwd
 
-restart
+update.bat
 
     mkdir -p .ssh
 	yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk"
@@ -54,6 +54,7 @@ https://bitbucket.org/account/user/Cogbot/ssh-keys/
 curl -s https://raw.githubusercontent.com/tiangolo/babun-docker/master/setup.sh | source /dev/stdin
 babun-docker-update
 compaudit | xargs chmod g-w
+pact install the_silver_searcher
 ```
 
 # ubuntu
