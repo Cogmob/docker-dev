@@ -81,8 +81,9 @@ set wildmode=list:longest
 let g:ctrlp_working_path_mode = 0
 set shortmess=a
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript']
-set cmdheight=3
+set cmdheight=1
 set ff=unix
+set paste
 
 " Color scheme
 " let g:solarized_termcolors=256
