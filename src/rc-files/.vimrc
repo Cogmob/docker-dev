@@ -83,6 +83,7 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript']
 set cmdheight=1
 set ff=unix
 set paste
+set nomore
 
 " Color scheme
 " let g:solarized_termcolors=256

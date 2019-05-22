@@ -6,7 +6,7 @@ alias fsi='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/
 alias fsc='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/v4.0/Fsc.exe'
 alias explore="$HOME/unix_setup/src/other/explore.bash"
 alias ts="$HOME/unix_setup/src/other/tmux-split.sh"
-alias tr="$HOME/unix_setup/src/other/tmux-refresh.sh"
+alias tf="$HOME/unix_setup/src/other/tmux-refresh.sh"
 alias tssh="$HOME/unix_setup/src/other/tmux-split-ssh.sh"
 alias tx="$HOME/unix_setup/src/other/tmux-close.sh"
 alias compile-sass="$HOME/unix_setup/src/other/compile-sass.sh"
@@ -40,9 +40,12 @@ alias elm-reactor='"/cygdrive/c/Program Files (x86)/Elm Platform/0.18/bin/elm-re
 function tm() {
     tmux new-session ~/unix_setup/src/other/tmux-split-b.sh . $1
 }
-alias ti='tmux select-window -t'
 alias tw='tmux select-pane -t 2'
 alias te='tmux select-pane -t 3'
 alias to='tmux select-pane -t 7'
+function ti() {
+    tmux select-window -t $1
+    tf
+}
 alias rcgen='find ~/unix_setup/src/rc-files -type f -name \* -exec ln -f -s "{}" ~ \;'
 alias chrome='/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome --disable-web-security'
