@@ -20,4 +20,4 @@ tmux split-window -bh -l 9 -t 1 "read"
 tmux split-window -h -l 9 -t 6 "read"
 
 # left page
-tmux split-window -t 2 -l 0 "zsh -is eval \"cd ~/$1\"" ; tmux select-pane -t 2 ; zsh -is eval "cd ~/$1"
+tmux split-window -t 2 -l 0 "sleep 2 ; zsh -is eval \"cd ~/$1\"" ; tmux select-pane -t 2 ; zsh -is eval "cd ~/$1"

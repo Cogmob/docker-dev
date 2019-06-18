@@ -325,7 +325,7 @@ function! LargeFile()
  " save memory when other file is viewed
  setlocal bufhidden=unload
  " is read-only (write with :w new_filename)
- setlocal buftype=nowrite
+ " setlocal buftype=nowrite
  " no undo possible
  setlocal undolevels=-1
  " display message
@@ -677,9 +677,11 @@ func! STL()
   let pad = 0
   let bar = repeat(' ',pad).'   %1*%'.barWidth.'.'.barWidth.'('
         \.repeat(' ',progress )
-        \.'%2*.%1*'
+        \.' '
         \.repeat(' ',barWidth - progress - 1).'%0*%)%<.                                                                                                                                '
+        "\.'%2*.%1*'
 
+  " return '<.'
   return stl.bar
 endfun
 
@@ -691,6 +693,7 @@ set stl=%!STL()
         \ { 'type': 'dir',
             \ 'footer': ['', '', '', '', '', '', ''] }
 \ ]                   
+let g:startify_custom_footer = ''
 let g:startify_files_number = 0
 let g:startify_enable_special = 0
 let g:startify_custom_header = ['', '', '', '', '']
