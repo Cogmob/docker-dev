@@ -35,7 +35,7 @@ update.bat
 
 https://bitbucket.org/account/user/Cogbot/ssh-keys/
 
-    git clone git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./install.sh
+    git clone git@bitbucket.org:Cogbot/unix_setup.git ; cd unix_setup ; ./babun-install.sh
 
 ## other things to install on new computer ##
 
