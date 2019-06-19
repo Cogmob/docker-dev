@@ -191,8 +191,8 @@ endfunc
 autocmd BufWrite *.py call DeleteTrailingWS()
 autocmd BufWrite *.coffee call DeleteTrailingWS()
 
-source ~/unix_setup/src/vim/vimfolding.vim
-source ~/unix_setup/src/vim/cscope_maps.vim
+" source ~/unix_setup/src/vim/vimfolding.vim
+" source ~/unix_setup/src/vim/cscope_maps.vim
 
 " get rid of annoying temporary files
 set undodir=~/.vimundo
@@ -718,3 +718,11 @@ endfunction
 command! -nargs=1 Redir silent call Redir(<f-args>)
 
 let g:AutoClosePumvisible = {"ENTER": "", "ESC": ""}
+
+let s:clip = '/mnt/c/Windows/System32/clip.exe' 
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+    augroup END
+end

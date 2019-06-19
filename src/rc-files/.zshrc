@@ -72,4 +72,5 @@ fi
 set shell=zsh\ -l
 # source '/home/cogmob/.babun-docker/setup.sh'
 
+export DOCKER_HOST=tcp://localhost:2375
 clear
