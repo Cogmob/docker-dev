@@ -16,8 +16,6 @@ git config --global core.pager cat
 export PATH="$PATH:/cygdrive/c/Users/lavery/AppData/Roaming/npm:/cygdrive/c/Program Files/nodejs/"
 
 
-windows 10 cygwin
-install various
 pact install tmux
 pact install cscope
 pact install krb5-workstation
