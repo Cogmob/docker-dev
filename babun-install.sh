@@ -20,12 +20,6 @@ pact install tmux
 pact install cscope
 pact install krb5-workstation
 
-mkdir -p ~/downloads
-cd ~/downloads
-wget https://bootstrap.pypa.io/ez_setup.py -O - | python
-easy_install pip
-pip install virtualenv
-
 
 mkdir -p ~/.vimundo
 mkdir -p ~/.vim/bundle
