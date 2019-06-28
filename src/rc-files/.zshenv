@@ -7,9 +7,11 @@ alias fsc='/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ SDKs/F#/4.0/Framework/
 alias explore="$HOME/unix_setup/src/other/explore.bash"
 alias explore='explorer.exe \`wslpath -w "$PWD"\`'
 alias ts="$HOME/unix_setup/src/other/tmux-split.sh"
-alias tf="$HOME/unix_setup/src/other/tmux-refresh.sh"
 alias tssh="$HOME/unix_setup/src/other/tmux-split-ssh.sh"
-alias tx="$HOME/unix_setup/src/other/tmux-close.sh"
+function tx() {
+    $HOME/unix_setup/src/other/tmux-close.sh
+    tf
+}
 alias compile-sass="$HOME/unix_setup/src/other/compile-sass.sh"
 alias grep='grep --color=always --ignore-case'
 alias frep='grep -l --color=never --exclude=\*.{anim,atf,bmp,bnk,csh,dds,exe,fla,jpg,mani,noise,png,psd,sdb,stationData,str,swf,sysmeta,tga,ttf,wem,xls,xmdl}'
@@ -45,8 +47,10 @@ alias tw='tmux select-pane -t 2'
 alias te='tmux select-pane -t 3'
 alias to='tmux select-pane -t 7'
 function ti() {
-    tmux select-window -t $1
-    tf
+    if [ -n "$1" ] ; then
+        tmux select-window -t $1
+    fi
+    $HOME/unix_setup/src/other/tmux-refresh.sh
 }
 alias rcgen='find ~/unix_setup/src/rc-files -type f -name \* -exec ln -f -s "{}" ~ \;'
 alias chrome='/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome --disable-web-security'
