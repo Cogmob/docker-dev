@@ -33,7 +33,7 @@ update.bat
     chmod 700 ~/.ssh/id_rsa
 	cat ~/.ssh/id_rsa.pub
 
-https://bitbucket.org/account/user/Cogbot/ssh-keys/
+https://github.com/settings/keys
 
     git clone git@github.com:Cogmob/docker-dev.git ; cd unix_setup ; ./babun-install.sh
 
