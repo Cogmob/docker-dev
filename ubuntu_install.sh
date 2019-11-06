@@ -13,7 +13,7 @@ export CYGWIN="winsymlinks"
 rm -f ~/.minttyrc
 rm -f ~/.zshrc
 
-find ~/unix_setup/src/rc-files -type f -name \* -exec ln -f -s "{}" ~ \;
+find ~/docker-dev/src/rc-files -type f -name \* -exec ln -f -s "{}" ~ \;
 
 # vim
 mkdir -p ~/.vimundo

@@ -1,4 +1,4 @@
 #!/bin/bash
 path=$(pwd | cygpath -w "$(pwd)")
-cd $HOME/unix_setup/src/other
+cd $HOME/docker-dev/src/other
 node compile-sass $path

@@ -1,4 +1,4 @@
-cd /home/docker/unix_setup
+cd /home/docker/docker-dev
 ./ubuntu_install_super.sh
 apt-get update
 apt-get -y install sudo

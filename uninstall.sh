@@ -1,4 +1,4 @@
-rm ~/unix_setup/saved-data
+rm ~/docker-dev/saved-data
 
 unlink ~/.zshrc 2>&1
 unlink ~/.minttyrc 2>&1

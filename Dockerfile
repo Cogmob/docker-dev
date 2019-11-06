@@ -1,6 +1,6 @@
 from ubuntu:latest
-copy . /home/docker/unix_setup
-run /home/docker/unix_setup/docker_init.sh
+copy . /home/docker/docker-dev
+run /home/docker/docker-dev/docker_init.sh
 user docker
-run ~/unix_setup/ubuntu_install.sh
+run ~/docker-dev/ubuntu_install.sh
 expose 8080

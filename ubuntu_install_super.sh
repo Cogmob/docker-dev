@@ -12,6 +12,6 @@ echo "db_shell: /bin/zsh" >> /etc/nsswitch.conf
 sed -i 's/bash/zsh/g' /etc/passwd
 git config --global core.editor "vim"
 
-# ln -sf ~/unix_setup/src/other/solarized.vim ~/.vim/colors/solarized.vim
+# ln -sf ~/docker-dev/src/other/solarized.vim ~/.vim/colors/solarized.vim
 # rm -rf vim-colors-solarized
 # git clone git://github.com/altercation/vim-colors-solarized.git

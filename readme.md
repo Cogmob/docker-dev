@@ -1,9 +1,9 @@
 # docker
 
     sudo docker prune
-    sudo docker build -t unix_setup .
-    sudo docker run -d -it -p 80:8080 --name=unix_setup unix_setup zsh
-    sudo docker attach unix_setup
+    sudo docker build -t docker-dev .
+    sudo docker run -d -it -p 80:8080 --name=docker-dev docker-dev zsh
+    sudo docker attach docker-dev
 
 # babun
 
@@ -35,7 +35,7 @@ update.bat
 
 https://github.com/settings/keys
 
-    git clone git@github.com:Cogmob/docker-dev.git ; cd unix_setup ; ./babun-install.sh
+    git clone git@github.com:Cogmob/docker-dev.git ; cd docker-dev ; ./babun-install.sh
 
 ## other things to install on new computer ##
 
@@ -73,11 +73,11 @@ on other machine
 after successful ssh
 
     git clone git@github.com:Cogmob/docker-dev.git
-    cd unix_setup
+    cd docker-dev
     chmod +x ubuntu_install.sh
     sudo ./ubuntu_install_super.sh
     ./ubuntu_install.sh
 
 # font for powershell
 
-.\InstallConsoleFont.ps1 -FontName "LM Mono Slanted 10" -FontFile "C:\Users\lga\.babun\cygwin\home\unix_setup\storage\Latin-Modern-Mono\lmmonoslant10-regular.otf"
+.\InstallConsoleFont.ps1 -FontName "LM Mono Slanted 10" -FontFile "C:\Users\lga\.babun\cygwin\home\docker-dev\storage\Latin-Modern-Mono\lmmonoslant10-regular.otf"
