@@ -40,7 +40,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tpope/vim-abolish')
     call dein#add('907th/vim-auto-save')
     call dein#add('airblade/vim-gitgutter')
-    call dein#add('codable/diffreview')
+	" call dein#add('codable/diffreview')
     call dein#add('ruanyl/vim-fixmyjs')
     call dein#add('tpope/vim-commentary')
     call dein#add('idbrii/vim-remarkjs')
@@ -48,6 +48,9 @@ if dein#load_state('~/.cache/dein')
     call dein#add('mhinz/vim-startify')
     call dein#add('tpope/vim-endwise')
     " call dein#add('tpope/vim-rshrestha/async')
+
+    call dein#end()
+    call dein#save_state()
 endif
 
 " global variables
@@ -120,7 +123,7 @@ nnoremap J gJi <esc>dw
 nnoremap <leader>0 oconst pio = s => f => (...i) => { console.log(s + ' input'); console.log(...i); const o=f(...i); console.log(s + ' output'); console.log(o); return o}<esc>
 nnoremap <leader>8 oconst print = i => {console.log(i); return i}<esc>
 " nmap <leader>w "w
-nmap <leader>w :AsyncRun tw<cr> :echo<cr>
+nmap <leader>w :!tw<cr> :echo<cr>
 " nmap <leader>5 :diffget //2<CR>
 " nmap <leader>8 :diffget //3<CR>
 
