@@ -9,9 +9,9 @@ export CYGWIN="winsymlinks"
 rm -f ~/.minttyrc
 rm -f ~/.zshrc
 
-find ~/unix_setup/src/rc-files -type f -name \* -exec ln -f -s "{}" ~ \;
+find ~/docker-dev/src/rc-files -type f -name \* -exec ln -f -s "{}" ~ \;
 
-alias explore="/home/unix_setup/src/other/explore.bash"
+alias explore="/home/docker-dev/src/other/explore.bash"
 git config --global core.pager cat
 export PATH="$PATH:/cygdrive/c/Users/lavery/AppData/Roaming/npm:/cygdrive/c/Program Files/nodejs/"
 

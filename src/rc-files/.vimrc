@@ -191,9 +191,6 @@ endfunc
 autocmd BufWrite *.py call DeleteTrailingWS()
 autocmd BufWrite *.coffee call DeleteTrailingWS()
 
-" source ~/unix_setup/src/vim/vimfolding.vim
-" source ~/unix_setup/src/vim/cscope_maps.vim
-
 " get rid of annoying temporary files
 set undodir=~/.vimundo
 set directory=~/.vimundo
@@ -552,7 +549,7 @@ endfunction
 nnoremap <leader>b :call VimuxRunCommand(Strip(getline('.')))<CR> :echo<cr>                                                                                         
 
 function! Explore()
-    echo system('/home/unix_setup/src/other/explore.bash ' . expand("%:p:h"))
+    echo system('/home/docker-dev/src/other/explore.bash ' . expand("%:p:h"))
 endfunc
 nnoremap <leader>e :call Explore()<CR> :echo<cr>                                                                                         
 
