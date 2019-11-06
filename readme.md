@@ -76,7 +76,7 @@ after successful ssh
     cd docker-dev
     chmod +x ubuntu_install.sh
     sudo ./ubuntu_install_super.sh
-    ./ubuntu_install.sh
+    sudo ./ubuntu_install.sh
 
 # font for powershell
 
