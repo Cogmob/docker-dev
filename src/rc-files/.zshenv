@@ -20,7 +20,7 @@ function thelp() {
 	echo
 	echo ts create section
 	echo tssh create section as ssh session
-	echo ti go to section
+	echo tg go to section
 	echo tx close section
 }
 
@@ -47,7 +47,7 @@ function tm() {
 alias tw='tmux select-pane -t 2'
 alias te='tmux select-pane -t 3'
 alias to='tmux select-pane -t 7'
-function ti() {
+function tg() {
     if [ -n "$1" ] ; then
         tmux select-window -t $1
     fi
