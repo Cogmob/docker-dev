@@ -122,8 +122,8 @@ nnoremap <leader>9 :AsyncRun tmux send-keys -t 2 -R !! C-m<cr> :echo<cr>
 nnoremap J gJi <esc>dw
 nnoremap <leader>0 oconst pio = s => f => (...i) => { console.log(s + ' input'); console.log(...i); const o=f(...i); console.log(s + ' output'); console.log(o); return o}<esc>
 nnoremap <leader>8 oconst print = i => {console.log(i); return i}<esc>
-" nmap <leader>w "w
-nmap <leader>w :!tw<cr> :echo<cr>
+nmap <leader>ww :!tw<cr> :echo<cr>
+nmap <leader>we :!te<CR> :echo<cr>
 " nmap <leader>5 :diffget //2<CR>
 " nmap <leader>8 :diffget //3<CR>
 
@@ -167,7 +167,6 @@ nnoremap <SPACE> <Nop>
 " let g:tabman_toggle = '<leader>mt'
 " let g:tabman_focus  = '<leader>mf'
 nmap <leader>q :so $MYVIMRC<CR> :echo<cr>                                                                                         
-" map <leader>w :%s/\s\+$//e<CR> :wa<CR> REMOVED FOR WORK
 " map <leader>, :SidewaysLeft<CR>
 " map <leader>. :SidewaysRight<CR>
 nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
