@@ -1,3 +1,15 @@
+function tssh() {
+    if [ $1 = "xp" ] ; then
+        tmux new-window -nssh "ssh luke_avery@xp.ccbar.co.uk"
+    fi
+    if [ $1 = "xpbackup" ] ; then
+        tmux new-window -nssh "ssh luke_avery_cambridgeconsultants_@xpbackup.ccbar.co.uk"
+    fi
+    if [ $1 = "sheen" ] ; then
+        tmux new-window -nssh "ssh luke_avery_cambridgeconsultants_@sheen.ccbar.co.uk"
+    fi
+}
+
 function thelp() {
 	echo thelp print usage for tmux utilities
 	echo
@@ -36,7 +48,6 @@ alias ti='tmux resize-pane -U 5'
 alias tc='tmux split-window -b'
 alias tv='tmux split-window'
 alias ts="$HOME/docker-dev/src/other/tmux-split.sh"
-alias tssh="$HOME/docker-dev/src/other/tmux-split-ssh.sh"
 function tx() {
     $HOME/docker-dev/src/other/tmux-close.sh
     tf
