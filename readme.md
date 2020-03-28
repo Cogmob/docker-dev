@@ -41,7 +41,7 @@ https://github.com/settings/keys
     
 (windows)    
 
-    ./ubuntu_install.sh
+    sudo ./ubuntu_install.sh
 
 (ubuntu)
 
