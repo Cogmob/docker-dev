@@ -5,19 +5,19 @@
     sudo docker run -d -it -p 80:8080 --name=docker-dev docker-dev zsh
     sudo docker attach docker-dev
 
-# babun
+# windows / babun
 
 ## install these first ##
 
-http://projects.reficio.org/babun/download
+https://autohotkey.com/download/ahk.zip
 
 https://nodejs.org/en/download/
 
-https://github.com/dotnet/cli
+(https://github.com/dotnet/cli)
 
-https://autohotkey.com/download/ahk.zip
+(http://projects.reficio.org/babun/download)
 
-## initialise it
+## (babun only) initialise it
 
     mkdir -p /home
 	export HOME=/home
@@ -26,6 +26,8 @@ https://autohotkey.com/download/ahk.zip
 	mkpasswd -l -p "$(cygpath -H)" > /etc/passwd
 
 update.bat
+
+## both
 
     mkdir -p .ssh
 	yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk"
