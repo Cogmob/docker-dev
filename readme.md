@@ -41,11 +41,11 @@ https://github.com/settings/keys
     
 (windows)    
 
-    ./babun-install.sh
+    ./ubuntu_install.sh
 
 (ubuntu)
 
-	./ubuntu_install.sh
+    ./babun-install.sh
 
 ## other things to install on new computer ##
 
