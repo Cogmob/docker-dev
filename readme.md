@@ -59,7 +59,7 @@ compaudit | xargs chmod g-w
 pact install the_silver_searcher
 ```
 
-# ubuntu
+# ubuntu vm
 
     sudo apt-get install openssh-server -y
     mkdir .ssh
