@@ -37,7 +37,13 @@ update.bat
 
 https://github.com/settings/keys
 
-    git clone git@github.com:Cogmob/docker-dev.git ; cd docker-dev ; ./babun-install.sh
+    git clone git@github.com:Cogmob/docker-dev.git ; cd docker-dev
+    
+(windows)    
+    ./babun-install.sh
+
+(ubuntu)
+    ./ubuntu_install.sh
 
 ## other things to install on new computer ##
 
