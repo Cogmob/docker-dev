@@ -41,6 +41,7 @@ https://github.com/settings/keys
     
 (windows)    
 
+    sudo ./ubuntu_install_super.sh
     sudo ./ubuntu_install.sh
 
 (ubuntu)
