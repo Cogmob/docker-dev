@@ -27,6 +27,15 @@ https://nodejs.org/en/download/
 
 update.bat
 
+## wsl only
+
+powershell as admin
+choco install wsltty
+choco upgrade wsltty
+install ubuntu from windows store
+copy ahk and docker-dev to documents
+install font "LM Mono Slanted" from docker-dev
+
 ## both
 
     mkdir -p .ssh
