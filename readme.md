@@ -5,19 +5,19 @@
     sudo docker run -d -it -p 80:8080 --name=docker-dev docker-dev zsh
     sudo docker attach docker-dev
 
-# babun
+# windows / babun
 
 ## install these first ##
 
-http://projects.reficio.org/babun/download
+https://autohotkey.com/download/ahk.zip
 
 https://nodejs.org/en/download/
 
-https://github.com/dotnet/cli
+(https://github.com/dotnet/cli)
 
-https://autohotkey.com/download/ahk.zip
+(http://projects.reficio.org/babun/download)
 
-## initialise it
+## (babun only) initialise it
 
     mkdir -p /home
 	export HOME=/home
@@ -27,6 +27,17 @@ https://autohotkey.com/download/ahk.zip
 
 update.bat
 
+## wsl only
+
+powershell as admin
+choco install wsltty
+choco upgrade wsltty
+install ubuntu from windows store
+copy ahk and docker-dev to documents
+install font "LM Mono Slanted" from docker-dev
+
+## both
+
     mkdir -p .ssh
 	yes | ssh-keygen -q -N "" -f ~/.ssh/id_rsa -t rsa -b 4096 -C "luke.avery@live.co.uk"
 	chmod 601 ~/.ssh/*
@@ -35,7 +46,16 @@ update.bat
 
 https://github.com/settings/keys
 
-    git clone git@github.com:Cogmob/docker-dev.git ; cd docker-dev ; ./babun-install.sh
+    git clone git@github.com:Cogmob/docker-dev.git ; cd docker-dev
+    
+(windows)    
+
+    sudo ./ubuntu_install_super.sh
+    sudo ./ubuntu_install.sh
+
+(ubuntu)
+
+    ./babun-install.sh
 
 ## other things to install on new computer ##
 
@@ -57,7 +77,7 @@ compaudit | xargs chmod g-w
 pact install the_silver_searcher
 ```
 
-# ubuntu
+# ubuntu vm
 
     sudo apt-get install openssh-server -y
     mkdir .ssh
