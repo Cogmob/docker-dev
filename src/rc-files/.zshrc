@@ -39,7 +39,7 @@ function cclg() {
     git push $url $branch
 }
 
-export PATH=$(npm root -g):$PATH
+export PATH=$(npm root -g):~/.dotnet/tools/:$PATH
 
 export LD_LIBRARY_PATH=/usr/local/lib
 export LIBRARY_PATH=/usr/local/lib
@@ -74,3 +74,7 @@ set shell=zsh\ -l
 
 export DOCKER_HOST=tcp://localhost:2375
 # clear
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true

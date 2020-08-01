@@ -117,7 +117,7 @@ nmap <leader>g :echo ''<CR>
 nmap <leader>3 :silent test
 map <leader>4 "
 map <leader>5 @
-nmap <leader>a :silent call VimuxRunCommand('clear')<CR>
+" nmap <leader>a :silent call VimuxRunCommand('clear')<CR>
 nnoremap <leader>9 :AsyncRun tmux send-keys -t 2 -R !! C-m<cr> :echo<cr>
 nnoremap J gJi <esc>dw
 nnoremap <leader>0 oconst pio = s => f => (...i) => { console.log(s + ' input'); console.log(...i); const o=f(...i); console.log(s + ' output'); console.log(o); return o}<esc>
@@ -548,7 +548,7 @@ nnoremap <expr> N 'nN'[v:searchforward] . 'zv'
 function! Strip(input_string)
     return substitute(a:input_string, '^\s*\(.\{-}\)\s*$', '\1', '')
 endfunction
-nnoremap <leader>b :call VimuxRunCommand(Strip(getline('.')))<CR> :echo<cr>                                                                                         
+" nnoremap <leader>b :call VimuxRunCommand(Strip(getline('.')))<CR> :echo<cr>                                                                                         
 
 function! Explore()
     echo system('/home/docker-dev/src/other/explore.bash ' . expand("%:p:h"))
